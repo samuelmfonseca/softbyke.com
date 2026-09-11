@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Softbyke - E-bikes e Serviço</title>
+  <link rel="stylesheet" href="/public/CSS/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- FLOATING NAVIGATION BAR -->
+  <nav class="nav-container">
+    <button class="nav-icon" aria-label="Menu">
+      <svg width="20" height="12" viewBox="0 0 20 12" fill="none" stroke="currentColor" stroke-width="1.5">
+        <line y1="1" x2="20" y2="1"/>
+        <line y1="11" x2="20" y2="11"/>
+      </svg>
+    </button>
+
+    <div class="brand-title">KINETIC</div>
+
+    <button class="nav-icon" aria-label="Cart">
+      <svg width="18" height="20" viewBox="0 0 18 20" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M1 5H17V19H1V5Z"/>
+        <path d="M5 5V3C5 1.89543 5.89543 1 7 1H11C12.1046 1 13 1.89543 13 3V5"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- HERO SECTION (ORIGINAL CONCEPT MATCHING THE COMPOSITION) -->
+  <section class="hero">
+    <!-- Geometric frame graphic in place of photo -->
+    <div class="hero-graphic"></div>
+
+    <!-- Right-aligned Copy Block -->
+    <div class="hero-copy-block">
+      <p>The wait's over. Introducing our ultimate monocoque architecture.</p>
+      <a href="#explore" class="btn-primary">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 11L11 3M11 3H4M11 3V10"/>
+        </svg>
+        Explore
+      </a>
+    </div>
+
+    <!-- Massive Display Text OVERLAY -->
+    <h1 class="hero-display-text">X1</h1>
+
+    <!-- Footer Specs / Status -->
+    <div class="hero-footer">
+      <div class="award-badge">
+        DESIGN AWARD 2026
+      </div>
+      <div class="status-text">
+        Available now <span class="status-dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES & INPUT SHOWCASE SECTION -->
+  <section class="section-container" id="explore">
+    <h2 class="section-title">Engineered without compromise.</h2>
+
+    <div class="card-grid">
+      <!-- Card Component (12px Radius, 24px Padding, Flat Surface) -->
+      <article class="card">
+        <div>
+          <h3 class="card-title">Monocoque Frame</h3>
+          <p class="card-text">Custom aerospace carbon weave built to withstand high-velocity stress with zero flex.</p>
+        </div>
+        <a href="#" class="btn-primary" style="width: fit-content;">Learn more</a>
+      </article>
+
+      <article class="card">
+        <div>
+          <h3 class="card-title">Integrated Lighting</h3>
+          <p class="card-text">High-output LED modules fully embedded into the structural head and tail tubes.</p>
+        </div>
+        <a href="#" class="btn-primary" style="width: fit-content;">View specs</a>
+      </article>
+
+      <article class="card">
+        <div>
+          <h3 class="card-title">Priority Access</h3>
+          <p class="card-text">Reserve your build slot for the upcoming batch shipping Q4 2026.</p>
+          <form class="form-group" onsubmit="event.preventDefault();">
+            <input type="email" class="input-field" placeholder="Enter your email" required>
+            <button type="submit" class="btn-primary">Reserve</button>
+          </form>
+        </div>
+      </article>
+    </div>
+  </section>
+
+</body>
+</html>
