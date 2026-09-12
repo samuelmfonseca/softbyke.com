@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre Nós | Softbyke</title>
+  <style>
+    :root {
+      --primary-accent: #FD8A50;
+      --dark-contrast: #0F172A;
+      --electric-accent: #06B6D4;
+      --neutral-support: #64748B;
+      --light-canvas: #F8FAFC;
+      --white: #FFFFFF;
+      --border-color: #E2E8F0;
+      
+      --font-headline: 'D-DIN PRO', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-body: 'Helvetica', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--light-canvas);
+      color: var(--dark-contrast);
+      font-family: var(--font-body);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Header */
+    header {
+      background-color: var(--white);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      font-family: var(--font-headline);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--dark-contrast);
+      letter-spacing: -0.03em;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .nav-menu a {
+      transition: color 0.2s ease;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: var(--primary-accent);
+    }
+
+    /* Main Container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .hero-about {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 5rem auto;
+    }
+
+    .hero-about span {
+      color: var(--primary-accent);
+      font-family: var(--font-headline);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .hero-about h1 {
+      font-size: 3rem;
+      line-height: 1.15;
+      margin: 0.75rem 0 1.5rem 0;
+      color: var(--dark-contrast);
+    }
+
+    .hero-about p {
+      font-size: 1.2rem;
+      color: var(--neutral-support);
+      font-weight: 300;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 6rem;
+    }
+
+    .stat-item {
+      background-color: var(--white);
+      border-radius: 8px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      border: 1px solid var(--border-color);
+    }
+
+    .stat-number {
+      font-family: var(--font-headline);
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--primary-accent);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--dark-contrast);
+      font-weight: 700;
+    }
+
+    .stat-desc {
+      font-size: 0.8rem;
+      color: var(--neutral-support);
+      margin-top: 0.25rem;
+    }
+
+    .story-card {
+      background-color: var(--white);
+      padding: 3.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+      margin-bottom: 6rem;
+    }
+
+    .story-card h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.25rem;
+      color: var(--dark-contrast);
+    }
+
+    .story-card p {
+      color: var(--neutral-support);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .pillars-section {
+      margin-bottom: 6rem;
+    }
+
+    .pillars-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .pillars-header h2 {
+      font-size: 2rem;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .pillar-card {
+      background-color: var(--white);
+      border-radius: 8px;
+      padding: 2rem;
+      border: 1px solid var(--border-color);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary-accent);
+    }
+
+    .pillar-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+      color: var(--dark-contrast);
+    }
+
+    .pillar-card p {
+      font-size: 0.9rem;
+      color: var(--neutral-support);
+    }
+
+    .cta-banner {
+      background-color: var(--dark-contrast);
+      color: var(--white);
+      border-radius: 12px;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .cta-banner h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: var(--white);
+    }
+
+    .cta-banner p {
+      color: var(--neutral-support);
+      max-width: 600px;
+      margin: 0 auto 2rem auto;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background-color: var(--primary-accent);
+      color: var(--white);
+      padding: 1rem 2.5rem;
+      font-family: var(--font-headline);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-radius: 6px;
+      transition: background-color 0.2s ease;
+    }
+
+    .cta-btn:hover {
+      background-color: #e5783f;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark-contrast);
+      color: var(--light-canvas);
+      padding: 4rem 2rem 2rem 2rem;
+      margin-top: 6rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-col h4 {
+      font-size: 0.9rem;
+      margin-bottom: 1.25rem;
+      color: var(--white);
+    }
+
+    .footer-col p, .footer-col ul {
+      font-size: 0.85rem;
+      color: var(--neutral-support);
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--neutral-support);
+    }
+
+    @media (max-width: 900px) {
+      .pillars-grid, .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-about h1 {
+        font-size: 2.2rem;
+      }
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <a href="sobre.html" class="brand-logo">SOFTBYKE</a>
+      <ul class="nav-menu">
+        <li><a href="sobre.html" class="active">A Softbyke</a></li>
+        <li><a href="agendamento.html">Agendamento</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-about">
+      <span>Mobilidade Urbana Sofisticada</span>
+      <h1>Engenharia, Elegância e Autonomia para a Sua Rotina</h1>
+      <p>Há 2 anos redefinindo a mobilidade com e-bikes de alta performance e manutenção especializada no mercado premium.</p>
+    </section>
+
+    <section class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">2 Anos</div>
+        <div class="stat-label">De Mercado</div>
+        <div class="stat-desc">Foco e especialização técnica contínua.</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">3 Filiais</div>
+        <div class="stat-label">Unidades Físicas</div>
+        <div class="stat-desc">Oficinas equipadas nas regiões centrais.</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Especializada</div>
+        <div class="stat-desc">Foco exclusivo em tecnologia e-bike.</div>
+      </div>
+    </section>
+
+    <section class="story-card">
+      <h2>Nossa Trajetória</h2>
+      <p>A Softbyke nasceu há 2 anos com o objetivo de facilitar a mobilidade urbana através de bicicletas elétricas com design clean e alta durabilidade. Percebemos que o ciclista urbano demandava não apenas produtos sofisticados, mas também uma assistência técnica ágil e confiável.</p>
+      <p>Com 3 filiais estrategicamente localizadas, construímos um ecossistema completo focado na venda de modelos urbanos e dobráveis, além de uma linha técnica de manutenção rápida, revisões periódicas padronizadas e conveniências exclusivas como o serviço Leva e Traz.</p>
+    </section>
+
+    <section class="pillars-section">
+      <div class="pillars-header">
+        <h2>Nossos Diferenciais</h2>
+      </div>
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <h3>Especialização Exclusiva</h3>
+          <p>Técnicos focados exclusivamente no universo e-bike, capacitados para lidar com baterias, motores e freios hidráulicos.</p>
+        </div>
+        <div class="pillar-card">
+          <h3>Comodidade Leva e Traz</h3>
+          <p>Serviço de busca e entrega da sua e-bike em casa ou no trabalho nas regiões atendidas por nossas filiais.</p>
+        </div>
+        <div class="pillar-card">
+          <h3>Manutenção Padronizada</h3>
+          <p>Protocolos de revisão A, B e C desenhados para garantir a longevidade dos componentes da sua bicicleta.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-banner">
+      <h2>Conheça Nossos Serviços de Oficina</h2>
+      <p>Agende uma revisão ou solicite a busca da sua e-bike em uma de nossas unidades.</p>
+      <a href="agendamento.html" class="cta-btn">Agendar Manutenção</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>SOFTBYKE</h4>
+        <p>Especialistas em vendas e manutenção de bicicletas elétricas. Mais autonomia e sofisticação para o seu dia a dia.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Nossas Filiais</h4>
+        <ul>
+          <li>Filial 1 - Jardins</li>
+          <li>Filial 2 - Moema</li>
+          <li>Filial 3 - Alphaville</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Serviços de Oficina</h4>
+        <ul>
+          <li>Revisões A, B e C</li>
+          <li>Serviços Express</li>
+          <li>Delivery Leva e Traz</li>
+          <li>Freios Hidráulicos & Suspensão</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <p>Atendimento: Samuel Fonseca</p>
+        <p>E-mail: samuel.fonseca@sempreceub.com</p>
+        <p>Tel/WhatsApp: (11) 93255-8932</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Softbyke. Todos os direitos reservados. Projeto Grupo 08.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
