@@ -7,93 +7,556 @@
   <link rel="stylesheet" href="/public/CSS/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- FLOATING NAVIGATION BAR -->
-  <nav class="nav-container">
-    <button class="nav-icon" aria-label="Menu">
-      <svg width="20" height="12" viewBox="0 0 20 12" fill="none" stroke="currentColor" stroke-width="1.5">
-        <line y1="1" x2="20" y2="1"/>
-        <line y1="11" x2="20" y2="11"/>
-      </svg>
-    </button>
+  <nav class="navbar-wrapper">
+  <div class="navbar-container" id="navbar">
+    
+    <!-- BARRA SUPERIOR (HEADER) -->
+    <div class="navbar__header">
+      <!-- Botão Hambúrguer -->
+      <button class="navbar__toggle" id="navToggle" aria-label="Abrir Menu" aria-expanded="false">
+        <span class="navbar__toggle-linha"></span>
+        <span class="navbar__toggle-linha"></span>
+      </button>
 
-    <div class="brand-title">KINETIC</div>
+      <!-- Logo VANMOOF em SVG (Substituível) -->
+      <a href="/" class="navbar__logo" aria-label="VanMoof Homepage">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 158 30" width="158" height="30">
+  <path d="M374.62 431.91C378.61 431.92 382.6 431.94 386.59 431.96C392.24 432.2 397.95 433.7 403.05 436.25C403.04 437.44 403.16 438.65 402.88 439.82C402.12 442.99 394.39 458.01 392.3 460.1C390.79 459.73 389.27 459.37 387.76 459.01C387.71 458.75 387.67 458.49 387.62 458.23C384.25 457.99 381.44 457.57 378.27 458.92C378.26 459.1 378.25 459.28 378.23 459.47C374.22 462.7 374.53 465.93 374.53 470.39C379.25 472.64 387.44 471.55 392.73 471.15C392.79 474.36 392.86 477.57 392.93 480.79C392.9 485.89 392.86 491 392.83 496.1C393.16 496.26 393.5 496.41 393.83 496.57C393.63 496.88 393.43 497.19 393.23 497.51C392.14 497.57 391.05 497.63 389.96 497.7C389.81 497.44 389.65 497.17 389.49 496.91C386.84 496.89 384.19 496.87 381.55 496.85C379.52 496.78 377.49 496.7 375.47 496.63C375.29 496.83 375.11 497.04 374.93 497.24C374.64 497.48 374.35 497.73 374.07 497.97C374.1 500.29 374.14 502.6 374.18 504.91C374.17 523.93 374.17 542.95 374.17 561.96C374.12 564.8 374.08 567.64 374.03 570.47C364.07 570.68 354.1 570.88 344.14 571.09C344.05 560.9 343.96 550.71 343.87 540.52C343.86 528.99 343.86 517.46 343.86 505.92C343.85 503.58 343.83 501.25 343.81 498.91C343.58 498.76 343.34 498.6 343.11 498.45C343.12 497.98 343.13 497.51 343.14 497.04C339.05 496.89 334.97 496.74 330.88 496.59C330.89 488.49 330.9 480.39 330.91 472.29C334.95 472.12 338.98 471.95 343.02 471.79C343.06 471.32 343.09 470.85 343.13 470.39C343.33 464.17 343.4 457.1 346.18 451.39C351.37 440.76 362.95 432.73 374.62 431.91ZM538.65 469.39C541.46 469.32 544.26 469.25 547.07 469.18C549.87 469.02 552.68 468.86 555.48 468.71C560.75 468.28 565.62 470.75 570.16 473.02C573.36 474.62 576.79 476.19 579.77 478.36C590.43 486.14 598.27 501.5 599.66 514.34C599.2 514.49 598.74 514.65 598.29 514.81C598.35 518.23 598.42 521.66 598.49 525.09C598.87 525.25 599.26 525.4 599.65 525.56C598.16 542.15 590.13 557.07 576.09 566.27C572.22 568.8 567.58 571.71 562.97 572.52C562.87 572.46 562.85 571.78 562.51 571.85C562.07 571.94 562.37 572.49 562.18 572.68C552.9 575.87 536.99 574.63 528.07 570.27C523.51 568.05 519.84 564.21 515.27 562.11C514.94 562.24 514.61 562.37 514.28 562.5C514.39 565.47 514.51 568.44 514.62 571.41C511.74 570.43 509.77 570.34 506.86 571.26C506.54 571.36 506.23 571.46 505.92 571.56C505.77 571.28 505.61 570.99 505.45 570.7C502.02 570.72 498.6 570.73 495.17 570.75C495.01 571.02 494.86 571.29 494.7 571.56C492.21 571.35 489.71 571.13 487.22 570.92C487.37 524.62 487.53 478.33 487.69 432.04C497.82 432.2 507.95 432.36 518.08 432.51C518.08 447.14 516.64 462.72 519.48 476.93C525.77 473.78 531.21 469.59 538.65 469.39ZM781.41 470.32C784.37 470.29 787.33 470.26 790.3 470.23C799.31 470.25 808.32 470.28 817.33 470.31C817.33 471.11 817.33 471.92 817.33 472.72C809.73 478.89 802.86 486.55 796.76 494.23C792.4 499.72 786.15 503.71 781.79 509.19C780.79 510.46 780.13 511.75 778.99 512.94C787.97 527.26 797.5 541.25 806.6 555.46C809.04 559.25 811.15 563.34 813.74 567.03C814.39 567.96 816.16 569.63 816.04 570.89C815.96 571.78 815.78 570.7 815.46 571.47C806.73 571.48 798 571.49 789.27 571.51C786.63 571.46 783.98 571.42 781.33 571.38C778.35 567.72 776.36 563.23 773.82 559.25C771.16 555.11 768.16 551.16 765.46 547.04C763.04 543.35 760.96 537.82 757.01 535.85C754.05 538.81 751.09 541.77 748.13 544.73C747.92 553.65 747.71 562.56 747.51 571.48C737.4 571.42 727.29 571.37 717.19 571.31C717.37 524.89 717.55 478.47 717.74 432.04C727.87 432.2 738 432.36 748.13 432.51C748.28 456.98 748.44 481.45 748.6 505.92C759.53 494.05 770.47 482.19 781.41 470.32ZM146.82 440.33C148.69 440.46 150.21 441.09 151.99 441.37C155.03 441.84 158.25 440.95 161.29 441.42C168.24 442.51 174.5 445.24 181.13 447.77C186.73 449.9 193.95 452.52 198.25 456.83C194.36 464.15 190.46 471.48 186.56 478.8C184.12 478.31 182.94 477.23 180.78 476.17C174.95 473.33 164.38 470.12 158.04 469.37C155.14 466.61 142.23 466.6 139.48 468.84C132.8 471.3 129.68 471.47 128.12 479.27C133.85 490.73 148.36 490.12 159 493.52C159.3 493.52 159.61 493.52 159.91 493.52C174.05 495.02 192.38 502.34 199.01 515.92C202.96 523.99 203.34 536.05 200.88 544.56C197.33 556.88 182.3 571.13 169.26 571.44C167.55 571.66 165.84 571.89 164.12 572.11C163.96 572.54 163.81 572.96 163.65 573.38C162.87 573.34 162.09 573.3 161.32 573.25C159.91 573.59 158.51 573.93 157.11 574.26C156.95 573.85 156.8 573.43 156.64 573.01C152.3 573.11 147.95 573.21 143.61 573.31C141.18 573.24 138.5 573.6 136.09 573.22C123.7 571.28 102.61 563.17 93.52 554.08C94.19 552.28 94.04 550.41 94.63 548.65C95.48 546.08 104.21 532.17 106.14 530.24C110.65 532 114.19 535.45 118.47 537.54C128.98 542.67 151.31 549.47 162.07 544.09C164.3 542.97 166.09 540.35 167.92 538.67C168.44 538.51 168.96 538.35 169.48 538.18C170.28 535.63 170.36 534.21 169.73 531.63C169.52 532.1 169.32 532.57 169.11 533.04C168.85 532.89 168.59 532.73 168.33 532.57C167.73 531.27 167.12 529.96 166.52 528.66C166.51 528.25 166.5 527.85 166.49 527.44C166.14 527.18 165.79 526.92 165.44 526.66C165.05 526.65 164.65 526.63 164.26 526.61C160.76 525.19 157.46 522.93 153.66 521.99C146.4 520.2 139.19 519.12 131.86 517.79C132.33 517.96 132.79 518.13 133.26 518.3C132.77 517.36 133.44 517.41 132.83 516.69C131.92 515.61 124.75 513.59 122.97 512.82C122.77 513.01 122.56 513.21 122.35 513.4C117.57 512.99 107.62 507.07 104.62 503.14C104.59 502.86 104.56 502.58 104.53 502.3C104.25 501.99 103.98 501.67 103.71 501.36C103.41 501.03 103.12 500.7 102.83 500.36C102.4 500.09 101.97 499.82 101.55 499.55C99.06 496.84 96.02 492.32 95.42 488.59C95.02 486.17 95.6 483.58 95.39 481.14C95.19 478.89 94.77 476.78 94.8 474.59C94.82 473.3 95.84 471.91 96.15 470.68C98.76 460.1 107.68 451.77 116.63 446.28C121.4 443.35 132.86 441.6 138.4 441.25C141.05 441.2 143.7 441.15 146.35 441.1C146.51 440.85 146.66 440.59 146.82 440.33ZM414.33 448.3C421.79 448.15 429.26 447.99 436.72 447.84C438.89 447.81 441.05 447.78 443.22 447.75C443.27 451.08 443.33 454.42 443.39 457.76C443.6 457.92 443.81 458.07 444.02 458.23C444.08 462.44 444.14 466.64 444.2 470.85C452.28 470.99 460.36 471.12 468.43 471.26C468.54 479.79 468.64 488.32 468.75 496.85C463 496.19 457.03 496.54 451.21 496.54C448.43 496.54 446.09 496.15 444.28 497.79C444.19 498.63 444.1 499.47 444 500.31C442.64 503.4 443.32 507.6 443.28 511.06C443.21 517.49 441.91 531.3 443.96 536.78C445.6 541.1 447.01 542.94 451.18 544.92C451.19 545.07 451.2 545.22 451.21 545.37C454.1 546.1 456.7 546.58 459.32 545.3C461.3 544.64 463.27 543.99 465.24 543.33C466.02 543.31 466.8 543.3 467.58 543.28C471.21 549.6 465.53 562.93 469.61 568.58C469.24 569.36 468.88 570.14 468.52 570.92C463.84 571.96 459.16 573.01 454.49 574.06C454.33 573.69 454.18 573.32 454.02 572.94C450.59 572.84 447.16 572.74 443.73 572.64C443.53 572.84 443.32 573.05 443.11 573.25C428.54 573.25 416.2 561.33 413.52 547.36C412.04 539.67 413.34 527.63 413.34 519.48C413.34 514.18 413.34 508.88 413.34 503.58C413.34 501.27 413.77 499.19 411.86 497.7C411.57 497.36 411.29 497.01 411 496.67C407.38 496.64 403.76 496.6 400.14 496.57C400.14 493.45 400.14 490.34 400.14 487.22C400.52 487.06 400.91 486.91 401.29 486.75C401.29 481.56 401.3 476.37 401.3 471.17C405 471.22 408.71 471.26 412.41 471.31C412.99 471.16 413.58 471 414.17 470.85C414.22 463.34 414.28 455.82 414.33 448.3ZM273.07 466.78C273.53 467.03 274 467.29 274.47 467.54C274.63 467.28 274.78 467.01 274.94 466.74C284.26 466.47 293.03 472.12 300.22 477.37C322.79 493.84 326.3 520.29 316.55 545.2C315.66 547.48 314.01 548.85 312.84 550.84C310.44 554.93 307.06 559.48 302.96 562.47C298.24 565.92 292.82 570.07 287.39 572.14C285.5 572.86 283.17 572.96 281.19 573.43C261.35 578.16 239.26 572.25 226.31 555.95C223.96 553 221.07 550.45 219.32 547.04C213.18 535.02 213.09 526.75 213.24 513.4C213.51 513.09 213.78 512.78 214.04 512.47C214.68 498.57 223.65 485.43 234.7 477.37C235.74 476.61 236.44 475.26 237.56 474.62C239.98 473.23 242.78 472.38 245.3 471.15C248.75 469.46 252.07 467.57 255.94 466.82C261.22 465.8 267.71 466.47 273.07 466.78ZM921.07 530.07C901.45 530.21 881.83 530.35 862.22 530.49C858.77 530.63 855.32 530.77 851.87 530.9C850.27 531.83 850.69 531.42 850.53 533.04C857.24 545.86 871.24 550.85 884.95 546.89C888.25 545.94 892.12 543.9 894.92 541.9C896.85 540.52 897.97 538.78 900.09 537.72C905.18 542.81 912.89 548.29 915.52 555.02C912.33 560.1 907.37 563.05 902.46 566.27C895.44 570.87 889.46 572.02 881.42 573.28C864.84 575.88 848.76 571.58 835.57 561.1C833.57 559.51 832.31 557.5 830.86 555.51C828.58 552.39 826.07 549.8 824.02 546.45C816.3 533.86 817.1 512.41 822.18 499.08C830.42 477.47 858.39 465.09 880.42 468.54C890.33 470.1 899.73 474.44 907.57 480.67C909.06 481.85 909.71 483.45 910.85 484.88C922.63 499.71 923.29 511.67 921.07 530.07ZM601.06 470.47C611.51 470.43 621.97 470.4 632.42 470.36C639.97 489.38 647.53 508.41 655.08 527.43C658.56 523.95 662.09 511.01 664.14 505.63C666.25 500.1 669.16 494.91 671.27 489.38C673.66 483.11 675.69 476.32 678.97 470.44C683.02 470.37 687.07 470.3 691.13 470.23C696.21 470.38 704.25 468.76 708.7 471.32C702.36 487.82 694.4 503.73 688.1 520.24C686.1 525.5 682.98 530.3 680.97 535.55C678.93 540.9 676.47 546.09 674.43 551.45C668.47 567.07 661.38 586.18 642.75 589.91C637.34 590.99 631.57 590.26 626.09 590.09C621.15 589.93 613.38 587.48 608.79 585.49C608.69 585.24 608.59 584.99 608.49 584.74C608.08 584.72 607.68 584.7 607.27 584.68C606.96 581.52 609.07 578.92 610.19 576.06C612.14 571.09 614.28 565.28 617.67 561.1C627.15 562.99 632.89 569.53 639.65 558.76C637.42 547.59 629.34 536.26 625.15 525.56C622.28 518.22 618.68 511.41 615.8 504.05C614.03 499.53 611.03 495.48 609.26 490.96C606.58 484.12 603.81 477.3 601.06 470.47ZM849.97 512.12C850.27 512.33 850.21 512.91 850.54 513.05C851.98 513.67 854.59 513.19 856.14 513.17C861.09 513.11 869.07 514.4 873.31 512.29C875.85 512.29 878.38 512.28 880.92 512.27C881.08 512.59 881.23 512.91 881.39 513.23C883.88 513.22 886.38 513.21 888.87 513.19C889.1 512.89 889.34 512.58 889.57 512.27C890.74 511.87 891.91 511.47 893.08 511.06C891.42 486.25 851.1 486.64 849.97 512.12ZM527.65 500.33C525.24 501.06 524.46 501.83 523.76 504.27C513.88 515.88 517.08 535.01 529.33 543.77C531.64 545.42 534.51 546.03 537.07 547.06C537.13 546.97 537.19 546.88 537.25 546.79C540.9 548.29 544.46 548 548.47 548C548.52 547.74 548.56 547.48 548.61 547.22C556.44 545.01 564.11 539.84 566.53 531.46C570.85 516.48 563.38 495.91 545.67 495.05C539.35 494.74 533.2 496.94 527.65 500.33ZM242.91 515.24C241.42 518.39 241.5 522.89 242.95 525.86C244.99 530.74 246.8 535.48 250.76 539.18C251.06 539.64 251.37 540.1 251.68 540.57C251.98 540.56 252.28 540.55 252.57 540.55C259.31 545.18 264.52 547.02 272.77 545.37C273.88 545.15 275.09 545.38 276.16 545.02C277.02 544.74 277.58 543.91 278.39 543.5C289.22 538.08 296.26 524.42 291.59 512.18C285.06 495.04 265.64 491.7 251.59 501.74C246.99 505.02 245.74 510.83 242.91 515.24Z" transform="matrix(0.18958 0 0 0.18958 -16.85653 -82.02497)" fill="#FFFFFF" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="0.25" stroke-linejoin="round"/>
+</svg>
+      </a>
 
-    <button class="nav-icon" aria-label="Cart">
-      <svg width="18" height="20" viewBox="0 0 18 20" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path d="M1 5H17V19H1V5Z"/>
-        <path d="M5 5V3C5 1.89543 5.89543 1 7 1H11C12.1046 1 13 1.89543 13 3V5"/>
-      </svg>
-    </button>
-  </nav>
-
-  <!-- HERO SECTION (ORIGINAL CONCEPT MATCHING THE COMPOSITION) -->
-  <section class="hero">
-    <!-- Geometric frame graphic in place of photo -->
-    <div class="hero-graphic"></div>
-
-    <!-- Right-aligned Copy Block -->
-    <div class="hero-copy-block">
-      <p>The wait's over. Introducing our ultimate monocoque architecture.</p>
-      <a href="#explore" class="btn-primary">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M3 11L11 3M11 3H4M11 3V10"/>
+      <!-- Ícone Carrinho / Sacola -->
+      <a href="#" class="navbar__carrinho" aria-label="Carrinho">
+        <svg width="20" height="22" viewBox="0 0 20 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 6H16V18C16 19.1046 15.1046 20 14 20H6C4.89543 20 4 19.1046 4 18V6Z"/>
+          <path d="M7 6C7 4.34315 8.34315 3 10 3C11.6569 3 13 4.34315 13 6"/>
         </svg>
-        Explore
       </a>
     </div>
 
-    <!-- Massive Display Text OVERLAY -->
-    <h1 class="hero-display-text">X1</h1>
+    <!-- CONTEÚDO EXPANSÍVEL (MENU ABERTO) -->
+    <div class="navbar__body">
+      
+      <!-- Grid de Bikes (Produtos em destaque) -->
+      <div class="navbar__grid-bikes">
+        <a href="#" class="navbar__bike-card">
+          <div class="navbar__bike-img-wrapper">
+            <img src="./CSS/Images/st2.png" alt="Bicicleta St2" />
+          </div>
+          <span class="navbar__bike-nome">ST2</span>
+        </a>
 
-    <!-- Footer Specs / Status -->
-    <div class="hero-footer">
-      <div class="award-badge">
-        DESIGN AWARD 2026
+        <a href="#" class="navbar__bike-card">
+          <div class="navbar__bike-img-wrapper">
+            <img src="./CSS/Images/bike.png" alt="Bicicleta Softbyke ST3 open" />
+          </div>
+          <span class="navbar__bike-nome">ST3 open</span>
+        </a>
       </div>
-      <div class="status-text">
-        Available now <span class="status-dot"></span>
+
+      <!-- Links Principais -->
+      <ul class="navbar__links">
+        <li class="navbar__link-item"><a href="#">E-bikes</a></li>
+        <li class="navbar__link-item"><a href="#">Acessórios</a></li>
+        <li class="navbar__link-item"><a href="#">Oficinas</a></li>
+        <li class="navbar__link-item"><a href="#">Agendamento</a></li>
+        <li class="navbar__link-item"><a href="#">Sobre</a></li>
+      </ul>
+
+      <!-- Rodapé do Menu (Idioma + Conta) -->
+      <div class="navbar__rodape">
+        <button class="navbar__idioma">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          <span>PT | EN</span>
+        </button>
+
+        <a href="#" class="navbar__conta">
+          <span>Conta</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="6" cy="17" r="3"></circle>
+            <circle cx="18" cy="17" r="3"></circle>
+            <path d="M9 17h6"></path>
+            <path d="M12 17V11l3-3h3"></path>
+            <path d="M9 11l2-5h3"></path>
+          </svg>
+        </a>
       </div>
+
+    </div>
+
+  </div>
+</nav>
+
+  <!-- ========================================
+       SESSÃO HERO / DESTAQUE PRINCIPAL
+       ======================================== -->
+  <section class="secao-heroi">
+    <div class="grade-layout espacamento-x-1 espacamento-tablet-x-2 altura-heroi">
+      
+      <!-- Cartão Destaque Clicável -->
+      <a class="cartao-destaque" href="#link-de-destino" aria-label="Explorar modelo ST3" title="Explorar modelo ST3">
+        
+        <!-- Imagem e Degradês de Fundo -->
+        <div class="cartao-destaque__imagem-fundo" aria-hidden="true"></div>
+        <div class="cartao-destaque__degrade cartao-destaque__degrade--inferior" aria-hidden="true"></div>
+        <div class="cartao-destaque__degrade cartao-destaque__degrade--superior" aria-hidden="true"></div>
+        
+        <!-- Título em Destaque (Tipografia Grande) -->
+        <h2 class="cartao-destaque__titulo">ST3</h2>
+        
+        <!-- Conteúdo do Cartão (Descrição + Ações) -->
+        <div class="cartao-destaque__conteudo">
+          <p class="cartao-destaque__descricao">A espera acabou. Conheça nossa e-bike definitiva.</p>
+          
+          <div class="cartao-destaque__acoes">
+            <button type="button" class="botao-explorar">
+              <span class="botao-explorar__texto">Explorar</span>
+              <span class="botao-explorar__icone">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </button>
+            <span class="cartao-destaque__etiqueta">Disponível agora</span>
+          </div>
+        </div>
+
+        <!-- Indicador de Canto (Visível no Tablet/Desktop) -->
+        <div class="cartao-destaque__canto">
+          <span class="cartao-destaque__canto-texto">Disponível agora</span>
+          <svg class="cartao-destaque__canto-icone" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M5 15L15 5M15 5H7M15 5V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+      </a>
+
     </div>
   </section>
 
-  <!-- FEATURES & INPUT SHOWCASE SECTION -->
-  <section class="section-container" id="explore">
-    <h2 class="section-title">Engineered without compromise.</h2>
 
-    <div class="card-grid">
-      <!-- Card Component (12px Radius, 24px Padding, Flat Surface) -->
-      <article class="card">
-        <div>
-          <h3 class="card-title">Monocoque Frame</h3>
-          <p class="card-text">Custom aerospace carbon weave built to withstand high-velocity stress with zero flex.</p>
-        </div>
-        <a href="#" class="btn-primary" style="width: fit-content;">Learn more</a>
-      </article>
 
-      <article class="card">
-        <div>
-          <h3 class="card-title">Integrated Lighting</h3>
-          <p class="card-text">High-output LED modules fully embedded into the structural head and tail tubes.</p>
-        </div>
-        <a href="#" class="btn-primary" style="width: fit-content;">View specs</a>
-      </article>
+<section class="secao-grade secao-grade--s6">
+  <div class="grade-conteudo">
+    
+    <!-- Bloco de Texto (Esquerda no Desktop) -->
+    <div class="grade-conteudo__texto">
+      
+      <!-- Linha dos 4 Ícones superiores -->
+      <div class="grade-conteudo__icones">
+        <!-- Ícone 1: Trajeto -->
+        <svg class="icone-s6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 17l5-5 4 4 8-8"></path>
+          <path d="M14 8h6v6"></path>
+        </svg>
 
-      <article class="card">
-        <div>
-          <h3 class="card-title">Priority Access</h3>
-          <p class="card-text">Reserve your build slot for the upcoming batch shipping Q4 2026.</p>
-          <form class="form-group" onsubmit="event.preventDefault();">
-            <input type="email" class="input-field" placeholder="Enter your email" required>
-            <button type="submit" class="btn-primary">Reserve</button>
-          </form>
-        </div>
-      </article>
+        <!-- Ícone 2: Ajustes/Controles -->
+        <svg class="icone-s6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" y1="21" x2="4" y2="14"></line>
+          <line x1="4" y1="10" x2="4" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12" y2="3"></line>
+          <line x1="20" y1="21" x2="20" y2="16"></line>
+          <line x1="20" y1="12" x2="20" y2="3"></line>
+          <line x1="1" y1="14" x2="7" y2="14"></line>
+          <line x1="9" y1="8" x2="15" y2="8"></line>
+          <line x1="17" y1="16" x2="23" y2="16"></line>
+        </svg>
+
+        <!-- Ícone 3: Conectividade -->
+        <svg class="icone-s6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"></circle>
+          <path d="M3.6 9h16.8"></path>
+          <path d="M3.6 15h16.8"></path>
+          <path d="M11.5 3a17 17 0 0 0 0 18"></path>
+          <path d="M12.5 3a17 17 0 0 1 0 18"></path>
+        </svg>
+
+        <!-- Ícone 4: Cadeado/Segurança -->
+        <svg class="icone-s6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="5" y="11" width="14" height="10" rx="2"></rect>
+          <path d="M8 11V7a4 4 0 0 1 8 0v4"></path>
+          <path d="M19 7a4 4 0 0 1 0 8"></path>
+        </svg>
+      </div>
+
+      <!-- Título Principal -->
+      <h2 class="titulo-secao--gg titulo-s6">
+        Preocupe-se menos. Pedale mais.
+      </h2>
+
+      <!-- Descrição -->
+      <p class="texto-descricao--suave descricao-s6">
+        Com seis camadas de proteção integradas, o ST3 transforma a segurança em algo em que você mal precisa pensar.
+      </p>
+
+      <!-- Botão "Learn more" com caixa de ícone -->
+      <a href="/st3" class="botao-s6">
+        <span class="botao-s6__caixa">
+          <svg class="botao-s6__icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </span>
+        <span class="botao-s6__texto">Saiba mais</span>
+      </a>
+
     </div>
-  </section>
 
+    <!-- Bloco da Imagem da Bicicleta (Direita no Desktop) -->
+    <div class="grade-conteudo__midia midia-s6">
+      <img 
+        src="/public/CSS/Images/bike.png" 
+        alt="Softbyke st3" 
+        class="grade-conteudo__imagem imagem-s6"
+      >
+    </div>
+
+  </div>
+</section>
+
+<section class="secao-grade secao-grade--app">
+  <div class="grade-conteudo">
+    
+    <!-- Mídia (Esquerda): Foto do Celular no Guidão -->
+    <div class="grade-conteudo__midia midia-app-vanmoof">
+      <img 
+        src="/public/CSS/Images/display.webp" 
+        alt="VanMoof App no Guidão" 
+        class="grade-conteudo__imagem imagem-app-phone"
+      >
+    </div>
+
+    <!-- Conteúdo (Direita): Título, Subtítulo e 4 Colunas de Recursos -->
+    <div class="grade-conteudo__texto texto-app-vanmoof">
+      
+      <!-- Título Principal -->
+      <h2 class="titulo-secao--gg titulo-app">
+        Serviço Leva e Traz
+      </h2>
+
+      <!-- Subtítulo -->
+      <p class="texto-descricao--suave subtitulo-app">
+        Buscamos e entregamos sua e-bike na sua casa ou empresa com toda a praticidade e segurança nas regiões atendidas pelas nossas 3 filiais.
+      </p>
+
+      <!-- Grade dos 4 Recursos Lado a Lado -->
+      <div class="app-recursos-grid">
+        
+        <!-- Recurso 1: Track your rides -->
+        <article class="app-recurso-item">
+          <svg class="app-recurso-item__icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 17l5-5 4 4 8-8"></path>
+            <path d="M14 8h6v6"></path>
+          </svg>
+          <h3 class="app-recurso-item__titulo">Agendamento Prático</h3>
+          <p class="app-recurso-item__descricao">
+            Escolha a data, horário e local de preferência para a coleta diretamente pelo site ou formulário online.
+          </p>
+        </article>
+
+        <!-- Recurso 2: Configure your bike -->
+        <article class="app-recurso-item">
+          <svg class="app-recurso-item__icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="21" x2="4" y2="14"></line>
+            <line x1="4" y1="10" x2="4" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12" y2="3"></line>
+            <line x1="20" y1="21" x2="20" y2="16"></line>
+            <line x1="20" y1="12" x2="20" y2="3"></line>
+            <line x1="1" y1="14" x2="7" y2="14"></line>
+            <line x1="9" y1="8" x2="15" y2="8"></line>
+            <line x1="17" y1="16" x2="23" y2="16"></line>
+          </svg>
+          <h3 class="app-recurso-item__titulo">Coleta no Seu Endereço</h3>
+          <p class="app-recurso-item__descricao">
+            Nossa equipe vai até a sua residência ou empresa para retirar a sua e-bike com transporte adequado.
+          </p>
+        </article>
+
+        <!-- Recurso 3: Share your bike -->
+        <article class="app-recurso-item">
+          <svg class="app-recurso-item__icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M3.6 9h16.8"></path>
+            <path d="M3.6 15h16.8"></path>
+            <path d="M11.5 3a17 17 0 0 0 0 18"></path>
+            <path d="M12.5 3a17 17 0 0 1 0 18"></path>
+          </svg>
+          <h3 class="app-recurso-item__titulo">Manutenção Especializada</h3>
+          <p class="app-recurso-item__descricao">
+            Sua e-bike passa por revisões padronizadas (A, B ou C) e serviços técnicos em nossa oficina especializada.
+          </p>
+        </article>
+
+        <!-- Recurso 4: Touch unlock -->
+        <article class="app-recurso-item">
+          <svg class="app-recurso-item__icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="11" width="14" height="10" rx="2"></rect>
+            <path d="M8 11V7a4 4 0 0 1 8 0v4"></path>
+            <path d="M19 7a4 4 0 0 1 0 8"></path>
+          </svg>
+          <h3 class="app-recurso-item__titulo">Devolução Pronta pra Rodar</h3>
+          <p class="app-recurso-item__descricao">
+            Devolvemos sua e-bike revisada, regulada e higienizada diretamente no seu endereço no prazo combinado.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="secao-heroi secao-grade">
+  <div class="grade-layout espacamento-x-1 espacamento-tablet-x-2">
+    <!-- Container Estático do Hero -->
+    <div class="cartao-destaque" style="cursor: default; transform: none;">
+      
+      <!-- Vídeo de Fundo -->
+      <div class="cartao-destaque__midia-video">
+        <video 
+          autoplay 
+          loop 
+          muted 
+          playsinline 
+          poster="https://assets-cms.vanmoof.com/dotcom_updates_2025_q4_home_banner_gif_d_ef4abc0380.webp"
+          class="cartao-destaque__video">
+          <source src="https://assets-cms.vanmoof.com/dotcom_updates_2025_q4_home_banner_gif_d_1_f40b6641bb.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- Camadas de Degradê para Leitura do Texto -->
+      <div class="cartao-destaque__degrade cartao-destaque__degrade--superior"></div>
+      <div class="cartao-destaque__degrade cartao-destaque__degrade--inferior"></div>
+
+      <!-- Bloco de Conteúdo (Alinhado à Esquerda) -->
+      <div class="cartao-destaque__conteudo conteudo-grid-esquerda">
+        <p class="cartao-destaque__descricao">
+          <strong>Mobilidade com sofisticação e estilo</strong><br>
+          Reimaginando cada passeio com o máximo de conforto, praticidade e tecnologia.
+        </p>
+
+        <div class="cartao-destaque__acoes">
+          <a href="#" class="botao-explorar" style="text-decoration: none;">
+            <span>Conheça nossa história</span>
+            <span class="botao-explorar__icone" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="secao-grade secao-grade--cards">
+  <div class="cards-grid">
+    
+    <!-- Cartão 1: Citação da Imprensa (Stuff) -->
+    <article class="card-item card-item--press">
+      <div>
+        <div class="card-item__logo-press">E-bikes Urbanas & Dobrávei</div>
+        <p class="card-item__citacao">
+          “Design sofisticado e tecnologia de ponta desenvolvidos sob medida para o seu dia a dia e passeios.”
+        </p>
+      </div>
+
+      <a href="#" class="botao-s6">
+        <span class="botao-s6__caixa">
+          <svg class="botao-s6__icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </span>
+        <span class="botao-s6__texto">Ver catálogo</span>
+      </a>
+    </article>
+
+    <!-- Cartão 2: Test Rides / Galeria -->
+    <article class="card-item">
+      <h3 class="card-item__titulo">Agende um Test Ride</h3>
+
+      <div class="card-item__galeria">
+        <img src="./CSS/Images/atras.jpg" alt="Rider 1" class="card-item__thumb">
+        <img src="./CSS/Images/roda.jpg" alt="Rider 2" class="card-item__thumb">
+        <img src="./CSS/Images/casal.jpg" alt="Rider 3" class="card-item__thumb">
+        <div class="card-item__thumb-mais">+</div>
+      </div>
+
+      <span class="card-item__hashtag">#SOFTBYKE</span>
+    </article>
+
+    <!-- Cartão 3: Partner Network -->
+    <article class="card-item">
+      <!-- Ilustração de fundo da bicicleta -->
+      <img src="./CSS/Images/street.jpg" alt="Support" class="card-item__bg-imagem">
+
+      <h3 class="card-item__titulo">Serviço Leva e Traz & Filiais</h3>
+
+      <div class="card-item__conteudo-inferior">
+        <div class="card-item__texto-box">
+          <svg class="card-item__icone-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <p class="card-item__descricao">
+            Contamos com 3 filiais e o serviço exclusivo de coleta e entrega da sua e-bike para manutenção.
+          </p>
+        </div>
+
+        <a href="#" class="card-item__botao-mais" aria-label="Nossas filiais">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </a>
+      </div>
+    </article>
+
+    <!-- Cartão 4: Support Center -->
+    <article class="card-item">
+      <!-- Imagem de fundo suave -->
+      <img src="./CSS/Images/atras2.jpg" alt="Support" class="card-item__bg-imagem">
+
+      <h3 class="card-item__titulo">Central de Oficina</h3>
+
+      <div class="card-item__conteudo-inferior">
+        <div class="card-item__texto-box">
+          <svg class="card-item__icone-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <p class="card-item__descricao">
+            Agende revisões periódicas (A, B e C), serviços express ou reparos com especialistas.
+          </p>
+        </div>
+
+        <a href="#" class="card-item__botao-mais" aria-label="Agendar manutenção">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+
+<footer class="rodape">
+  <div class="rodape__container">
+    
+    <!-- Parte Superior: Newsletter + Links -->
+    <div class="rodape__conteudo-superior">
+      
+      <!-- Bloco Newsletter -->
+      <div class="rodape__newsletter">
+        <span class="rodape__tag">Seja o primeiro a saber das novidades</span>
+        <h3 class="rodape__titulo-newsletter">
+          Inscreva-se para receber em primeira mão lançamentos de e-bikes, novos acessórios e dicas de manutenção.
+        </h3>
+        <a href="#" class="rodape__botao-signup">
+          <span>Cadastrar</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Colunas de Navegação -->
+      <div class="rodape__grid-links">
+        
+        <!-- Coluna 1: Products -->
+        <div class="rodape__coluna">
+          <h4 class="rodape__coluna-titulo">PRODUTOS</h4>
+          <ul class="rodape__lista">
+            <li><a href="#" class="rodape__link">E-bikes</a></li>
+            <li><a href="#" class="rodape__link">Acessórios</a></li>
+            <li><a href="#" class="rodape__link">Peças</a></li>
+            <li><a href="#" class="rodape__link">Kit SOS Pedal</a></li>
+            <li><a href="#" class="rodape__link">Kits de Segurança</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 2: About Us -->
+        <div class="rodape__coluna">
+          <h4 class="rodape__coluna-titulo">SOBRE NÓS & SERVIÇOS</h4>
+          <ul class="rodape__lista">
+            <li><a href="#" class="rodape__link">Nossa História</a></li>
+            <li><a href="#" class="rodape__link">Agendar Manutenção</a></li>
+            <li><a href="#" class="rodape__link">Revisões</a></li>
+            <li><a href="#" class="rodape__link">Serviço Leva e Traz</a></li>
+            <li><a href="#" class="rodape__link">Filiais</a></li>
+            
+          </ul>
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <!-- Parte Inferior: Social, Termos Legais e Idioma -->
+    <div class="rodape__conteudo-inferior">
+      
+      <!-- Redes Sociais -->
+      <div class="rodape__redes-sociais">
+        <a href="#">Instagram</a>
+        <a href="#">YouTube</a>
+        <a href="#">Feedback</a>
+      </div>
+
+      <!-- Termos e Políticas -->
+      <div class="rodape__legais">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos e Condições</a>
+        <a href="#">Configurações de Cookies</a>
+      </div>
+
+      <!-- Seletor "My Site" -->
+      <div class="rodape__seletor-regiao">
+        <button class="rodape__botao-regiao">
+          <span>Site</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const navContainer = document.getElementById('navbar');
+    const navToggle = document.getElementById('navToggle');
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = navContainer.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+  });
+</script>
+  <!-- JS de Animações -->
+  <script src="animacoes.js"></script>
 </body>
 </html>
