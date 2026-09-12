@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendamento de Manutenção | Softbyke</title>
+  <style>
+    /* ==========================================================================
+       1. GUIA DE ESTILO & VARIÁVEIS (Conforme Style Guide e Briefing)
+       ========================================================================== */
+    :root {
+      --primary-accent: #FD8A50;   /* Coral Orange */
+      --dark-contrast: #0F172A;    /* Graphite Blue */
+      --electric-accent: #06B6D4;  /* Tech Cyan */
+      --neutral-support: #64748B;  /* Steel Gray */
+      --light-canvas: #F8FAFC;     /* Mist White */
+      --white: #FFFFFF;
+      --border-color: #E2E8F0;
+      
+      --font-headline: 'D-DIN PRO', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-body: 'Helvetica', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--light-canvas);
+      color: var(--dark-contrast);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ==========================================================================
+       2. CABEÇALHO (Header / Navegação)
+       ========================================================================== */
+    header {
+      background-color: var(--white);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      font-family: var(--font-headline);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--dark-contrast);
+      letter-spacing: -0.03em;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .nav-menu a {
+      transition: color 0.2s ease;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: var(--primary-accent);
+    }
+
+    /* ==========================================================================
+       3. CONTEÚDO PRINCIPAL E LAYOUT CLEAN (Whitespace)
+       ========================================================================== */
+    main {
+      max-width: 1000px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .page-header h1 {
+      font-size: 2.5rem;
+      color: var(--dark-contrast);
+      margin-bottom: 0.75rem;
+    }
+
+    .page-header p {
+      color: var(--neutral-support);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .booking-card {
+      background-color: var(--white);
+      border-radius: 12px;
+      padding: 3rem;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+      border: 1px solid var(--border-color);
+    }
+
+    /* Form Stepper / Indicador de Passos */
+    .form-steps {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 3rem;
+      position: relative;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 1.5rem;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--neutral-support);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .step-item.active {
+      color: var(--primary-accent);
+    }
+
+    .step-number {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: var(--light-canvas);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+    }
+
+    .step-item.active .step-number {
+      background-color: var(--primary-accent);
+      color: var(--white);
+      border-color: var(--primary-accent);
+    }
+
+    /* Estilização dos Grupos do Formulário */
+    .form-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .form-section-title {
+      font-size: 1.1rem;
+      color: var(--dark-contrast);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .full-width {
+      grid-column: span 2;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--dark-contrast);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      background-color: var(--light-canvas);
+      color: var(--dark-contrast);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary-accent);
+      background-color: var(--white);
+      box-shadow: 0 0 0 3px rgba(253, 138, 80, 0.15);
+    }
+
+    /* Cards Selecionáveis (Modalidade Delivery Leva e Traz) */
+    .delivery-options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .option-card {
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.25rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background-color: var(--white);
+    }
+
+    .option-card:hover {
+      border-color: var(--neutral-support);
+    }
+
+    .option-card.selected {
+      border-color: var(--primary-accent);
+      background-color: rgba(253, 138, 80, 0.03);
+    }
+
+    .option-card input[type="radio"] {
+      display: none;
+    }
+
+    .option-card-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--dark-contrast);
+      margin-bottom: 0.25rem;
+    }
+
+    .option-card-desc {
+      font-size: 0.85rem;
+      color: var(--neutral-support);
+    }
+
+    /* Detalhes do Serviço Selecionado */
+    .service-info-box {
+      margin-top: 0.75rem;
+      padding: 1rem;
+      background-color: var(--light-canvas);
+      border-left: 3px solid var(--electric-accent);
+      font-size: 0.85rem;
+      color: var(--neutral-support);
+      display: none;
+    }
+
+    /* Botões */
+    .submit-btn {
+      width: 100%;
+      background-color: var(--primary-accent);
+      color: var(--white);
+      border: none;
+      padding: 1.1rem;
+      font-family: var(--font-headline);
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+      margin-top: 1rem;
+    }
+
+    .submit-btn:hover {
+      background-color: #e5783f;
+    }
+
+    .submit-btn:active {
+      transform: scale(0.99);
+    }
+
+    /* Estilização da Mensagem de Sucesso */
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    .success-message h2 {
+      color: var(--dark-contrast);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .success-message p {
+      color: var(--neutral-support);
+      margin-bottom: 2rem;
+    }
+
+    .badge-protocol {
+      display: inline-block;
+      background-color: var(--light-canvas);
+      border: 1px dashed var(--neutral-support);
+      padding: 0.5rem 1rem;
+      font-family: monospace;
+      font-size: 1.1rem;
+      color: var(--dark-contrast);
+      margin-bottom: 2rem;
+    }
+
+    /* ==========================================================================
+       4. RODAPÉ (Footer)
+       ========================================================================== */
+    footer {
+      background-color: var(--dark-contrast);
+      color: var(--light-canvas);
+      padding: 4rem 2rem 2rem 2rem;
+      margin-top: 6rem;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-col h4 {
+      font-size: 0.9rem;
+      margin-bottom: 1.25rem;
+      color: var(--white);
+    }
+
+    .footer-col p, .footer-col ul {
+      font-size: 0.85rem;
+      color: var(--neutral-support);
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--neutral-support);
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .form-grid, .delivery-options, .footer-container {
+        grid-template-columns: 1fr;
+      }
+      .full-width {
+        grid-column: span 1;
+      }
+      .booking-card {
+        padding: 1.5rem;
+      }
+      .nav-menu {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CABEÇALHO DA PÁGINA -->
+  <header>
+    <div class="nav-container">
+      <a href="/" class="brand-logo">SOFTBYKE</a>
+      <ul class="nav-menu">
+        <li><a href="/ebikes">E-bikes</a></li>
+        <li><a href="/loja">Acessórios & Peças</a></li>
+        <li><a href="/oficina-servicos">Oficinas</a></li>
+        <li><a href="/oficina-servicos/agendamento" class="active">Agendamento</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ÁREA PRINCIPAL -->
+  <main>
+    <div class="page-header">
+      <h1>Agende Sua Manutenção</h1>
+      <p>Cuidado especializado para a sua e-bike, garantindo alta performance e segurança em cada pedalada.</p>
+    </div>
+
+    <div class="booking-card">
+      
+      <!-- Stepper Visual -->
+      <div class="form-steps">
+        <div class="step-item active">
+          <span class="step-number">1</span> Servico
+        </div>
+        <div class="step-item active">
+          <span class="step-number">2</span> Unidade & Data
+        </div>
+        <div class="step-item active">
+          <span class="step-number">3</span> Dados Pessoais
+        </div>
+      </div>
+
+      <!-- Formulário de Agendamento -->
+      <form id="appointmentForm">
+        
+        <!-- SEÇÃO 1: Escolha do Serviço -->
+        <div class="form-section">
+          <h3 class="form-section-title">1. Selecione o Serviço Desejado</h3>
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label for="serviceType">Categoria de Serviço</label>
+              <select id="serviceType" name="serviceType" required onchange="updateServiceInfo()">
+                <option value="" disabled selected>Selecione um serviço...</option>
+                <optgroup label="Revisões Periódicas Padronizadas">
+                  <option value="revisao-a">Revisão A (Básica) - Ajustes gerais e lubrificação</option>
+                  <option value="revisao-b">Revisão B (Intermediária) - Troca de cabos, ajuste de rodas e freios</option>
+                  <option value="revisao-c">Revisão C (Completa) - Desmontagem, limpeza química e troca de componentes</option>
+                </optgroup>
+                <optgroup label="Serviços Rápidos (Express)">
+                  <option value="express-pneu">Troca e reparo de câmara de ar / pneu</option>
+                  <option value="express-freio">Ajuste de freios</option>
+                  <option value="express-cambio">Ajuste de câmbio e lubrificação de corrente</option>
+                </optgroup>
+                <optgroup label="Serviços Específicos & Montagem">
+                  <option value="esp-roda">Centralização de rodas</option>
+                  <option value="esp-sangria">Sangria de freio hidráulico</option>
+                  <option value="esp-suspensao">Revisão de suspensão</option>
+                  <option value="esp-montagem">Montagem e regulagem de E-bike zero km</option>
+                </optgroup>
+              </select>
+              <div id="serviceInfoBox" class="service-info-box"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SEÇÃO 2: Modalidade e Filial -->
+        <div class="form-section">
+          <h3 class="form-section-title">2. Escolha o Local e Modalidade</h3>
+          
+          <div class="form-group full-width" style="margin-bottom: 1.5rem;">
+            <label>Tipo de Atendimento</label>
+            <div class="delivery-options">
+              <label class="option-card selected" id="opt-presencial" onclick="toggleDelivery('presencial')">
+                <input type="radio" name="deliveryType" value="presencial" checked>
+                <div class="option-card-title">Levar até a Filial</div>
+                <div class="option-card-desc">Entregue sua e-bike diretamente em uma de nossas oficinas.</div>
+              </label>
+              <label class="option-card" id="opt-delivery" onclick="toggleDelivery('delivery')">
+                <input type="radio" name="deliveryType" value="delivery">
+                <div class="option-card-title">Delivery Leva e Traz</div>
+                <div class="option-card-desc">Buscamos e entregamos na sua casa ou empresa (verificar região).</div>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="branch">Unidade / Filial</label>
+              <select id="branch" name="branch" required>
+                <option value="" disabled selected>Selecione a filial...</option>
+                <option value="filial-1">Filial 1 - Jardins / Pinheiros</option>
+                <option value="filial-2">Filial 2 - Moema / Vila Olímpia</option>
+                <option value="filial-3">Filial 3 - Alphaville / Tamboré</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="appointmentDate">Data Preferencial</label>
+              <input type="date" id="appointmentDate" name="appointmentDate" required>
+            </div>
+
+            <div class="form-group">
+              <label for="appointmentTime">Horário Preferencial</label>
+              <select id="appointmentTime" name="appointmentTime" required>
+                <option value="" disabled selected>Selecione o horário...</option>
+                <option value="09:00">09:00</option>
+                <option value="11:00">11:00</option>
+                <option value="14:00">14:00</option>
+                <option value="16:00">16:00</option>
+              </select>
+            </div>
+
+            <!-- Campo dinâmico para endereço do Leva e Traz -->
+            <div class="form-group full-width" id="addressGroup" style="display: none;">
+              <label for="address">Endereço de Coleta (Delivery Leva e Traz)</label>
+              <input type="text" id="address" name="address" placeholder="Rua, número, complemento e bairro">
+            </div>
+          </div>
+        </div>
+
+        <!-- SEÇÃO 3: Dados do Cliente e E-bike -->
+        <div class="form-section">
+          <h3 class="form-section-title">3. Seus Dados e da E-bike</h3>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="fullName">Nome Completo</label>
+              <input type="text" id="fullName" name="fullName" placeholder="Digite seu nome" required>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Telefone / WhatsApp</label>
+              <input type="tel" id="phone" name="phone" placeholder="(11) 99999-9999" required>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" placeholder="seuemail@dominio.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="bikeModel">Modelo/Marca da E-bike</label>
+              <input type="text" id="bikeModel" name="bikeModel" placeholder="Ex: Softbyke Urban, Specialized, etc." required>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="notes">Observações ou Sintomas (Opcional)</label>
+              <textarea id="notes" name="notes" rows="3" placeholder="Descreva qualquer ruído, falha elétrica ou necessidade específica..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Confirmar Agendamento</button>
+      </form>
+
+      <!-- Mensagem de Confirmação Sucesso -->
+      <div id="successMessage" class="success-message">
+        <h2>Agendamento Solicitado!</h2>
+        <p>Recebemos sua solicitação de manutenção. Nossa equipe entrará em contato via WhatsApp para confirmar a disponibilidade do horário.</p>
+        <div class="badge-protocol" id="protocolNumber">PROTOCOL: #SB-0000</div>
+        <br>
+        <button onclick="window.location.reload()" class="submit-btn" style="max-width: 250px; margin: 0 auto;">Realizar Novo Agendamento</button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- RODAPÉ DA PÁGINA -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>SOFTBYKE</h4>
+        <p>Especialistas em vendas e manutenção de bicicletas elétricas. Mais autonomia e sofisticação para o seu dia a dia.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Nossas Filiais</h4>
+        <ul>
+          <li>Filial 1 - Jardins</li>
+          <li>Filial 2 - Moema</li>
+          <li>Filial 3 - Alphaville</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Serviços de Oficina</h4>
+        <ul>
+          <li>Revisões A, B e C</li>
+          <li>Serviços Express</li>
+          <li>Delivery Leva e Traz</li>
+          <li>Freios Hidráulicos & Suspensão</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <p>Atendimento: Samuel Fonseca</p>
+        <p>E-mail: samuel.fonseca@sempreceub.com</p>
+        <p>Tel/WhatsApp: (11) 93255-8932</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Softbyke. Todos os direitos reservados. Projeto Grupo 08.</p>
+    </div>
+  </footer>
+
+  <!-- LÓGICA E JAVASCRIPT -->
+  <script>
+    // Configura data mínima para o agendamento (a partir de amanhã)
+    const dateInput = document.getElementById('appointmentDate');
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    dateInput.min = tomorrow.toISOString().split('T')[0];
+
+    // Detalhes dinâmicos das revisões
+    const serviceDetails = {
+      'revisao-a': '<strong>Revisão A (Básica):</strong> Recomendada para manutenção periódica simples. Inclui ajustes gerais, verificação de parafusos e lubrificação da corrente.',
+      'revisao-b': '<strong>Revisão B (Intermediária):</strong> Inclui troca de cabos/conduítes, regulagem fina de rodas, centralização e ajuste de sistemas de freio.',
+      'revisao-c': '<strong>Revisão C (Completa):</strong> Processo rigoroso com desmontagem integral, limpeza química avançada, lubrificação de rolamentos e substituição de peças de desgaste.'
+    };
+
+    function updateServiceInfo() {
+      const select = document.getElementById('serviceType');
+      const infoBox = document.getElementById('serviceInfoBox');
+      const val = select.value;
+
+      if (serviceDetails[val]) {
+        infoBox.innerHTML = serviceDetails[val];
+        infoBox.style.display = 'block';
+      } else {
+        infoBox.style.display = 'none';
+      }
+    }
+
+    // Toggle da modalidade (Presencial x Leva e Traz)
+    function toggleDelivery(type) {
+      const optPresencial = document.getElementById('opt-presencial');
+      const optDelivery = document.getElementById('opt-delivery');
+      const addressGroup = document.getElementById('addressGroup');
+      const addressInput = document.getElementById('address');
+
+      if (type === 'delivery') {
+        optDelivery.classList.add('selected');
+        optPresencial.classList.remove('selected');
+        addressGroup.style.display = 'flex';
+        addressInput.setAttribute('required', 'required');
+      } else {
+        optPresencial.classList.add('selected');
+        optDelivery.classList.remove('selected');
+        addressGroup.style.display = 'none';
+        addressInput.removeAttribute('required');
+      }
+    }
+
+    // Processamento do Formulário
+    document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Gerar número de protocolo aleatório
+      const randomProtocol = Math.floor(1000 + Math.random() * 9000);
+      document.getElementById('protocolNumber').innerText = `PROTOCOLO: #SB-${randomProtocol}`;
+      
+      // Esconder formulário e exibir confirmação
+      document.getElementById('appointmentForm').style.display = 'none';
+      document.getElementById('successMessage').style.display = 'block';
+    });
+  </script>
+</body>
+</html>
