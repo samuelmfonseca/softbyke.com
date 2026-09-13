@@ -46,14 +46,14 @@
       
       <!-- Grid de Bikes (Produtos em destaque) -->
       <div class="navbar__grid-bikes">
-        <a href="#" class="navbar__bike-card">
+        <a href="/e-bikes" class="navbar__bike-card">
           <div class="navbar__bike-img-wrapper">
             <img src="/CSS/Images/st2.png" alt="Bicicleta St2" />
           </div>
           <span class="navbar__bike-nome">ST2</span>
         </a>
 
-        <a href="#" class="navbar__bike-card">
+        <a href="/e-bikes" class="navbar__bike-card">
           <div class="navbar__bike-img-wrapper">
             <img src="/CSS/Images/bike.png" alt="Bicicleta Softbyke ST3 open" />
           </div>
@@ -63,9 +63,9 @@
 
       <!-- Links Principais -->
       <ul class="navbar__links">
-        <li class="navbar__link-item"><a href="#">E-bikes</a></li>
-        <li class="navbar__link-item"><a href="#">Acessórios</a></li>
-        <li class="navbar__link-item"><a href="#">Oficinas</a></li>
+        <li class="navbar__link-item"><a href="/e-bikes">E-bikes</a></li>
+        <li class="navbar__link-item"><a href="/acessorios">Acessórios</a></li>
+        <li class="navbar__link-item"><a href="/oficinas">Oficinas</a></li>
         <li class="navbar__link-item"><a href="#">Agendamento</a></li>
         <li class="navbar__link-item"><a href="#">Sobre</a></li>
       </ul>
@@ -99,7 +99,10 @@
 </nav>
 
 <main class="pagina">
-  <div class="pagina__conteiner">
+
+  <!-- Faixa escura do topo, no mesmo estilo da home -->
+  <header class="pagina__topo">
+    <div class="pagina__conteiner">
 
     <!-- Caminho de navegacao -->
     <nav class="trilha" aria-label="Voce esta em">
@@ -119,6 +122,11 @@
       <li class="passos__item passos__item--ativo" id="passoDois"><span class="passos__numero">2</span> Dados e pagamento</li>
       <li class="passos__item" id="passoTres"><span class="passos__numero">3</span> Confirmacao</li>
     </ol>
+
+    </div>
+  </header>
+
+  <div class="pagina__conteiner pagina__corpo">
 
     <!-- Area do formulario. Some quando o pedido e confirmado. -->
     <div class="checkout-layout" id="areaCheckout">
@@ -250,7 +258,7 @@
 
             <li>
               <label class="opcao-pagamento">
-                <input type="radio" name="pagamento" value="Cartao de credito">
+                <input type="radio" name="pagamento" value="Cartão de crédito">
                 <span>
                   <span class="opcao-pagamento__nome">Cartao de credito</span>
                   <span class="opcao-pagamento__texto">Parcelamento em ate 12 vezes.</span>
@@ -312,7 +320,7 @@
         </section>
 
         <!-- Envio do pedido -->
-        <button type="submit" class="botao botao--claro botao--largo">Finalizar pedido</button>
+        <button type="submit" class="botao botao--principal botao--largo">Finalizar pedido</button>
         <p class="campo__erro" id="erroGeral"></p>
         <p class="texto-apoio texto-apoio--espacado">
           <em>Ao finalizar voce concorda com os termos de uso e a politica de privacidade da Softbyke.</em>
@@ -337,7 +345,7 @@
 
           <hr class="linha-divisoria">
 
-          <a href="/carrinho" class="botao botao--contorno botao--largo">Editar carrinho</a>
+          <a href="/carrinho" class="botao botao--secundario botao--largo">Editar carrinho</a>
         </div>
 
         <div class="caixa">
@@ -389,8 +397,8 @@
       <hr class="linha-divisoria">
 
       <div class="pedido-ok__acoes">
-        <a href="/" class="botao botao--claro">Voltar para a home</a>
-        <a href="/carrinho" class="botao botao--contorno">Fazer um novo pedido</a>
+        <a href="/" class="botao botao--principal">Voltar para a home</a>
+        <a href="/carrinho" class="botao botao--secundario">Fazer um novo pedido</a>
       </div>
     </section>
 

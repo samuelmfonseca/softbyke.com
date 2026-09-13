@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrinho - Softbyke</title>
+    <title>E-bikes - Softbyke</title>
     <link rel="stylesheet" href="/CSS/loja.css">
-    <link rel="stylesheet" href="/CSS/carrinho.css">
+    <link rel="stylesheet" href="/CSS/produtos.css">
     <link rel="stylesheet" href="/CSS/navbar.css">
     <link rel="stylesheet" href="/CSS/footer.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body data-tipo="ebike">
 
       <nav class="navbar-wrapper">
   <div class="navbar-container" id="navbar">
@@ -38,6 +38,7 @@
           <path d="M4 6H16V18C16 19.1046 15.1046 20 14 20H6C4.89543 20 4 19.1046 4 18V6Z"/>
           <path d="M7 6C7 4.34315 8.34315 3 10 3C11.6569 3 13 4.34315 13 6"/>
         </svg>
+        <span class="contador-menu escondido" id="contadorMenu">0</span>
       </a>
     </div>
 
@@ -106,152 +107,204 @@
 
     <!-- Caminho de navegacao -->
     <nav class="trilha" aria-label="Voce esta em">
-      <a href="/">Home</a> / <span>Carrinho</span>
+      <a href="/">Home</a> / <span>E-bikes</span>
     </nav>
 
-    <span class="pagina__etiqueta">Etapa 1 de 3</span>
-    <h1 class="pagina__titulo">Seu carrinho</h1>
-    <p class="pagina__descricao">
-      Confira os produtos escolhidos, ajuste as quantidades e siga para o pagamento.
-      <em>Os valores sao atualizados automaticamente.</em>
-    </p>
+    <div class="vitrine-topo">
+      <div>
+        <span class="pagina__etiqueta">Bicicletas Elétricas</span>
+        <h1 class="pagina__titulo">Escolha a sua e-bike</h1>
+        <p class="pagina__descricao">
+          Modelos urbanos e de montanha, todos com <strong>garantia de 2 anos</strong>,
+          montagem gratuita e a primeira revisão por nossa conta.
+          <em>Frete grátis em compras acima de R$ 5.000,00.</em>
+        </p>
+      </div>
+      <span class="contador-produtos" id="contadorProdutos">0 produtos</span>
+    </div>
 
-    <!-- Etapas da compra -->
-    <ol class="passos" type="1">
-      <li class="passos__item passos__item--ativo"><span class="passos__numero">1</span> Carrinho</li>
-      <li class="passos__item"><span class="passos__numero">2</span> Dados e pagamento</li>
-      <li class="passos__item"><span class="passos__numero">3</span> Confirmacao</li>
-    </ol>
+    <!-- Filtro por categoria -->
+    <ul class="filtros">
+      <li><button type="button" class="filtros__botao filtros__botao--ativo" data-categoria="todas">Todas</button></li>
+      <li><button type="button" class="filtros__botao" data-categoria="Urbana">Urbanas</button></li>
+      <li><button type="button" class="filtros__botao" data-categoria="Montanha">Montanha</button></li>
+    </ul>
 
     </div>
   </header>
 
   <div class="pagina__conteiner pagina__corpo">
 
-    <div class="carrinho-layout">
+    <!-- Os cartoes sao criados pelo produtos.js -->
+    <div class="grade-produtos" id="gradeProdutos"></div>
 
-      <!-- Coluna da esquerda: tabela com os produtos -->
-      <section class="caixa">
+    <!-- ====== Tabela comparativa dos modelos ====== -->
+    <section class="bloco-secao">
+      <h2 class="pagina__titulo">Comparativo de modelos</h2>
+      <p class="pagina__descricao">Os três modelos mais procurados, lado a lado.</p>
+      <hr class="linha-divisoria">
 
-        <!-- Este bloco inteiro some quando o carrinho fica vazio -->
-        <div id="areaTabela">
-          <div class="tabela-area">
-            <table class="tabela-carrinho">
-              <caption>Produtos no carrinho</caption>
+      <div class="comparativo-area">
+        <table class="comparativo">
+          <caption>Ficha técnica comparativa — Softbyke 2026</caption>
 
-              <thead>
-                <tr>
-                  <th scope="col">Produto</th>
-                  <th scope="col" class="coluna-numero">Preco unitario</th>
-                  <th scope="col">Quantidade</th>
-                  <th scope="col" class="coluna-numero">Subtotal</th>
-                  <th scope="col">Acao</th>
-                </tr>
-              </thead>
+          <thead>
+            <tr>
+              <th scope="col" class="celula-titulo">Grupo</th>
+              <th scope="col" class="celula-titulo">Especificação</th>
+              <th scope="col" class="celula-urbana">Turbo Tero 3.0</th>
+              <th scope="col" class="celula-montanha">Turbo Levo 4 Comp</th>
+              <th scope="col" class="celula-destaque">S-Works Turbo Levo 4</th>
+            </tr>
+          </thead>
 
-              <!-- As linhas de produto sao criadas pelo carrinho.js -->
-              <tbody id="listaItens"></tbody>
+          <tbody>
+            <!-- Motor e bateria -->
+            <tr>
+              <th scope="rowgroup" rowspan="3" class="celula-grupo">Motor e bateria</th>
+              <th scope="row" class="celula-rotulo">Potência</th>
+              <td class="celula-urbana">250 W</td>
+              <td class="celula-montanha">810 W</td>
+              <td class="celula-destaque">850 W</td>
+            </tr>
+            <tr>
+              <th scope="row" class="celula-rotulo">Bateria</th>
+              <td class="celula-urbana">530 Wh</td>
+              <td class="celula-montanha">840 Wh</td>
+              <td class="celula-destaque">840 Wh</td>
+            </tr>
+            <tr>
+              <th scope="row" class="celula-rotulo">Autonomia</th>
+              <td class="celula-urbana">90 km</td>
+              <td class="celula-montanha">110 km</td>
+              <td class="celula-destaque">120 km</td>
+            </tr>
 
-              <!-- Totais do pedido. A primeira celula ocupa as 4 linhas. -->
-              <tfoot>
-                <tr>
-                  <th rowspan="4" scope="row" class="rotulo-vertical">Resumo</th>
-                  <td colspan="2">Subtotal dos produtos</td>
-                  <td colspan="2" class="coluna-numero" id="valorSubtotal">R$ 0,00</td>
-                </tr>
-                <tr>
-                  <td colspan="2">Frete<sup>1</sup></td>
-                  <td colspan="2" class="coluna-numero" id="valorFrete">R$ 0,00</td>
-                </tr>
-                <tr>
-                  <td colspan="2">Desconto do cupom</td>
-                  <td colspan="2" class="coluna-numero" id="valorDesconto">R$ 0,00</td>
-                </tr>
-                <tr class="linha-total">
-                  <td colspan="2"><strong>Total</strong></td>
-                  <td colspan="2" class="coluna-numero"><strong id="valorTotal">R$ 0,00</strong></td>
-                </tr>
-              </tfoot>
+            <!-- Quadro -->
+            <tr>
+              <th scope="rowgroup" rowspan="3" class="celula-grupo">Quadro</th>
+              <th scope="row" class="celula-rotulo">Material</th>
+              <td class="celula-urbana">Alumínio</td>
+              <td class="celula-montanha">Alumínio</td>
+              <td class="celula-destaque">Carbono FACT</td>
+            </tr>
+            <tr>
+              <th scope="row" class="celula-rotulo">Peso</th>
+              <td class="celula-urbana">22 kg</td>
+              <td class="celula-montanha">23 kg</td>
+              <td class="celula-destaque">21 kg</td>
+            </tr>
+            <tr>
+              <th scope="row" class="celula-rotulo">Suspensão</th>
+              <td class="celula-urbana">Dianteira</td>
+              <td class="celula-montanha">Completa</td>
+              <td class="celula-destaque">Completa</td>
+            </tr>
 
-            </table>
-          </div>
+            <!-- Freios e rodas -->
+            <tr>
+              <th scope="rowgroup" rowspan="3" class="celula-grupo">Freios e rodas</th>
+              <th scope="row" class="celula-rotulo">Freio</th>
+              <td class="celula-urbana">Disco hidráulico</td>
+              <td class="celula-montanha">Disco 4 pistões</td>
+              <td class="celula-destaque">Disco 4 pistões</td>
+            </tr>
+            <tr>
+              <th scope="row" class="celula-rotulo">Aro</th>
+              <td class="celula-urbana">29"</td>
+              <td class="celula-montanha">29"</td>
+              <td class="celula-destaque">29"</td>
+            </tr>
+            <tr>
+              <th scope="row" class="celula-rotulo">Pneu</th>
+              <td class="celula-urbana">2,3"</td>
+              <td class="celula-montanha">2,6"</td>
+              <td class="celula-destaque">2,6"</td>
+            </tr>
 
-          <p class="texto-apoio"><sup>1</sup> Frete gratis em compras acima de R$ 5.000,00.</p>
-        </div>
+            <!-- Servicos -->
+            <tr>
+              <th scope="rowgroup" rowspan="2" class="celula-grupo">Serviços</th>
+              <th scope="row" class="celula-rotulo">Garantia do quadro</th>
+              <td class="celula-urbana">2 anos</td>
+              <td class="celula-montanha">Vitalícia</td>
+              <td class="celula-destaque">Vitalícia</td>
+            </tr>
+            <tr>
+              <td colspan="4" class="celula-nota">Serviço Leva e Traz incluso nos três modelos durante o primeiro ano.</td>
+            </tr>
+          </tbody>
 
-        <!-- Mensagem exibida quando nao ha itens -->
-        <div class="carrinho-vazio escondido" id="carrinhoVazio">
-          <h2 class="carrinho-vazio__titulo">Seu carrinho esta vazio</h2>
-          <p class="carrinho-vazio__texto">Adicione uma e-bike ou um acessorio para continuar.</p>
-          <a href="/e-bikes" class="botao botao--principal">Ver as e-bikes</a>
-        </div>
+          <tfoot>
+            <tr>
+              <td colspan="2" class="celula-rotulo"><strong>Preço a partir de</strong></td>
+              <td class="celula-urbana">R$ 18.990,00</td>
+              <td class="celula-montanha">R$ 75.990,00</td>
+              <td class="celula-destaque">R$ 134.990,00</td>
+            </tr>
+            <tr>
+              <td colspan="2" class="celula-rotulo">Parcelamento em 12x</td>
+              <td class="celula-urbana">R$ 1.582,50</td>
+              <td class="celula-montanha">R$ 6.332,50</td>
+              <td class="celula-destaque">R$ 11.249,17</td>
+            </tr>
+            <tr>
+              <td colspan="5" class="celula-nota">
+                Valores e especificações podem mudar sem aviso prévio.<sup>1</sup>
+              </td>
+            </tr>
+          </tfoot>
 
-      </section>
+        </table>
+      </div>
+      <p class="texto-apoio"><sup>1</sup> Autonomia medida em piso plano, com assistência no modo econômico.</p>
+    </section>
 
-      <!-- Coluna da direita: cupom, frete e acoes -->
-      <aside class="lateral">
+    <!-- ====== Galeria de fotos ====== -->
+    <section class="bloco-secao">
+      <h2 class="pagina__titulo">Galeria</h2>
+      <p class="pagina__descricao">Vinte e cinco fotos dos modelos e dos detalhes de acabamento.</p>
+      <hr class="linha-divisoria">
 
-        <!-- Cupom de desconto -->
-        <div class="caixa">
-          <h2 class="bloco__titulo">Cupom de desconto</h2>
-          <form class="linha-formulario" id="formCupom">
-            <input type="text" id="campoCupom" class="campo__entrada" placeholder="Digite o codigo" aria-label="Codigo do cupom">
-            <button type="submit" class="botao botao--secundario">Aplicar</button>
-          </form>
-          <p class="aviso" id="avisoCupom"></p>
-          <p class="texto-apoio">Cupons de teste: <strong>SOFTBYKE10</strong> e <strong>PEDAL50</strong>.</p>
-        </div>
+      <div class="galeria">
+        <img src="/CSS/Images/galeria/foto01.jpg" alt="Detalhe de e-bike Softbyke 1" loading="lazy">
+        <img src="/CSS/Images/galeria/foto02.jpg" alt="Detalhe de e-bike Softbyke 2" loading="lazy">
+        <img src="/CSS/Images/galeria/foto03.jpg" alt="Detalhe de e-bike Softbyke 3" loading="lazy">
+        <img src="/CSS/Images/galeria/foto04.jpg" alt="Detalhe de e-bike Softbyke 4" loading="lazy">
+        <img src="/CSS/Images/galeria/foto05.jpg" alt="Detalhe de e-bike Softbyke 5" loading="lazy">
+        <img src="/CSS/Images/galeria/foto06.jpg" alt="Detalhe de e-bike Softbyke 6" loading="lazy">
+        <img src="/CSS/Images/galeria/foto07.jpg" alt="Detalhe de e-bike Softbyke 7" loading="lazy">
+        <img src="/CSS/Images/galeria/foto08.jpg" alt="Detalhe de e-bike Softbyke 8" loading="lazy">
+        <img src="/CSS/Images/galeria/foto09.jpg" alt="Detalhe de e-bike Softbyke 9" loading="lazy">
+        <img src="/CSS/Images/galeria/foto10.jpg" alt="Detalhe de e-bike Softbyke 10" loading="lazy">
+        <img src="/CSS/Images/galeria/foto11.jpg" alt="Detalhe de e-bike Softbyke 11" loading="lazy">
+        <img src="/CSS/Images/galeria/foto12.jpg" alt="Detalhe de e-bike Softbyke 12" loading="lazy">
+        <img src="/CSS/Images/galeria/foto13.jpg" alt="Detalhe de e-bike Softbyke 13" loading="lazy">
+        <img src="/CSS/Images/galeria/foto14.jpg" alt="Detalhe de e-bike Softbyke 14" loading="lazy">
+        <img src="/CSS/Images/galeria/foto15.jpg" alt="Detalhe de e-bike Softbyke 15" loading="lazy">
+        <img src="/CSS/Images/galeria/foto16.jpg" alt="Detalhe de e-bike Softbyke 16" loading="lazy">
+        <img src="/CSS/Images/galeria/foto17.jpg" alt="Detalhe de e-bike Softbyke 17" loading="lazy">
+        <img src="/CSS/Images/galeria/foto18.jpg" alt="Detalhe de e-bike Softbyke 18" loading="lazy">
+        <img src="/CSS/Images/galeria/foto19.jpg" alt="Detalhe de e-bike Softbyke 19" loading="lazy">
+        <img src="/CSS/Images/galeria/foto20.jpg" alt="Detalhe de e-bike Softbyke 20" loading="lazy">
+        <img src="/CSS/Images/galeria/foto21.jpg" alt="Detalhe de e-bike Softbyke 21" loading="lazy">
+        <img src="/CSS/Images/galeria/foto22.jpg" alt="Detalhe de e-bike Softbyke 22" loading="lazy">
+        <img src="/CSS/Images/galeria/foto23.jpg" alt="Detalhe de e-bike Softbyke 23" loading="lazy">
+        <img src="/CSS/Images/galeria/foto24.jpg" alt="Detalhe de e-bike Softbyke 24" loading="lazy">
+        <img src="/CSS/Images/galeria/foto25.jpg" alt="Detalhe de e-bike Softbyke 25" loading="lazy">
+      </div>
+    </section>
 
-        <!-- Calculo de entrega pelo CEP -->
-        <div class="caixa">
-          <h2 class="bloco__titulo">Calcular entrega</h2>
-          <form class="linha-formulario" id="formFrete">
-            <input type="text" id="campoCep" class="campo__entrada" placeholder="00000-000" maxlength="9" inputmode="numeric" aria-label="CEP de entrega">
-            <button type="submit" class="botao botao--secundario">Calcular</button>
-          </form>
-          <p class="aviso" id="avisoCep"></p>
-
-          <!-- Prazos mostrados depois do calculo -->
-          <ul class="lista-frete escondido" id="listaFrete">
-            <li><span>Retirada na filial</span> <span>Gratis - 1 dia util</span></li>
-            <li><span>Entrega padrao</span> <span id="prazoPadrao">5 dias uteis</span></li>
-            <li><span>Leva e Traz (oficina)</span> <span>Sob consulta</span></li>
-          </ul>
-        </div>
-
-        <!-- Resumo e botoes de acao -->
-        <div class="caixa">
-          <h2 class="bloco__titulo">Resumo do pedido</h2>
-          <p class="texto-apoio">Voce tem <strong id="totalPecas">0</strong> peca(s) no carrinho.</p>
-
-          <hr class="linha-divisoria">
-
-          <ul class="lista-vantagens" type="square">
-            <li>Garantia de 2 anos nas e-bikes</li>
-            <li>Montagem gratuita nas 3 filiais</li>
-            <li>Primeira revisao sem custo</li>
-            <li>Kit SOS Pedal com cartucho de CO<sub>2</sub></li>
-          </ul>
-
-          <hr class="linha-divisoria">
-
-          <div class="acoes-empilhadas">
-            <a href="/checkout" class="botao botao--principal botao--largo" id="botaoCheckout">Ir para o pagamento</a>
-            <a href="/e-bikes" class="botao botao--secundario botao--largo">Continuar comprando</a>
-          </div>
-
-          <p class="texto-apoio texto-apoio--espacado"><u>Importante:</u> os precos ficam reservados por 30 minutos.</p>
-
-          <blockquote class="citacao">
-            Compra protegida. Seus dados sao usados apenas para processar o pedido.
-          </blockquote>
-        </div>
-
-      </aside>
-
-    </div>
   </div>
 </main>
+
+<!-- Aviso que aparece ao adicionar um produto no carrinho -->
+<div class="barra-adicionado escondido" id="barraAdicionado">
+  <span class="barra-adicionado__texto">
+    <span class="barra-adicionado__nome" id="nomeAdicionado"></span> foi adicionado ao carrinho.
+  </span>
+  <a href="/carrinho" class="botao botao--principal">Ver carrinho</a>
+</div>
 
 <footer class="rodape">
   <div class="rodape__container">
@@ -340,7 +393,7 @@
 </footer>
 
 <script src="/loja.js"></script>
-<script src="/carrinho.js"></script>
+<script src="/produtos.js"></script>
 
 </body>
 </html>
