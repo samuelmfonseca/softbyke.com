@@ -49,8 +49,8 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--cor-etiqueta-translucida);
-  background-color: rgba(255, 255, 255, 0.03);
+  color: var(--cor-texto-suave);
+  background-color: #f2f2f0;
 }
 
 /* Colunas de numero alinhadas a direita */
@@ -74,7 +74,8 @@
   width: 72px;
   height: 56px;
   object-fit: contain;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: #f2f2f0;
+  border: 1px solid var(--cor-borda);
   border-radius: var(--raio-borda-lg);
   flex-shrink: 0;
 }
@@ -87,7 +88,7 @@
 
 .produto-celula__categoria {
   font-size: 0.75rem;
-  color: var(--cor-etiqueta-translucida);
+  color: var(--cor-texto-suave);
 }
 
 /* Controle de quantidade: - numero + */
@@ -104,14 +105,14 @@
   height: 32px;
   background: transparent;
   border: none;
-  color: var(--cor-branca);
+  color: var(--cor-texto);
   font-size: 1rem;
   cursor: pointer;
   transition: background-color var(--transicao-padrao);
 }
 
 .quantidade__botao:hover {
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: #ececea;
 }
 
 .quantidade__valor {
@@ -125,7 +126,7 @@
 .botao-remover {
   background: transparent;
   border: none;
-  color: var(--cor-etiqueta-translucida);
+  color: var(--cor-texto-suave);
   font-size: 0.8rem;
   text-decoration: underline;
   cursor: pointer;
@@ -148,8 +149,8 @@
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--cor-etiqueta-translucida);
-  background-color: rgba(255, 255, 255, 0.03);
+  color: var(--cor-texto-suave);
+  background-color: #f2f2f0;
   text-align: center;
   width: 110px;
 }
@@ -173,7 +174,7 @@
 }
 
 .carrinho-vazio__texto {
-  color: var(--cor-etiqueta-translucida);
+  color: var(--cor-texto-suave);
   font-size: 0.9rem;
   margin-bottom: 20px;
 }
@@ -225,17 +226,11 @@
   flex-direction: column;
   gap: 8px;
   font-size: 0.82rem;
-  color: var(--cor-branca-translucida);
+  color: var(--cor-texto-suave);
 }
 
 .lista-frete li {
   display: flex;
   justify-content: space-between;
   gap: 12px;
-}
-
-/* Texto de apoio com um respiro acima */
-.texto-apoio--espacado {
-  margin-top: 14px;
-  margin-bottom: 14px;
 }

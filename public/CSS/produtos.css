@@ -1,0 +1,365 @@
+/* Estilos das telas de venda (e-bikes e acessorios).
+   Depende de loja.css, que traz as cores, fontes, botoes e campos. */
+
+/* ---------- Topo da pagina ---------- */
+
+.vitrine-topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Numero de produtos que o filtro esta mostrando */
+.contador-produtos {
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+}
+
+/* ---------- Filtros de categoria ---------- */
+
+.filtros {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.filtros__botao {
+  padding: 9px 18px;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda-lg);
+  background-color: transparent;
+  color: var(--cor-texto-suave);
+  font-family: var(--fonte-titulo);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: var(--transicao-padrao);
+}
+
+.filtros__botao:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+  color: var(--cor-texto);
+}
+
+.filtros__botao--ativo {
+  background-color: var(--cor-branca);
+  border-color: var(--cor-branca);
+  color: var(--cor-escura);
+}
+
+/* ---------- Grade de produtos ---------- */
+
+.grade-produtos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 600px) {
+  .grade-produtos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .grade-produtos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Cartao de um produto */
+.produto {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--cor-caixa);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda-lg);
+  overflow: hidden;
+  transition: var(--transicao-padrao);
+}
+
+.produto:hover {
+  border-color: #c9c9c4;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.07);
+}
+
+/* Area da foto, com o mesmo cinza claro das secoes da home */
+.produto__foto {
+  position: relative;
+  background-color: #f2f2f2;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+
+.produto__foto img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Selo de promocao no canto da foto */
+.produto__selo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background-color: var(--cor-destaque);
+  color: var(--cor-escura);
+  font-family: var(--fonte-titulo);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.produto__corpo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 18px;
+  gap: 8px;
+}
+
+.produto__categoria {
+  font-family: var(--fonte-titulo);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cor-texto-suave);
+}
+
+.produto__nome {
+  font-family: var(--fonte-titulo);
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.produto__descricao {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--cor-texto-suave);
+  flex: 1;
+}
+
+/* Ficha rapida da e-bike: motor, bateria, autonomia */
+.produto__ficha {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.produto__ficha li {
+  padding: 3px 9px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 4px;
+  font-size: 0.7rem;
+  color: var(--cor-texto-suave);
+}
+
+.produto__precos {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.produto__preco {
+  font-family: var(--fonte-titulo);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.produto__parcelas {
+  font-size: 0.75rem;
+  color: var(--cor-texto-suave);
+}
+
+/* ---------- Aviso de item adicionado ---------- */
+
+.barra-adicionado {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: calc(100% - 32px);
+  padding: 14px 18px;
+  border-radius: var(--raio-borda-lg);
+  background-color: var(--cor-escura);
+  color: var(--cor-branca);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.barra-adicionado__texto {
+  font-size: 0.85rem;
+}
+
+.barra-adicionado__nome {
+  font-family: var(--fonte-titulo);
+  font-weight: 500;
+}
+
+/* Dentro da barra escura o botao precisa ser claro */
+.barra-adicionado .botao--principal {
+  background-color: var(--cor-branca);
+  border-color: var(--cor-branca);
+  color: var(--cor-escura);
+}
+
+.barra-adicionado .botao--principal:hover {
+  background-color: transparent;
+  color: var(--cor-branca);
+}
+
+/* ---------- Numero de itens no icone do menu ---------- */
+
+.navbar__carrinho {
+  position: relative;
+}
+
+.contador-menu {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: 9px;
+  background-color: var(--cor-destaque);
+  color: #141414;
+  font-family: var(--fonte-titulo);
+  font-size: 0.65rem;
+  font-weight: 700;
+  line-height: 17px;
+  text-align: center;
+}
+
+/* ---------- Tabela comparativa das e-bikes ---------- */
+
+.bloco-secao {
+  margin-top: 72px;
+}
+
+.comparativo-area {
+  overflow-x: auto;
+}
+
+.comparativo {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  background-color: var(--cor-caixa);
+}
+
+.comparativo caption {
+  text-align: left;
+  font-size: 0.82rem;
+  color: var(--cor-texto-suave);
+  padding-bottom: 14px;
+}
+
+.comparativo th,
+.comparativo td {
+  padding: 11px 13px;
+  text-align: left;
+  border: 1px solid var(--cor-borda);
+}
+
+.comparativo thead th {
+  font-family: var(--fonte-titulo);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Cores de preenchimento das celulas da tabela */
+.celula-titulo   { background-color: #141414; color: #ffffff; }
+.celula-grupo    { background-color: #fdf3d2; color: #6b5400; font-family: var(--fonte-titulo); text-align: center; }
+.celula-rotulo   { background-color: #f0f0ee; }
+.celula-urbana   { background-color: #e9f4ec; }
+.celula-montanha { background-color: #e9eefa; }
+.celula-destaque { background-color: #fff8e3; font-family: var(--fonte-titulo); }
+.celula-nota     { background-color: #fafaf8; color: var(--cor-texto-suave); font-size: 0.76rem; }
+
+/* ---------- Galeria de fotos ---------- */
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.galeria img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background-color: #f2f2f2;
+  border: 1px solid var(--cor-borda);
+  border-radius: 4px;
+  display: block;
+}
+
+/* ---------- Marcas parceiras (links externos) ---------- */
+
+.marcas {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+@media (min-width: 700px) {
+  .marcas {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.marcas a {
+  display: block;
+  padding: 14px 12px;
+  background-color: var(--cor-caixa);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda-lg);
+  color: var(--cor-texto-suave);
+  font-family: var(--fonte-titulo);
+  font-size: 0.82rem;
+  text-align: center;
+  text-decoration: none;
+  transition: var(--transicao-padrao);
+}
+
+.marcas a:hover {
+  border-color: var(--cor-escura);
+  color: var(--cor-texto);
+}
+
+/* ---------- Guia de compra em duas colunas ---------- */
+
+.guia {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 800px) {
+  .guia {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

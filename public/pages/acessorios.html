@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrinho - Softbyke</title>
+    <title>Acessórios - Softbyke</title>
     <link rel="stylesheet" href="/CSS/loja.css">
-    <link rel="stylesheet" href="/CSS/carrinho.css">
+    <link rel="stylesheet" href="/CSS/produtos.css">
     <link rel="stylesheet" href="/CSS/navbar.css">
     <link rel="stylesheet" href="/CSS/footer.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body data-tipo="acessorio">
 
       <nav class="navbar-wrapper">
   <div class="navbar-container" id="navbar">
@@ -38,6 +38,7 @@
           <path d="M4 6H16V18C16 19.1046 15.1046 20 14 20H6C4.89543 20 4 19.1046 4 18V6Z"/>
           <path d="M7 6C7 4.34315 8.34315 3 10 3C11.6569 3 13 4.34315 13 6"/>
         </svg>
+        <span class="contador-menu escondido" id="contadorMenu">0</span>
       </a>
     </div>
 
@@ -106,152 +107,132 @@
 
     <!-- Caminho de navegacao -->
     <nav class="trilha" aria-label="Voce esta em">
-      <a href="/">Home</a> / <span>Carrinho</span>
+      <a href="/">Home</a> / <span>Acessórios</span>
     </nav>
 
-    <span class="pagina__etiqueta">Etapa 1 de 3</span>
-    <h1 class="pagina__titulo">Seu carrinho</h1>
-    <p class="pagina__descricao">
-      Confira os produtos escolhidos, ajuste as quantidades e siga para o pagamento.
-      <em>Os valores sao atualizados automaticamente.</em>
-    </p>
+    <div class="vitrine-topo">
+      <div>
+        <span class="pagina__etiqueta">Peças, Componentes e Acessórios</span>
+        <h1 class="pagina__titulo">Equipe a sua bike</h1>
+        <p class="pagina__descricao">
+          Do capacete ao pneu de reposição. Tudo testado pela nossa oficina antes de entrar na loja.
+          <em>Instalação gratuita nas três filiais.</em>
+        </p>
+      </div>
+      <span class="contador-produtos" id="contadorProdutos">0 produtos</span>
+    </div>
 
-    <!-- Etapas da compra -->
-    <ol class="passos" type="1">
-      <li class="passos__item passos__item--ativo"><span class="passos__numero">1</span> Carrinho</li>
-      <li class="passos__item"><span class="passos__numero">2</span> Dados e pagamento</li>
-      <li class="passos__item"><span class="passos__numero">3</span> Confirmacao</li>
-    </ol>
+    <!-- Filtro por categoria -->
+    <ul class="filtros">
+      <li><button type="button" class="filtros__botao filtros__botao--ativo" data-categoria="todas">Todos</button></li>
+      <li><button type="button" class="filtros__botao" data-categoria="Segurança">Segurança</button></li>
+      <li><button type="button" class="filtros__botao" data-categoria="Conforto">Conforto e utilitários</button></li>
+      <li><button type="button" class="filtros__botao" data-categoria="Manutenção">Manutenção e reparos</button></li>
+      <li><button type="button" class="filtros__botao" data-categoria="Componentes">Componentes</button></li>
+    </ul>
 
     </div>
   </header>
 
   <div class="pagina__conteiner pagina__corpo">
 
-    <div class="carrinho-layout">
+    <!-- Os cartoes sao criados pelo produtos.js -->
+    <div class="grade-produtos" id="gradeProdutos"></div>
 
-      <!-- Coluna da esquerda: tabela com os produtos -->
-      <section class="caixa">
+    <!-- ====== Guia rapido de compra ====== -->
+    <section class="bloco-secao">
+      <h2 class="pagina__titulo">Guia rápido de compra</h2>
+      <p class="pagina__descricao">Em caso de dúvida, siga esta ordem.</p>
+      <hr class="linha-divisoria">
 
-        <!-- Este bloco inteiro some quando o carrinho fica vazio -->
-        <div id="areaTabela">
-          <div class="tabela-area">
-            <table class="tabela-carrinho">
-              <caption>Produtos no carrinho</caption>
-
-              <thead>
-                <tr>
-                  <th scope="col">Produto</th>
-                  <th scope="col" class="coluna-numero">Preco unitario</th>
-                  <th scope="col">Quantidade</th>
-                  <th scope="col" class="coluna-numero">Subtotal</th>
-                  <th scope="col">Acao</th>
-                </tr>
-              </thead>
-
-              <!-- As linhas de produto sao criadas pelo carrinho.js -->
-              <tbody id="listaItens"></tbody>
-
-              <!-- Totais do pedido. A primeira celula ocupa as 4 linhas. -->
-              <tfoot>
-                <tr>
-                  <th rowspan="4" scope="row" class="rotulo-vertical">Resumo</th>
-                  <td colspan="2">Subtotal dos produtos</td>
-                  <td colspan="2" class="coluna-numero" id="valorSubtotal">R$ 0,00</td>
-                </tr>
-                <tr>
-                  <td colspan="2">Frete<sup>1</sup></td>
-                  <td colspan="2" class="coluna-numero" id="valorFrete">R$ 0,00</td>
-                </tr>
-                <tr>
-                  <td colspan="2">Desconto do cupom</td>
-                  <td colspan="2" class="coluna-numero" id="valorDesconto">R$ 0,00</td>
-                </tr>
-                <tr class="linha-total">
-                  <td colspan="2"><strong>Total</strong></td>
-                  <td colspan="2" class="coluna-numero"><strong id="valorTotal">R$ 0,00</strong></td>
-                </tr>
-              </tfoot>
-
-            </table>
-          </div>
-
-          <p class="texto-apoio"><sup>1</sup> Frete gratis em compras acima de R$ 5.000,00.</p>
-        </div>
-
-        <!-- Mensagem exibida quando nao ha itens -->
-        <div class="carrinho-vazio escondido" id="carrinhoVazio">
-          <h2 class="carrinho-vazio__titulo">Seu carrinho esta vazio</h2>
-          <p class="carrinho-vazio__texto">Adicione uma e-bike ou um acessorio para continuar.</p>
-          <a href="/e-bikes" class="botao botao--principal">Ver as e-bikes</a>
-        </div>
-
-      </section>
-
-      <!-- Coluna da direita: cupom, frete e acoes -->
-      <aside class="lateral">
-
-        <!-- Cupom de desconto -->
+      <div class="guia">
         <div class="caixa">
-          <h2 class="bloco__titulo">Cupom de desconto</h2>
-          <form class="linha-formulario" id="formCupom">
-            <input type="text" id="campoCupom" class="campo__entrada" placeholder="Digite o codigo" aria-label="Codigo do cupom">
-            <button type="submit" class="botao botao--secundario">Aplicar</button>
-          </form>
-          <p class="aviso" id="avisoCupom"></p>
-          <p class="texto-apoio">Cupons de teste: <strong>SOFTBYKE10</strong> e <strong>PEDAL50</strong>.</p>
-        </div>
-
-        <!-- Calculo de entrega pelo CEP -->
-        <div class="caixa">
-          <h2 class="bloco__titulo">Calcular entrega</h2>
-          <form class="linha-formulario" id="formFrete">
-            <input type="text" id="campoCep" class="campo__entrada" placeholder="00000-000" maxlength="9" inputmode="numeric" aria-label="CEP de entrega">
-            <button type="submit" class="botao botao--secundario">Calcular</button>
-          </form>
-          <p class="aviso" id="avisoCep"></p>
-
-          <!-- Prazos mostrados depois do calculo -->
-          <ul class="lista-frete escondido" id="listaFrete">
-            <li><span>Retirada na filial</span> <span>Gratis - 1 dia util</span></li>
-            <li><span>Entrega padrao</span> <span id="prazoPadrao">5 dias uteis</span></li>
-            <li><span>Leva e Traz (oficina)</span> <span>Sob consulta</span></li>
-          </ul>
-        </div>
-
-        <!-- Resumo e botoes de acao -->
-        <div class="caixa">
-          <h2 class="bloco__titulo">Resumo do pedido</h2>
-          <p class="texto-apoio">Voce tem <strong id="totalPecas">0</strong> peca(s) no carrinho.</p>
+          <h3 class="bloco__titulo">Por onde começar</h3>
+          <ol class="lista-texto" type="I">
+            <li>Capacete no tamanho certo — é o item que mais protege.</li>
+            <li>Iluminação dianteira e traseira, obrigatória à noite.</li>
+            <li>Cadeado reforçado se você estaciona na rua.</li>
+            <li>Kit de reparo para resolver um furo sem depender de ninguém.</li>
+          </ol>
 
           <hr class="linha-divisoria">
 
+          <h3 class="bloco__titulo">Trocas por desgaste</h3>
           <ul class="lista-vantagens" type="square">
-            <li>Garantia de 2 anos nas e-bikes</li>
-            <li>Montagem gratuita nas 3 filiais</li>
-            <li>Primeira revisao sem custo</li>
-            <li>Kit SOS Pedal com cartucho de CO<sub>2</sub></li>
+            <li>Pneu: a cada 3.000 km, ou quando os cravos sumirem.</li>
+            <li>Pastilha de freio: quando a espessura ficar abaixo de 1 mm.</li>
+            <li>Corrente: a cada 2.000 km em uso urbano.</li>
+            <li>Câmara de ar: sempre que houver mais de 3 remendos.</li>
           </ul>
+        </div>
+
+        <div class="caixa">
+          <h3 class="bloco__titulo">Tabela de medidas</h3>
+          <dl class="lista-detalhes">
+            <dt>Capacete P</dt>
+            <dd>51 a 55 cm de circunferência da cabeça</dd>
+
+            <dt>Capacete M</dt>
+            <dd>55 a 59 cm — o tamanho mais vendido</dd>
+
+            <dt>Capacete G</dt>
+            <dd>59 a 63 cm</dd>
+
+            <dt>Selim estreito</dt>
+            <dd>143 mm, para quem pedala inclinado para a frente</dd>
+
+            <dt>Selim largo</dt>
+            <dd>155 mm, para quem pedala sentado e ereto</dd>
+          </dl>
 
           <hr class="linha-divisoria">
-
-          <div class="acoes-empilhadas">
-            <a href="/checkout" class="botao botao--principal botao--largo" id="botaoCheckout">Ir para o pagamento</a>
-            <a href="/e-bikes" class="botao botao--secundario botao--largo">Continuar comprando</a>
-          </div>
-
-          <p class="texto-apoio texto-apoio--espacado"><u>Importante:</u> os precos ficam reservados por 30 minutos.</p>
 
           <blockquote class="citacao">
-            Compra protegida. Seus dados sao usados apenas para processar o pedido.
+            Na dúvida sobre o tamanho, leve a bike até uma filial: a medição é gratuita
+            e leva menos de dez minutos.
           </blockquote>
+
+          <p class="texto-apoio texto-apoio--espacado">
+            <u>Atenção:</u> peças instaladas fora da nossa oficina mantêm a garantia
+            do fabricante, mas não a garantia de instalação da Softbyke.
+          </p>
         </div>
+      </div>
+    </section>
 
-      </aside>
+    <!-- ====== Marcas parceiras: dez links externos ====== -->
+    <section class="bloco-secao">
+      <h2 class="pagina__titulo">Marcas parceiras</h2>
+      <p class="pagina__descricao">
+        Trabalhamos com os fabricantes abaixo. Os links abrem o site oficial de cada marca,
+        em uma nova aba.
+      </p>
+      <hr class="linha-divisoria">
 
-    </div>
+      <ul class="marcas">
+        <li><a href="https://www.shimano.com" target="_blank" rel="noopener">Shimano</a></li>
+        <li><a href="https://www.bosch-ebike.com" target="_blank" rel="noopener">Bosch eBike</a></li>
+        <li><a href="https://www.sram.com" target="_blank" rel="noopener">SRAM</a></li>
+        <li><a href="https://www.abus.com" target="_blank" rel="noopener">Abus</a></li>
+        <li><a href="https://www.schwalbe.com" target="_blank" rel="noopener">Schwalbe</a></li>
+        <li><a href="https://www.continental-tires.com" target="_blank" rel="noopener">Continental</a></li>
+        <li><a href="https://www.garmin.com" target="_blank" rel="noopener">Garmin</a></li>
+        <li><a href="https://www.selleitalia.com" target="_blank" rel="noopener">Selle Italia</a></li>
+        <li><a href="https://www.parktool.com" target="_blank" rel="noopener">Park Tool</a></li>
+        <li><a href="https://www.topeak.com" target="_blank" rel="noopener">Topeak</a></li>
+      </ul>
+    </section>
+
   </div>
 </main>
+
+<!-- Aviso que aparece ao adicionar um produto no carrinho -->
+<div class="barra-adicionado escondido" id="barraAdicionado">
+  <span class="barra-adicionado__texto">
+    <span class="barra-adicionado__nome" id="nomeAdicionado"></span> foi adicionado ao carrinho.
+  </span>
+  <a href="/carrinho" class="botao botao--principal">Ver carrinho</a>
+</div>
 
 <footer class="rodape">
   <div class="rodape__container">
@@ -340,7 +321,7 @@
 </footer>
 
 <script src="/loja.js"></script>
-<script src="/carrinho.js"></script>
+<script src="/produtos.js"></script>
 
 </body>
 </html>

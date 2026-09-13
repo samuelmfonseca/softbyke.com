@@ -48,7 +48,7 @@ function preencherEntrega() {
   if (entrega.cep === '') return;
 
   document.getElementById('cep').value = entrega.cep;
-  escrever('detalhePrazo', entrega.prazo + ' dias uteis apos a confirmacao');
+  escrever('detalhePrazo', entrega.prazo + ' dias úteis após a confirmação');
 }
 
 /* Formata os campos enquanto o usuario digita */
@@ -73,7 +73,7 @@ function ligarPagamento() {
       }
       this.parentNode.className = 'opcao-pagamento opcao-pagamento--marcada';
 
-      mostrar('camposCartao', this.value === 'Cartao de credito');
+      mostrar('camposCartao', this.value === 'Cartão de crédito');
     });
   }
 }
@@ -145,24 +145,24 @@ function formularioValido() {
 
   // Dados pessoais
   if (!conferirTexto('nome', 5, 'Informe o nome completo.')) ok = false;
-  if (!conferirEmail('email', 'Informe um e-mail valido.')) ok = false;
-  if (!conferirNumeros('telefone', 11, 'Informe o DDD e o numero.')) ok = false;
-  if (!conferirNumeros('cpf', 11, 'O CPF precisa ter 11 numeros.')) ok = false;
+  if (!conferirEmail('email', 'Informe um e-mail válido.')) ok = false;
+  if (!conferirNumeros('telefone', 11, 'Informe o DDD e o número.')) ok = false;
+  if (!conferirNumeros('cpf', 11, 'O CPF precisa ter 11 números.')) ok = false;
 
   // Endereco de entrega
-  if (!conferirNumeros('cep', 8, 'O CEP precisa ter 8 numeros.')) ok = false;
-  if (!conferirTexto('numero', 1, 'Informe o numero.')) ok = false;
+  if (!conferirNumeros('cep', 8, 'O CEP precisa ter 8 números.')) ok = false;
+  if (!conferirTexto('numero', 1, 'Informe o número.')) ok = false;
   if (!conferirTexto('endereco', 3, 'Informe a rua.')) ok = false;
   if (!conferirTexto('bairro', 2, 'Informe o bairro.')) ok = false;
   if (!conferirTexto('cidade', 2, 'Informe a cidade.')) ok = false;
   if (!conferirTexto('estado', 2, 'Escolha o estado.')) ok = false;
 
   // Cartao: so e conferido quando essa forma de pagamento esta marcada
-  if (pagamentoEscolhido() === 'Cartao de credito') {
-    if (!conferirNumeros('cartaoNumero', 16, 'O cartao precisa ter 16 numeros.')) ok = false;
-    if (!conferirTexto('cartaoNome', 3, 'Informe o nome do cartao.')) ok = false;
+  if (pagamentoEscolhido() === 'Cartão de crédito') {
+    if (!conferirNumeros('cartaoNumero', 16, 'O cartão precisa ter 16 números.')) ok = false;
+    if (!conferirTexto('cartaoNome', 3, 'Informe o nome do cartão.')) ok = false;
     if (!conferirNumeros('cartaoValidade', 4, 'Use o formato MM/AA.')) ok = false;
-    if (!conferirNumeros('cartaoCvv', 3, 'Informe o codigo de seguranca.')) ok = false;
+    if (!conferirNumeros('cartaoCvv', 3, 'Informe o código de segurança.')) ok = false;
   }
 
   return ok;
@@ -174,7 +174,7 @@ function formularioValido() {
 /* Troca o formulario pela tela de pedido confirmado */
 function mostrarConfirmacao() {
   var pagamento = pagamentoEscolhido();
-  if (pagamento === 'Cartao de credito') {
+  if (pagamento === 'Cartão de crédito') {
     pagamento = pagamento + ' em ' + valorDoCampo('parcelas') + 'x';
   }
 
@@ -212,7 +212,7 @@ function enviarPedido(evento) {
   limparErros();
 
   if (itens.length === 0) {
-    escrever('erroGeral', 'Seu carrinho esta vazio. Volte e escolha um produto.');
+    escrever('erroGeral', 'Seu carrinho está vazio. Volte e escolha um produto.');
     return;
   }
 

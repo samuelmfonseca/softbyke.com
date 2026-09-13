@@ -110,7 +110,7 @@ function aplicarCupom(evento) {
     avisar('avisoCupom', 'Cupom removido.', false);
   } else {
     cupom = '';
-    avisar('avisoCupom', 'Cupom invalido.', false);
+    avisar('avisoCupom', 'Cupom inválido.', false);
   }
 
   salvarCupom(cupom);
@@ -123,7 +123,7 @@ function calcularEntrega(evento) {
   var cep = valorDoCampo('campoCep');
 
   if (somenteNumeros(cep).length !== 8) {
-    avisar('avisoCep', 'Digite um CEP com 8 numeros.', false);
+    avisar('avisoCep', 'Digite um CEP com 8 números.', false);
     mostrar('listaFrete', false);
     return;
   }
@@ -132,9 +132,9 @@ function calcularEntrega(evento) {
   var dias = 8;
   if (cep.charAt(0) <= '3') dias = 3;
 
-  escrever('prazoPadrao', dias + ' dias uteis');
+  escrever('prazoPadrao', dias + ' dias úteis');
   mostrar('listaFrete', true);
-  avisar('avisoCep', 'Entrega disponivel para o CEP ' + cep + '.', true);
+  avisar('avisoCep', 'Entrega disponível para o CEP ' + cep + '.', true);
 
   // Guarda o CEP para preencher o checkout depois
   salvarEntrega(cep, dias);
@@ -155,7 +155,7 @@ function ligarEventos() {
   document.getElementById('botaoCheckout').addEventListener('click', function (evento) {
     if (itens.length === 0) {
       evento.preventDefault();
-      alert('Adicione um produto antes de ir para o checkout.');
+      alert('Adicione um produto antes de ir para o pagamento.');
     }
   });
 }

@@ -1,38 +1,269 @@
-/* Funcoes usadas pelas telas de carrinho e checkout.
-   Carregue este arquivo antes de carrinho.js e checkout.js. */
+/* Funcoes usadas pelas telas de e-bikes, acessorios, carrinho e checkout.
+   Carregue este arquivo antes de produtos.js, carrinho.js e checkout.js. */
 
-/* Catalogo da loja. Em um projeto real viria do banco de dados. */
+/* Catalogo da loja. Em um projeto real viria do banco de dados.
+   tipo: 'ebike' ou 'acessorio'. A categoria e usada nos filtros das telas. */
 var PRODUTOS = [
+
+  /* ---------- E-bikes ---------- */
   {
     id: 'st3-open',
-    nome: 'E-bike ST3 Open',
-    categoria: 'Bicicletas Eletricas',
+    nome: 'Softbyke ST3 Open',
+    tipo: 'ebike',
+    categoria: 'Urbana',
+    descricao: 'Quadro aberto, motor silencioso e bateria integrada. Feita para o trajeto diário na cidade.',
     imagem: '/CSS/Images/bike.png',
     preco: 12900.00,
-    precoAntigo: 14500.00
+    precoAntigo: 14500.00,
+    motor: '250 W',
+    bateria: '487 Wh',
+    autonomia: '60 km',
+    peso: '21 kg'
   },
   {
     id: 'st2',
-    nome: 'E-bike ST2 Urbana',
-    categoria: 'Bicicletas Eletricas',
+    nome: 'Softbyke ST2 Urbana',
+    tipo: 'ebike',
+    categoria: 'Urbana',
+    descricao: 'A porta de entrada da linha. Leve, com troca automática de marchas e farol integrado.',
     imagem: '/CSS/Images/st2.png',
     preco: 9750.00,
+    precoAntigo: 0,
+    motor: '250 W',
+    bateria: '375 Wh',
+    autonomia: '45 km',
+    peso: '19 kg'
+  },
+  {
+    id: 'tero-30',
+    nome: 'Turbo Tero 3.0',
+    tipo: 'ebike',
+    categoria: 'Urbana',
+    descricao: 'Pneus largos e suspensão dianteira. Encara asfalto, paralelepípedo e estrada de terra.',
+    imagem: '/CSS/Images/produtos/tero-30.jpg',
+    preco: 18990.00,
+    precoAntigo: 0,
+    motor: '250 W',
+    bateria: '530 Wh',
+    autonomia: '90 km',
+    peso: '22 kg'
+  },
+  {
+    id: 'vado-30-igh',
+    nome: 'Turbo Vado 3.0 IGH',
+    tipo: 'ebike',
+    categoria: 'Urbana',
+    descricao: 'Câmbio interno no cubo e correia no lugar da corrente: quase nenhuma manutenção.',
+    imagem: '/CSS/Images/produtos/vado-30-igh.jpg',
+    preco: 22990.00,
+    precoAntigo: 0,
+    motor: '250 W',
+    bateria: '530 Wh',
+    autonomia: '90 km',
+    peso: '24 kg'
+  },
+  {
+    id: 'levo-4-alloy',
+    nome: 'Turbo Levo 4 Alloy',
+    tipo: 'ebike',
+    categoria: 'Montanha',
+    descricao: 'Quadro de alumínio e suspensão completa. A entrada da linha de montanha.',
+    imagem: '/CSS/Images/produtos/levo-4-alloy.jpg',
+    preco: 49990.00,
+    precoAntigo: 0,
+    motor: '810 W',
+    bateria: '840 Wh',
+    autonomia: '110 km',
+    peso: '24 kg'
+  },
+  {
+    id: 'levo-4-comp',
+    nome: 'Turbo Levo 4 Comp',
+    tipo: 'ebike',
+    categoria: 'Montanha',
+    descricao: 'Mesmo motor da linha topo, com componentes preparados para trilha pesada.',
+    imagem: '/CSS/Images/produtos/levo-4-comp.jpg',
+    preco: 75990.00,
+    precoAntigo: 0,
+    motor: '810 W',
+    bateria: '840 Wh',
+    autonomia: '110 km',
+    peso: '23 kg'
+  },
+  {
+    id: 'levo-4-expert',
+    nome: 'Turbo Levo 4 Expert',
+    tipo: 'ebike',
+    categoria: 'Montanha',
+    descricao: 'Quadro de carbono e suspensão regulável. Torque de 105 Nm para subidas longas.',
+    imagem: '/CSS/Images/produtos/levo-4-expert.jpg',
+    preco: 87990.00,
+    precoAntigo: 0,
+    motor: '810 W',
+    bateria: '840 Wh',
+    autonomia: '115 km',
+    peso: '22 kg'
+  },
+  {
+    id: 'sw-levo-4',
+    nome: 'S-Works Turbo Levo 4',
+    tipo: 'ebike',
+    categoria: 'Montanha',
+    descricao: 'O topo da linha: 111 Nm de torque, carbono FACT e os melhores componentes do catálogo.',
+    imagem: '/CSS/Images/produtos/sw-levo-4.jpg',
+    preco: 134990.00,
+    precoAntigo: 0,
+    motor: '850 W',
+    bateria: '840 Wh',
+    autonomia: '120 km',
+    peso: '21 kg'
+  },
+
+  /* ---------- Acessorios: seguranca ---------- */
+  {
+    id: 'capacete-chamonix',
+    nome: 'Capacete Chamonix 3',
+    tipo: 'acessorio',
+    categoria: 'Segurança',
+    descricao: 'Capacete urbano com ajuste rápido e boa ventilação. Tamanho único regulável.',
+    imagem: '/CSS/Images/produtos/capacete-chamonix.jpg',
+    preco: 245.00,
     precoAntigo: 0
   },
   {
+    id: 'capacete-align',
+    nome: 'Capacete Align II',
+    tipo: 'acessorio',
+    categoria: 'Segurança',
+    descricao: 'Modelo leve do dia a dia, com tecnologia MIPS contra impactos rotacionais.',
+    imagem: '/CSS/Images/produtos/capacete-align.jpg',
+    preco: 349.00,
+    precoAntigo: 399.00
+  },
+  {
+    id: 'capacete-loma',
+    nome: 'Capacete Loma',
+    tipo: 'acessorio',
+    categoria: 'Segurança',
+    descricao: 'Casco compacto e leve, com espuma de alta densidade e acabamento fosco.',
+    imagem: '/CSS/Images/produtos/capacete-loma.jpg',
+    preco: 690.00,
+    precoAntigo: 0
+  },
+  {
+    id: 'capacete-ambush',
+    nome: 'Capacete Ambush 3',
+    tipo: 'acessorio',
+    categoria: 'Segurança',
+    descricao: 'Proteção estendida na nuca e viseira ajustável. Indicado para trilha.',
+    imagem: '/CSS/Images/produtos/capacete-ambush.jpg',
+    preco: 1690.00,
+    precoAntigo: 0
+  },
+
+  /* ---------- Acessorios: conforto e utilitarios ---------- */
+  {
+    id: 'selim-cup-gel',
+    nome: 'Selim Cup Gel',
+    tipo: 'acessorio',
+    categoria: 'Conforto',
+    descricao: 'Selim largo com camada de gel. Pensado para quem pedala sentado na cidade.',
+    imagem: '/CSS/Images/produtos/selim-cup-gel.jpg',
+    preco: 149.00,
+    precoAntigo: 0
+  },
+  {
+    id: 'selim-power-evo',
+    nome: 'Selim Power EVO Comp',
+    tipo: 'acessorio',
+    categoria: 'Conforto',
+    descricao: 'Bico curto e canal central aliviado, para pedaladas longas sem desconforto.',
+    imagem: '/CSS/Images/produtos/selim-power-evo.jpg',
+    preco: 690.00,
+    precoAntigo: 0
+  },
+  {
+    id: 'garrafa-purist',
+    nome: 'Garrafa Purist MoFlo 650 ml',
+    tipo: 'acessorio',
+    categoria: 'Conforto',
+    descricao: 'Revestimento interno que não guarda cheiro nem sabor. Bico de alto fluxo.',
+    imagem: '/CSS/Images/produtos/garrafa-purist.jpg',
+    preco: 59.00,
+    precoAntigo: 0
+  },
+  {
+    id: 'suporte-garrafa',
+    nome: 'Suporte de Garrafa Rib Cage II',
+    tipo: 'acessorio',
+    categoria: 'Conforto',
+    descricao: 'Suporte leve que segura firme mesmo em piso irregular. Parafusos inclusos.',
+    imagem: '/CSS/Images/produtos/suporte-garrafa.jpg',
+    preco: 50.00,
+    precoAntigo: 0
+  },
+
+  /* ---------- Acessorios: manutencao e reparos ---------- */
+  {
+    id: 'kit-sos',
+    nome: 'Kit SOS Pedal',
+    tipo: 'acessorio',
+    categoria: 'Manutenção',
+    descricao: 'Câmara de ar, espátulas e cartucho de CO2 para resolver um furo na rua.',
+    imagem: '/CSS/Images/roda.jpg',
+    preco: 189.90,
+    precoAntigo: 0
+  },
+  {
+    id: 'pneu-butcher',
+    nome: 'Pneu Butcher Grid Gravity T9',
+    tipo: 'acessorio',
+    categoria: 'Manutenção',
+    descricao: 'Cravos altos e carcaça reforçada. Feito para trilha técnica e piso solto.',
+    imagem: '/CSS/Images/produtos/pneu-butcher.jpg',
+    preco: 790.00,
+    precoAntigo: 0
+  },
+  {
+    id: 'pneu-cotton',
+    nome: 'Pneu Cotton TLR',
+    tipo: 'acessorio',
+    categoria: 'Manutenção',
+    descricao: 'Flanco em algodão e rolagem leve no asfalto. Compatível com tubeless.',
+    imagem: '/CSS/Images/produtos/pneu-cotton.jpg',
+    preco: 1090.00,
+    precoAntigo: 1290.00
+  },
+
+  /* ---------- Acessorios: componentes ---------- */
+  {
     id: 'display',
     nome: 'Display Softbyke Matrix',
-    categoria: 'Pecas e Componentes',
+    tipo: 'acessorio',
+    categoria: 'Componentes',
+    descricao: 'Painel com velocidade, bateria e nível de assistência. Visível sob sol forte.',
     imagem: '/CSS/Images/display.webp',
     preco: 459.00,
     precoAntigo: 0
   },
   {
-    id: 'kit-sos',
-    nome: 'Kit SOS Pedal',
-    categoria: 'Manutencao e Reparos',
-    imagem: '/CSS/Images/roda.jpg',
-    preco: 189.90,
+    id: 'cockpit-roval',
+    nome: 'Cockpit Roval Control',
+    tipo: 'acessorio',
+    categoria: 'Componentes',
+    descricao: 'Guidão e mesa em peça única, mais rígido e com menos parafusos para soltar.',
+    imagem: '/CSS/Images/produtos/cockpit-roval.jpg',
+    preco: 3490.00,
+    precoAntigo: 0
+  },
+  {
+    id: 'roda-roval',
+    nome: 'Roda Roval Control SL VI 350',
+    tipo: 'acessorio',
+    categoria: 'Componentes',
+    descricao: 'Aro de carbono e cubo de engate rápido. Reduz peso na parte que mais importa.',
+    imagem: '/CSS/Images/produtos/roda-roval.jpg',
+    preco: 7000.00,
     precoAntigo: 0
   }
 ];
@@ -96,6 +327,25 @@ function buscarProduto(id) {
     if (PRODUTOS[i].id === id) return PRODUTOS[i];
   }
   return null;
+}
+
+/* Devolve os produtos de um tipo: 'ebike' ou 'acessorio'.
+   Passe uma categoria para filtrar ainda mais, ou 'todas' para trazer tudo. */
+function listarProdutos(tipo, categoria) {
+  var lista = [];
+
+  for (var i = 0; i < PRODUTOS.length; i++) {
+    if (PRODUTOS[i].tipo !== tipo) continue;
+    if (categoria && categoria !== 'todas' && PRODUTOS[i].categoria !== categoria) continue;
+    lista.push(PRODUTOS[i]);
+  }
+
+  return lista;
+}
+
+/* Quantas pecas existem no carrinho hoje. Usado no numero do menu. */
+function pecasNoCarrinho() {
+  return calcularTotais(lerCarrinho(), '').pecas;
 }
 
 /* Calcula pecas, subtotal, frete, desconto e total do carrinho. */
@@ -165,7 +415,7 @@ function formatarPreco(valor) {
 
 /* Frete zero aparece como "Gratis" */
 function textoFrete(valor) {
-  if (valor === 0) return 'Gratis';
+  if (valor === 0) return 'Grátis';
   return formatarPreco(valor);
 }
 

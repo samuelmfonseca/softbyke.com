@@ -1,6 +1,7 @@
-/* Base visual compartilhada pelas telas de carrinho e checkout.
-   As cores e fontes sao as mesmas usadas em style.css, repetidas aqui
-   para que estas paginas funcionem sem depender do CSS da home. */
+/* Base visual compartilhada pelas telas de e-bikes, acessorios, carrinho e checkout.
+
+   A pagina segue o mesmo ritmo da home: uma faixa escura no topo e o corpo claro.
+   As cores sao as mesmas que style.css ja usa nas secoes da home. */
 
 *, *::before, *::after {
   margin: 0;
@@ -13,19 +14,19 @@
   --fonte-titulo: 'Space Grotesk', system-ui, sans-serif;
   --fonte-corpo: 'DM Sans', system-ui, sans-serif;
 
-  /* Cores */
-  --cor-branca: #ffffff;
-  --cor-preta: #000000;
-  --cor-fundo: #141414;
-  --cor-branca-translucida: rgba(255, 255, 255, 0.85);
-  --cor-etiqueta-translucida: rgba(255, 255, 255, 0.5);
+  /* Cores do corpo da pagina (claro) */
+  --cor-fundo: #f6f6f6;
+  --cor-caixa: #ffffff;
+  --cor-borda: #e4e4e1;
+  --cor-texto: #141414;
+  --cor-texto-suave: #5f5f5f;
 
-  /* Cores extras destas telas */
+  /* Cores que nao mudam */
+  --cor-escura: #141414;
+  --cor-branca: #ffffff;
   --cor-destaque: #f5c842;
-  --cor-borda: rgba(255, 255, 255, 0.14);
-  --cor-caixa: rgba(255, 255, 255, 0.04);
-  --cor-erro: #ff6b6b;
-  --cor-sucesso: #63d18c;
+  --cor-erro: #c62828;
+  --cor-sucesso: #2e7d32;
 
   /* Design tokens */
   --raio-borda-lg: 8px;
@@ -41,40 +42,59 @@ html {
 body {
   font-family: var(--fonte-corpo);
   background-color: var(--cor-fundo);
-  color: var(--cor-branca);
+  color: var(--cor-texto);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
 }
 
-/* Area principal. O espaco no topo evita que o menu fixo cubra o conteudo. */
 .pagina {
   flex: 1;
   width: 100%;
-  padding: 120px 24px 80px 24px;
 }
 
 .pagina__conteiner {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 24px;
 }
 
-/* Caminho de navegacao no topo da pagina */
+/* Faixa escura do topo. O espaco de cima evita que o menu fixo cubra o texto.
+   Aqui as cores do texto sao trocadas, entao tudo que fica dentro
+   da faixa fica claro sem precisar de regra propria. */
+.pagina__topo {
+  --cor-texto: #ffffff;
+  --cor-texto-suave: rgba(255, 255, 255, 0.62);
+  --cor-borda: rgba(255, 255, 255, 0.18);
+  --cor-caixa: rgba(255, 255, 255, 0.06);
+
+  background-color: var(--cor-escura);
+  color: var(--cor-texto);
+  padding: 122px 0 40px 0;
+  margin-bottom: 44px;
+}
+
+/* Area de conteudo depois da faixa */
+.pagina__corpo {
+  padding-bottom: 80px;
+}
+
+/* Caminho de navegacao */
 .trilha {
   font-size: 0.8rem;
-  color: var(--cor-etiqueta-translucida);
+  color: var(--cor-texto-suave);
   margin-bottom: 16px;
 }
 
 .trilha a {
-  color: var(--cor-etiqueta-translucida);
+  color: var(--cor-texto-suave);
   text-decoration: none;
 }
 
 .trilha a:hover {
-  color: var(--cor-branca);
+  color: var(--cor-texto);
 }
 
 /* Titulos */
@@ -98,7 +118,7 @@ body {
 }
 
 .pagina__descricao {
-  color: var(--cor-etiqueta-translucida);
+  color: var(--cor-texto-suave);
   font-size: 0.95rem;
   max-width: 620px;
 }
@@ -116,7 +136,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin: 28px 0 40px 0;
+  margin-top: 28px;
 }
 
 .passos__item {
@@ -127,7 +147,7 @@ body {
   border: 1px solid var(--cor-borda);
   border-radius: var(--raio-borda-lg);
   font-size: 0.85rem;
-  color: var(--cor-etiqueta-translucida);
+  color: var(--cor-texto-suave);
 }
 
 .passos__item--ativo {
@@ -140,7 +160,7 @@ body {
   font-weight: 700;
 }
 
-/* Caixa padrao usada nos blocos de conteudo */
+/* Caixa branca usada nos blocos de conteudo */
 .caixa {
   background-color: var(--cor-caixa);
   border: 1px solid var(--cor-borda);
@@ -155,7 +175,7 @@ body {
   margin: 20px 0;
 }
 
-/* Botoes. Seguem o mesmo desenho dos botoes da home. */
+/* Botoes */
 .botao {
   display: inline-flex;
   align-items: center;
@@ -171,25 +191,26 @@ body {
   transition: var(--transicao-padrao);
 }
 
-.botao--claro {
-  background-color: var(--cor-branca);
-  border: 1px solid var(--cor-branca);
-  color: var(--cor-preta);
-}
-
-.botao--claro:hover {
-  background-color: transparent;
+/* Botao principal: escuro sobre o fundo claro */
+.botao--principal {
+  background-color: var(--cor-escura);
+  border: 1px solid var(--cor-escura);
   color: var(--cor-branca);
 }
 
-.botao--contorno {
+.botao--principal:hover {
+  background-color: transparent;
+  color: var(--cor-escura);
+}
+
+.botao--secundario {
   background-color: transparent;
   border: 1px solid var(--cor-borda);
-  color: var(--cor-branca);
+  color: var(--cor-texto);
 }
 
-.botao--contorno:hover {
-  border-color: var(--cor-branca);
+.botao--secundario:hover {
+  border-color: var(--cor-escura);
 }
 
 .botao--largo {
@@ -205,16 +226,16 @@ body {
 
 .campo__rotulo {
   font-size: 0.8rem;
-  color: var(--cor-branca-translucida);
+  color: var(--cor-texto-suave);
 }
 
 .campo__entrada {
   width: 100%;
   padding: 12px 14px;
-  background-color: rgba(255, 255, 255, 0.06);
+  background-color: var(--cor-branca);
   border: 1px solid var(--cor-borda);
   border-radius: var(--raio-borda-lg);
-  color: var(--cor-branca);
+  color: var(--cor-texto);
   font-family: var(--fonte-corpo);
   font-size: 0.9rem;
   transition: border-color var(--transicao-padrao);
@@ -222,11 +243,11 @@ body {
 
 .campo__entrada:focus {
   outline: none;
-  border-color: var(--cor-branca);
+  border-color: var(--cor-escura);
 }
 
 .campo__entrada::placeholder {
-  color: rgba(255, 255, 255, 0.35);
+  color: #a8a8a4;
 }
 
 /* Mensagem de erro que aparece abaixo do campo */
@@ -243,16 +264,21 @@ body {
 /* Texto pequeno de apoio */
 .texto-apoio {
   font-size: 0.8rem;
-  color: var(--cor-etiqueta-translucida);
+  color: var(--cor-texto-suave);
+}
+
+.texto-apoio--espacado {
+  margin-top: 14px;
+  margin-bottom: 14px;
 }
 
 /* Citacao usada nos avisos de seguranca e garantia */
 .citacao {
-  border-left: 2px solid var(--cor-destaque);
+  border-left: 3px solid var(--cor-destaque);
   padding-left: 14px;
   font-size: 0.85rem;
   font-style: italic;
-  color: var(--cor-branca-translucida);
+  color: var(--cor-texto-suave);
 }
 
 /* Lista simples de vantagens */
@@ -263,7 +289,7 @@ body {
   flex-direction: column;
   gap: 8px;
   font-size: 0.85rem;
-  color: var(--cor-branca-translucida);
+  color: var(--cor-texto-suave);
 }
 
 /* Lista de texto. Nao define list-style para respeitar o
@@ -274,12 +300,12 @@ body {
   flex-direction: column;
   gap: 8px;
   font-size: 0.85rem;
-  color: var(--cor-branca-translucida);
+  color: var(--cor-texto-suave);
 }
 
 /* Preco antigo, mostrado riscado nas promocoes */
 .preco-antigo {
-  color: var(--cor-etiqueta-translucida);
+  color: var(--cor-texto-suave);
   font-size: 0.8rem;
 }
 
@@ -296,10 +322,21 @@ body {
   gap: 10px;
 }
 
+/* O rodape do site tem quase a mesma cor do corpo da pagina.
+   Esta linha separa os dois sem precisar mexer em footer.css. */
+body .rodape {
+  border-top: 1px solid var(--cor-borda);
+}
+
 /* Telas menores */
 @media (max-width: 768px) {
-  .pagina {
-    padding: 100px 16px 60px 16px;
+  .pagina__topo {
+    padding-top: 100px;
+    margin-bottom: 32px;
+  }
+
+  .pagina__conteiner {
+    padding: 0 16px;
   }
 
   .caixa {

@@ -34,8 +34,8 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background-color: var(--cor-branca);
-  color: var(--cor-preta);
+  background-color: var(--cor-escura);
+  color: var(--cor-branca);
   font-family: var(--fonte-titulo);
   font-size: 0.8rem;
   font-weight: 700;
@@ -85,18 +85,18 @@
 }
 
 .opcao-pagamento:hover {
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: #b9b9b4;
 }
 
 /* Destaca a opcao marcada */
 .opcao-pagamento--marcada {
-  border-color: var(--cor-branca);
-  background-color: rgba(255, 255, 255, 0.06);
+  border-color: var(--cor-escura);
+  background-color: #f4f4f2;
 }
 
 .opcao-pagamento input {
   margin-top: 3px;
-  accent-color: var(--cor-destaque);
+  accent-color: var(--cor-escura);
 }
 
 .opcao-pagamento__nome {
@@ -107,7 +107,7 @@
 
 .opcao-pagamento__texto {
   font-size: 0.78rem;
-  color: var(--cor-etiqueta-translucida);
+  color: var(--cor-texto-suave);
 }
 
 /* Campos do cartao: so aparecem quando a opcao cartao e escolhida */
@@ -146,7 +146,8 @@
   width: 52px;
   height: 42px;
   object-fit: contain;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: #f2f2f0;
+  border: 1px solid var(--cor-borda);
   border-radius: var(--raio-borda-lg);
   flex-shrink: 0;
 }
@@ -167,14 +168,14 @@
   justify-content: space-between;
   gap: 12px;
   font-size: 0.85rem;
-  color: var(--cor-branca-translucida);
+  color: var(--cor-texto-suave);
   margin-bottom: 8px;
 }
 
 .resumo__linha--total {
   font-family: var(--fonte-titulo);
   font-size: 1.1rem;
-  color: var(--cor-branca);
+  color: var(--cor-texto);
   margin-top: 12px;
 }
 
@@ -188,12 +189,12 @@
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--cor-etiqueta-translucida);
+  color: var(--cor-texto-suave);
   margin-top: 12px;
 }
 
 .lista-detalhes dd {
-  color: var(--cor-branca-translucida);
+  color: var(--cor-texto);
   margin-top: 2px;
 }
 
@@ -224,7 +225,7 @@
 }
 
 .pedido-ok__texto {
-  color: var(--cor-etiqueta-translucida);
+  color: var(--cor-texto-suave);
   font-size: 0.9rem;
   margin-bottom: 6px;
 }
@@ -232,7 +233,7 @@
 .pedido-ok__codigo {
   font-family: var(--fonte-titulo);
   font-size: 1.2rem;
-  color: var(--cor-destaque);
+  color: #8a6d10;
   margin-bottom: 24px;
 }
 
