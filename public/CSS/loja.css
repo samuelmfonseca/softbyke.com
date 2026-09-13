@@ -1,0 +1,308 @@
+/* Base visual compartilhada pelas telas de carrinho e checkout.
+   As cores e fontes sao as mesmas usadas em style.css, repetidas aqui
+   para que estas paginas funcionem sem depender do CSS da home. */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Fontes */
+  --fonte-titulo: 'Space Grotesk', system-ui, sans-serif;
+  --fonte-corpo: 'DM Sans', system-ui, sans-serif;
+
+  /* Cores */
+  --cor-branca: #ffffff;
+  --cor-preta: #000000;
+  --cor-fundo: #141414;
+  --cor-branca-translucida: rgba(255, 255, 255, 0.85);
+  --cor-etiqueta-translucida: rgba(255, 255, 255, 0.5);
+
+  /* Cores extras destas telas */
+  --cor-destaque: #f5c842;
+  --cor-borda: rgba(255, 255, 255, 0.14);
+  --cor-caixa: rgba(255, 255, 255, 0.04);
+  --cor-erro: #ff6b6b;
+  --cor-sucesso: #63d18c;
+
+  /* Design tokens */
+  --raio-borda-lg: 8px;
+  --transicao-padrao: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--fonte-corpo);
+  background-color: var(--cor-fundo);
+  color: var(--cor-branca);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Area principal. O espaco no topo evita que o menu fixo cubra o conteudo. */
+.pagina {
+  flex: 1;
+  width: 100%;
+  padding: 120px 24px 80px 24px;
+}
+
+.pagina__conteiner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Caminho de navegacao no topo da pagina */
+.trilha {
+  font-size: 0.8rem;
+  color: var(--cor-etiqueta-translucida);
+  margin-bottom: 16px;
+}
+
+.trilha a {
+  color: var(--cor-etiqueta-translucida);
+  text-decoration: none;
+}
+
+.trilha a:hover {
+  color: var(--cor-branca);
+}
+
+/* Titulos */
+.pagina__etiqueta {
+  display: block;
+  font-family: var(--fonte-titulo);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cor-destaque);
+  margin-bottom: 10px;
+}
+
+.pagina__titulo {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.pagina__descricao {
+  color: var(--cor-etiqueta-translucida);
+  font-size: 0.95rem;
+  max-width: 620px;
+}
+
+.bloco__titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+/* Lista ordenada com as etapas da compra */
+.passos {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 28px 0 40px 0;
+}
+
+.passos__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda-lg);
+  font-size: 0.85rem;
+  color: var(--cor-etiqueta-translucida);
+}
+
+.passos__item--ativo {
+  border-color: var(--cor-branca);
+  color: var(--cor-branca);
+}
+
+.passos__numero {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+}
+
+/* Caixa padrao usada nos blocos de conteudo */
+.caixa {
+  background-color: var(--cor-caixa);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda-lg);
+  padding: 24px;
+}
+
+/* Linha divisoria */
+.linha-divisoria {
+  border: none;
+  border-top: 1px solid var(--cor-borda);
+  margin: 20px 0;
+}
+
+/* Botoes. Seguem o mesmo desenho dos botoes da home. */
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: var(--raio-borda-lg);
+  font-family: var(--fonte-titulo);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transicao-padrao);
+}
+
+.botao--claro {
+  background-color: var(--cor-branca);
+  border: 1px solid var(--cor-branca);
+  color: var(--cor-preta);
+}
+
+.botao--claro:hover {
+  background-color: transparent;
+  color: var(--cor-branca);
+}
+
+.botao--contorno {
+  background-color: transparent;
+  border: 1px solid var(--cor-borda);
+  color: var(--cor-branca);
+}
+
+.botao--contorno:hover {
+  border-color: var(--cor-branca);
+}
+
+.botao--largo {
+  width: 100%;
+}
+
+/* Campos de formulario */
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo__rotulo {
+  font-size: 0.8rem;
+  color: var(--cor-branca-translucida);
+}
+
+.campo__entrada {
+  width: 100%;
+  padding: 12px 14px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda-lg);
+  color: var(--cor-branca);
+  font-family: var(--fonte-corpo);
+  font-size: 0.9rem;
+  transition: border-color var(--transicao-padrao);
+}
+
+.campo__entrada:focus {
+  outline: none;
+  border-color: var(--cor-branca);
+}
+
+.campo__entrada::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* Mensagem de erro que aparece abaixo do campo */
+.campo__erro {
+  font-size: 0.75rem;
+  color: var(--cor-erro);
+  min-height: 14px;
+}
+
+.campo__entrada--invalido {
+  border-color: var(--cor-erro);
+}
+
+/* Texto pequeno de apoio */
+.texto-apoio {
+  font-size: 0.8rem;
+  color: var(--cor-etiqueta-translucida);
+}
+
+/* Citacao usada nos avisos de seguranca e garantia */
+.citacao {
+  border-left: 2px solid var(--cor-destaque);
+  padding-left: 14px;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--cor-branca-translucida);
+}
+
+/* Lista simples de vantagens */
+.lista-vantagens {
+  list-style: square;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--cor-branca-translucida);
+}
+
+/* Lista de texto. Nao define list-style para respeitar o
+   atributo type usado no HTML (a, i, 1). */
+.lista-texto {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--cor-branca-translucida);
+}
+
+/* Preco antigo, mostrado riscado nas promocoes */
+.preco-antigo {
+  color: var(--cor-etiqueta-translucida);
+  font-size: 0.8rem;
+}
+
+/* Esconde um elemento pela classe. O !important garante que funcione
+   mesmo em elementos que usam display flex. */
+.escondido {
+  display: none !important;
+}
+
+/* Botoes empilhados um sobre o outro */
+.acoes-empilhadas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Telas menores */
+@media (max-width: 768px) {
+  .pagina {
+    padding: 100px 16px 60px 16px;
+  }
+
+  .caixa {
+    padding: 18px;
+  }
+}

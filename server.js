@@ -32,6 +32,10 @@ app.get('/sobre', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'pages', 'sobre.html'));
 });
 
+app.get('/carrinho', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'pages', 'carrinho.html'));
+});
+
 app.get('/checkout', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'pages', 'checkout.html'));
 });
