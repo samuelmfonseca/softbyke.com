@@ -1,0 +1,225 @@
+/* ========================================
+   ESTILOS DO NAVBAR FLUTUANTE (VANMOOF)
+   ======================================== */
+
+/* Wrapper Fixo no topo da tela */
+.navbar-wrapper {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: calc(100% - 24px);
+  max-width: 600px; /* tablet:w-150 */
+  box-sizing: border-box;
+}
+
+/* Container do Nav com Efeito Glassmorphism & Gradiente */
+.navbar-container {
+  width: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(120, 120, 120, 0.65) 0%,
+    rgba(80, 80, 80, 0.75) 100%
+  );
+  backdrop-filter: blur(30px) saturate(140%);
+  -webkit-backdrop-filter: blur(30px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  color: #ffffff;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* --- HEADER FIXO (Cabeçalho do Menu) --- */
+.navbar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  padding: 0 16px;
+  position: relative;
+}
+
+/* Botão Hambúrguer / Fechar */
+.navbar__toggle {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 8px 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 28px;
+  height: 28px;
+  z-index: 10;
+}
+
+.navbar__toggle-linha {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+/* Animação do Hambúrguer transformando em 'X' */
+.navbar-container.is-open .navbar__toggle-linha:nth-child(1) {
+  transform: translateY(3.5px) rotate(45deg);
+}
+
+.navbar-container.is-open .navbar__toggle-linha:nth-child(2) {
+  transform: translateY(-3.5px) rotate(-45deg);
+}
+
+/* Logo Centralizado */
+.navbar__logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.navbar__logo svg {
+  height: 26px;
+  width: auto;
+}
+
+/* Ícone da Sacola de Compras */
+.navbar__carrinho {
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+
+.navbar__carrinho:hover {
+  opacity: 1;
+}
+
+/* --- CORPO DO MENU (Exibido quando aberto) --- */
+.navbar__body {
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.3s ease,
+              visibility 0.3s ease;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar-container.is-open .navbar__body {
+  max-height: 620px;
+  opacity: 1;
+  visibility: visible;
+  padding-bottom: 24px;
+}
+
+/* --- CARDS DE PRODUTOS (Bikes S6 e S6 open) --- */
+.navbar__grid-bikes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 8px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.navbar__bike-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+  color: #ffffff;
+  position: relative;
+}
+
+.navbar__bike-img-wrapper {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar__bike-img-wrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+}
+
+.navbar__bike-nome {
+  font-family: var(--fonte-titulo, system-ui, sans-serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+/* --- LISTA DE LINKS PRINCIPAIS --- */
+.navbar__links {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.navbar__link-item a {
+  font-family: var(--fonte-titulo, system-ui, sans-serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: opacity 0.2s ease;
+}
+
+.navbar__link-item a:hover {
+  opacity: 0.7;
+}
+
+/* --- RODAPÉ DO MENU (Idioma e Conta) --- */
+.navbar__rodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.9rem;
+}
+
+.navbar__idioma,
+.navbar__conta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.navbar__idioma:hover,
+.navbar__conta:hover {
+  opacity: 0.8;
+}
