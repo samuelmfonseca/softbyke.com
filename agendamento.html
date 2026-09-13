@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendamento de Serviços | Softbyke</title>
+  <style>
+    :root {
+      --primary-accent: #FD8A50;
+      --dark-contrast: #0F172A;
+      --electric-accent: #06B6D4;
+      --neutral-support: #64748B;
+      --light-canvas: #F8FAFC;
+      --white: #FFFFFF;
+      --border-color: #E2E8F0;
+      
+      --font-headline: 'D-DIN PRO', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-body: 'Helvetica', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--light-canvas);
+      color: var(--dark-contrast);
+      font-family: var(--font-body);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Header */
+    header {
+      background-color: var(--white);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      font-family: var(--font-headline);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--dark-contrast);
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: var(--primary-accent);
+    }
+
+    /* Container Principal */
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .page-header span {
+      color: var(--primary-accent);
+      font-family: var(--font-headline);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .page-header h1 {
+      font-size: 2.5rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Formulario */
+    .form-card {
+      background-color: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 3rem;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+    }
+
+    .form-group {
+      margin-bottom: 1.75rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+      color: var(--dark-contrast);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--dark-contrast);
+      background-color: var(--light-canvas);
+      transition: border-color 0.2s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary-accent);
+      background-color: var(--white);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background-color: var(--primary-accent);
+      color: var(--white);
+      padding: 1rem;
+      border: none;
+      border-radius: 6px;
+      font-family: var(--font-headline);
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      margin-top: 1rem;
+    }
+
+    .btn-submit:hover {
+      background-color: #e5783f;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark-contrast);
+      color: var(--neutral-support);
+      padding: 3rem 2rem 2rem 2rem;
+      margin-top: 6rem;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .form-card {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <a href="sobre.html" class="brand-logo">SOFTBYKE</a>
+      <ul class="nav-menu">
+        <li><a href="sobre.html">A Softbyke</a></li>
+        <li><a href="agendamento.html" class="active">Agendamento</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-header">
+      <span>Oficina Especializada</span>
+      <h1>Agende Sua Revisão</h1>
+    </div>
+
+    <div class="form-card">
+      <form action="#" method="POST">
+        <div class="form-group">
+          <label for="nome">Nome Completo</label>
+          <input type="text" id="nome" class="form-control" placeholder="Digite seu nome" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" class="form-control" placeholder="seu@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="telefone">Telefone / WhatsApp</label>
+            <input type="tel" id="telefone" class="form-control" placeholder="(11) 99999-9999" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="filial">Unidade de Atendimento</label>
+            <select id="filial" class="form-control" required>
+              <option value="">Selecione uma filial</option>
+              <option value="jardins">Filial 1 - Jardins</option>
+              <option value="moema">Filial 2 - Moema</option>
+              <option value="alphaville">Filial 3 - Alphaville</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="servico">Tipo de Serviço</label>
+            <select id="servico" class="form-control" required>
+              <option value="">Selecione o serviço</option>
+              <option value="revisao-a">Revisão A (Básica)</option>
+              <option value="revisao-b">Revisão B (Completa)</option>
+              <option value="revisao-c">Revisão C (Premium)</option>
+              <option value="express">Serviço Express</option>
+              <option value="leva-traz">Serviço Leva e Traz</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="data">Data Preferencial</label>
+            <input type="date" id="data" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="horario">Horário Preferencial</label>
+            <input type="time" id="horario" class="form-control" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="observacoes">Modelo da E-bike / Observações</label>
+          <textarea id="observacoes" class="form-control" rows="4" placeholder="Informe o modelo da bicicleta e detalhes sobre a manutenção necessária"></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Confirmar Agendamento</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Softbyke. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>
