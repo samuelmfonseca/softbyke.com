@@ -1,0 +1,245 @@
+/* Estilos da tela de checkout.
+   Depende de loja.css, que traz as cores, fontes e botoes. */
+
+/* Duas colunas no desktop: formulario e resumo do pedido. */
+.checkout-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (min-width: 992px) {
+  .checkout-layout {
+    grid-template-columns: 1.6fr 1fr;
+  }
+}
+
+/* Cada etapa do formulario fica dentro de uma caixa */
+.form-secao {
+  margin-bottom: 16px;
+}
+
+.form-secao__cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.form-secao__numero {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--cor-escura);
+  color: var(--cor-branca);
+  font-family: var(--fonte-titulo);
+  font-size: 0.8rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.form-secao__titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Grade de campos: duas colunas no desktop, uma no celular */
+.form-grade {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+@media (min-width: 640px) {
+  .form-grade {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form-grade__largura-total {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Opcoes de pagamento em formato de cartao clicavel */
+.lista-pagamento {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.opcao-pagamento {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda-lg);
+  cursor: pointer;
+  transition: border-color var(--transicao-padrao), background-color var(--transicao-padrao);
+}
+
+.opcao-pagamento:hover {
+  border-color: #b9b9b4;
+}
+
+/* Destaca a opcao marcada */
+.opcao-pagamento--marcada {
+  border-color: var(--cor-escura);
+  background-color: #f4f4f2;
+}
+
+.opcao-pagamento input {
+  margin-top: 3px;
+  accent-color: var(--cor-escura);
+}
+
+.opcao-pagamento__nome {
+  font-family: var(--fonte-titulo);
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.opcao-pagamento__texto {
+  font-size: 0.78rem;
+  color: var(--cor-texto-suave);
+}
+
+/* Campos do cartao: so aparecem quando a opcao cartao e escolhida */
+.campos-cartao {
+  margin-top: 16px;
+}
+
+/* Resumo do pedido na lateral */
+.resumo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 992px) {
+  .resumo {
+    position: sticky;
+    top: 100px;
+  }
+}
+
+.resumo__itens {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.resumo__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.resumo__imagem {
+  width: 52px;
+  height: 42px;
+  object-fit: contain;
+  background-color: #f2f2f0;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda-lg);
+  flex-shrink: 0;
+}
+
+.resumo__nome {
+  font-size: 0.85rem;
+  flex: 1;
+}
+
+.resumo__valor {
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+/* Linhas de subtotal, frete, desconto e total */
+.resumo__linha {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+  margin-bottom: 8px;
+}
+
+.resumo__linha--total {
+  font-family: var(--fonte-titulo);
+  font-size: 1.1rem;
+  color: var(--cor-texto);
+  margin-top: 12px;
+}
+
+/* Lista de descricao com os dados do pedido */
+.lista-detalhes {
+  font-size: 0.82rem;
+}
+
+.lista-detalhes dt {
+  font-family: var(--fonte-titulo);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cor-texto-suave);
+  margin-top: 12px;
+}
+
+.lista-detalhes dd {
+  color: var(--cor-texto);
+  margin-top: 2px;
+}
+
+/* Tela de pedido confirmado */
+.pedido-ok {
+  text-align: center;
+  padding: 56px 24px;
+}
+
+.pedido-ok__selo {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid var(--cor-sucesso);
+  color: var(--cor-sucesso);
+  font-size: 1.6rem;
+}
+
+.pedido-ok__titulo {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.pedido-ok__texto {
+  color: var(--cor-texto-suave);
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.pedido-ok__codigo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.2rem;
+  color: #8a6d10;
+  margin-bottom: 24px;
+}
+
+.pedido-ok__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}

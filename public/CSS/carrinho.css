@@ -1,0 +1,236 @@
+/* Estilos da tela de carrinho.
+   Depende de loja.css, que traz as cores, fontes e botoes. */
+
+/* Duas colunas no desktop: tabela de itens e coluna lateral. */
+.carrinho-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (min-width: 992px) {
+  .carrinho-layout {
+    grid-template-columns: 1.9fr 1fr;
+  }
+}
+
+/* A tabela rola na horizontal em telas pequenas. */
+.tabela-area {
+  overflow-x: auto;
+}
+
+.tabela-carrinho {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.tabela-carrinho caption {
+  text-align: left;
+  font-family: var(--fonte-titulo);
+  font-size: 1.15rem;
+  padding-bottom: 16px;
+}
+
+.tabela-carrinho th,
+.tabela-carrinho td {
+  padding: 16px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--cor-borda);
+  vertical-align: middle;
+}
+
+/* Cabecalho da tabela */
+.tabela-carrinho thead th {
+  font-family: var(--fonte-titulo);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cor-texto-suave);
+  background-color: #f2f2f0;
+}
+
+/* Colunas de numero alinhadas a direita */
+.coluna-numero {
+  text-align: right;
+}
+
+.tabela-carrinho td.coluna-numero,
+.tabela-carrinho th.coluna-numero {
+  text-align: right;
+}
+
+/* Celula do produto: imagem + nome */
+.produto-celula {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.produto-celula__imagem {
+  width: 72px;
+  height: 56px;
+  object-fit: contain;
+  background-color: #f2f2f0;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda-lg);
+  flex-shrink: 0;
+}
+
+.produto-celula__nome {
+  font-family: var(--fonte-titulo);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.produto-celula__categoria {
+  font-size: 0.75rem;
+  color: var(--cor-texto-suave);
+}
+
+/* Controle de quantidade: - numero + */
+.quantidade {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda-lg);
+  overflow: hidden;
+}
+
+.quantidade__botao {
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  color: var(--cor-texto);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color var(--transicao-padrao);
+}
+
+.quantidade__botao:hover {
+  background-color: #ececea;
+}
+
+.quantidade__valor {
+  min-width: 32px;
+  text-align: center;
+  font-family: var(--fonte-titulo);
+  font-size: 0.9rem;
+}
+
+/* Botao de remover item */
+.botao-remover {
+  background: transparent;
+  border: none;
+  color: var(--cor-texto-suave);
+  font-size: 0.8rem;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color var(--transicao-padrao);
+}
+
+.botao-remover:hover {
+  color: var(--cor-erro);
+}
+
+/* Rodape da tabela com os totais */
+.tabela-carrinho tfoot td,
+.tabela-carrinho tfoot th {
+  border-bottom: none;
+  padding: 10px 12px;
+}
+
+.tabela-carrinho tfoot .rotulo-vertical {
+  font-family: var(--fonte-titulo);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cor-texto-suave);
+  background-color: #f2f2f0;
+  text-align: center;
+  width: 110px;
+}
+
+.linha-total td {
+  border-top: 1px solid var(--cor-borda);
+  font-family: var(--fonte-titulo);
+  font-size: 1.1rem;
+}
+
+/* Mensagem exibida quando o carrinho fica vazio */
+.carrinho-vazio {
+  text-align: center;
+  padding: 48px 20px;
+}
+
+.carrinho-vazio__titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.carrinho-vazio__texto {
+  color: var(--cor-texto-suave);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+/* Coluna lateral */
+.lateral {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 992px) {
+  .lateral {
+    position: sticky;
+    top: 100px;
+  }
+}
+
+/* Formulario do cupom e do frete */
+.linha-formulario {
+  display: flex;
+  gap: 8px;
+}
+
+.linha-formulario .campo__entrada {
+  flex: 1;
+}
+
+/* Aviso de retorno do cupom e do frete */
+.aviso {
+  font-size: 0.8rem;
+  margin-top: 8px;
+  min-height: 16px;
+}
+
+.aviso--ok {
+  color: var(--cor-sucesso);
+}
+
+.aviso--erro {
+  color: var(--cor-erro);
+}
+
+/* Lista de opcoes de frete */
+.lista-frete {
+  list-style: none;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--cor-texto-suave);
+}
+
+.lista-frete li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}

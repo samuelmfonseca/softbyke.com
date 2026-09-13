@@ -1,0 +1,345 @@
+/* Base visual compartilhada pelas telas de e-bikes, acessorios, carrinho e checkout.
+
+   A pagina segue o mesmo ritmo da home: uma faixa escura no topo e o corpo claro.
+   As cores sao as mesmas que style.css ja usa nas secoes da home. */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Fontes */
+  --fonte-titulo: 'Space Grotesk', system-ui, sans-serif;
+  --fonte-corpo: 'DM Sans', system-ui, sans-serif;
+
+  /* Cores do corpo da pagina (claro) */
+  --cor-fundo: #f6f6f6;
+  --cor-caixa: #ffffff;
+  --cor-borda: #e4e4e1;
+  --cor-texto: #141414;
+  --cor-texto-suave: #5f5f5f;
+
+  /* Cores que nao mudam */
+  --cor-escura: #141414;
+  --cor-branca: #ffffff;
+  --cor-destaque: #f5c842;
+  --cor-erro: #c62828;
+  --cor-sucesso: #2e7d32;
+
+  /* Design tokens */
+  --raio-borda-lg: 8px;
+  --transicao-padrao: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--fonte-corpo);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.pagina {
+  flex: 1;
+  width: 100%;
+}
+
+.pagina__conteiner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Faixa escura do topo. O espaco de cima evita que o menu fixo cubra o texto.
+   Aqui as cores do texto sao trocadas, entao tudo que fica dentro
+   da faixa fica claro sem precisar de regra propria. */
+.pagina__topo {
+  --cor-texto: #ffffff;
+  --cor-texto-suave: rgba(255, 255, 255, 0.62);
+  --cor-borda: rgba(255, 255, 255, 0.18);
+  --cor-caixa: rgba(255, 255, 255, 0.06);
+
+  background-color: var(--cor-escura);
+  color: var(--cor-texto);
+  padding: 122px 0 40px 0;
+  margin-bottom: 44px;
+}
+
+/* Area de conteudo depois da faixa */
+.pagina__corpo {
+  padding-bottom: 80px;
+}
+
+/* Caminho de navegacao */
+.trilha {
+  font-size: 0.8rem;
+  color: var(--cor-texto-suave);
+  margin-bottom: 16px;
+}
+
+.trilha a {
+  color: var(--cor-texto-suave);
+  text-decoration: none;
+}
+
+.trilha a:hover {
+  color: var(--cor-texto);
+}
+
+/* Titulos */
+.pagina__etiqueta {
+  display: block;
+  font-family: var(--fonte-titulo);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cor-destaque);
+  margin-bottom: 10px;
+}
+
+.pagina__titulo {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.pagina__descricao {
+  color: var(--cor-texto-suave);
+  font-size: 0.95rem;
+  max-width: 620px;
+}
+
+.bloco__titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+/* Lista ordenada com as etapas da compra */
+.passos {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.passos__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda-lg);
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+}
+
+.passos__item--ativo {
+  border-color: var(--cor-branca);
+  color: var(--cor-branca);
+}
+
+.passos__numero {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+}
+
+/* Caixa branca usada nos blocos de conteudo */
+.caixa {
+  background-color: var(--cor-caixa);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda-lg);
+  padding: 24px;
+}
+
+/* Linha divisoria */
+.linha-divisoria {
+  border: none;
+  border-top: 1px solid var(--cor-borda);
+  margin: 20px 0;
+}
+
+/* Botoes */
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: var(--raio-borda-lg);
+  font-family: var(--fonte-titulo);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transicao-padrao);
+}
+
+/* Botao principal: escuro sobre o fundo claro */
+.botao--principal {
+  background-color: var(--cor-escura);
+  border: 1px solid var(--cor-escura);
+  color: var(--cor-branca);
+}
+
+.botao--principal:hover {
+  background-color: transparent;
+  color: var(--cor-escura);
+}
+
+.botao--secundario {
+  background-color: transparent;
+  border: 1px solid var(--cor-borda);
+  color: var(--cor-texto);
+}
+
+.botao--secundario:hover {
+  border-color: var(--cor-escura);
+}
+
+.botao--largo {
+  width: 100%;
+}
+
+/* Campos de formulario */
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo__rotulo {
+  font-size: 0.8rem;
+  color: var(--cor-texto-suave);
+}
+
+.campo__entrada {
+  width: 100%;
+  padding: 12px 14px;
+  background-color: var(--cor-branca);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda-lg);
+  color: var(--cor-texto);
+  font-family: var(--fonte-corpo);
+  font-size: 0.9rem;
+  transition: border-color var(--transicao-padrao);
+}
+
+.campo__entrada:focus {
+  outline: none;
+  border-color: var(--cor-escura);
+}
+
+.campo__entrada::placeholder {
+  color: #a8a8a4;
+}
+
+/* Mensagem de erro que aparece abaixo do campo */
+.campo__erro {
+  font-size: 0.75rem;
+  color: var(--cor-erro);
+  min-height: 14px;
+}
+
+.campo__entrada--invalido {
+  border-color: var(--cor-erro);
+}
+
+/* Texto pequeno de apoio */
+.texto-apoio {
+  font-size: 0.8rem;
+  color: var(--cor-texto-suave);
+}
+
+.texto-apoio--espacado {
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+
+/* Citacao usada nos avisos de seguranca e garantia */
+.citacao {
+  border-left: 3px solid var(--cor-destaque);
+  padding-left: 14px;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--cor-texto-suave);
+}
+
+/* Lista simples de vantagens */
+.lista-vantagens {
+  list-style: square;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+}
+
+/* Lista de texto. Nao define list-style para respeitar o
+   atributo type usado no HTML (a, i, 1). */
+.lista-texto {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+}
+
+/* Preco antigo, mostrado riscado nas promocoes */
+.preco-antigo {
+  color: var(--cor-texto-suave);
+  font-size: 0.8rem;
+}
+
+/* Esconde um elemento pela classe. O !important garante que funcione
+   mesmo em elementos que usam display flex. */
+.escondido {
+  display: none !important;
+}
+
+/* Botoes empilhados um sobre o outro */
+.acoes-empilhadas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* O rodape do site tem quase a mesma cor do corpo da pagina.
+   Esta linha separa os dois sem precisar mexer em footer.css. */
+body .rodape {
+  border-top: 1px solid var(--cor-borda);
+}
+
+/* Telas menores */
+@media (max-width: 768px) {
+  .pagina__topo {
+    padding-top: 100px;
+    margin-bottom: 32px;
+  }
+
+  .pagina__conteiner {
+    padding: 0 16px;
+  }
+
+  .caixa {
+    padding: 18px;
+  }
+}
