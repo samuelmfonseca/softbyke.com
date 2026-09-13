@@ -3,24 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agendamento de Manutenção | Softbyke</title>
+  <title>Softbyke - Agendamento de Test Ride e Revisão</title>
+  
+  <!-- Fonte Inter do Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     /* ==========================================================================
-       1. GUIA DE ESTILO & VARIÁVEIS (Conforme Style Guide e Briefing)
+       VARIÁVEIS CSS E PADRONIZAÇÃO DA MARCA (SOFTBYKE)
        ========================================================================== */
     :root {
-      --primary-accent: #FD8A50;   /* Coral Orange */
-      --dark-contrast: #0F172A;    /* Graphite Blue */
-      --electric-accent: #06B6D4;  /* Tech Cyan */
-      --neutral-support: #64748B;  /* Steel Gray */
-      --light-canvas: #F8FAFC;     /* Mist White */
-      --white: #FFFFFF;
-      --border-color: #E2E8F0;
+      /* Cores Base */
+      --bg-dark: #111111;
+      --bg-header: #262626;
+      --bg-card: #FFFFFF;
+      --bg-card-subtle: #F6F6F6;
+
+      /* Cores de Texto */
+      --text-white: #FFFFFF;
+      --text-muted: #A3A3A3;
+      --text-dark: #171717;
+      --text-secondary: #666666;
+
+      /* Destaque & Ações */
+      --accent-yellow: #EAB308;
+      --accent-yellow-light: #FEF08A;
+      --btn-black: #171717;
+      --btn-black-hover: #000000;
       
-      --font-headline: 'D-DIN PRO', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      --font-body: 'Helvetica', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+      /* Bordas e Divisores */
+      --border-color: #E5E5E5;
+      --border-dark-pill: #333333;
+
+      /* Tipografia */
+      --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      
+      /* Efeitos */
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 16px;
+      --radius-pill: 50px;
+      --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.06);
+      --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
+    /* Reset e Estilos Globais */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -28,644 +57,781 @@
     }
 
     body {
-      background-color: var(--light-canvas);
-      color: var(--dark-contrast);
-      font-family: var(--font-body);
-      line-height: 1.6;
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      font-family: var(--font-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 60px;
       -webkit-font-smoothing: antialiased;
     }
 
-    h1, h2, h3, h4 {
-      font-family: var(--font-headline);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      text-transform: uppercase;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
     /* ==========================================================================
-       2. CABEÇALHO (Header / Navegação)
+       HEADER FLUTUANTE EM ESTILO PÍLULA (Conforme imagem original)
        ========================================================================== */
-    header {
-      background-color: var(--white);
-      border-bottom: 1px solid var(--border-color);
+    .header-bar {
+      margin-top: 24px;
+      width: calc(100% - 32px);
+      max-width: 520px;
+      background-color: var(--bg-header);
+      border: 1px solid var(--border-dark-pill);
+      border-radius: var(--radius-pill);
+      padding: 10px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
       position: sticky;
-      top: 0;
+      top: 20px;
       z-index: 100;
     }
 
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1.25rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .brand-logo {
-      font-family: var(--font-headline);
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--dark-contrast);
-      letter-spacing: -0.03em;
-    }
-
-    .nav-menu {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-
-    .nav-menu a {
-      transition: color 0.2s ease;
-    }
-
-    .nav-menu a:hover,
-    .nav-menu a.active {
-      color: var(--primary-accent);
-    }
-
-    /* ==========================================================================
-       3. CONTEÚDO PRINCIPAL E LAYOUT CLEAN (Whitespace)
-       ========================================================================== */
-    main {
-      max-width: 1000px;
-      margin: 4rem auto;
-      padding: 0 2rem;
-    }
-
-    .page-header {
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
-
-    .page-header h1 {
-      font-size: 2.5rem;
-      color: var(--dark-contrast);
-      margin-bottom: 0.75rem;
-    }
-
-    .page-header p {
-      color: var(--neutral-support);
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .booking-card {
-      background-color: var(--white);
-      border-radius: 12px;
-      padding: 3rem;
-      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
-      border: 1px solid var(--border-color);
-    }
-
-    /* Form Stepper / Indicador de Passos */
-    .form-steps {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 3rem;
-      position: relative;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 1.5rem;
-    }
-
-    .step-item {
+    .header-btn {
+      background: none;
+      border: none;
+      color: var(--text-white);
+      cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      color: var(--neutral-support);
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-
-    .step-item.active {
-      color: var(--primary-accent);
-    }
-
-    .step-number {
-      width: 24px;
-      height: 24px;
+      padding: 6px;
       border-radius: 50%;
-      background-color: var(--light-canvas);
-      border: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+
+    .header-btn:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .brand-name {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.5px;
+      color: var(--text-white);
+    }
+
+    .cart-badge-wrapper {
+      position: relative;
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background-color: var(--accent-yellow);
+      color: var(--text-dark);
+      font-size: 0.65rem;
+      font-weight: 800;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.75rem;
-    }
-
-    .step-item.active .step-number {
-      background-color: var(--primary-accent);
-      color: var(--white);
-      border-color: var(--primary-accent);
-    }
-
-    /* Estilização dos Grupos do Formulário */
-    .form-section {
-      margin-bottom: 2.5rem;
-    }
-
-    .form-section-title {
-      font-size: 1.1rem;
-      color: var(--dark-contrast);
-      margin-bottom: 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-
-    .full-width {
-      grid-column: span 2;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    label {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--dark-contrast);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 0.85rem 1rem;
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      background-color: var(--light-canvas);
-      color: var(--dark-contrast);
-      font-family: var(--font-body);
-      font-size: 0.95rem;
-      transition: all 0.2s ease;
-    }
-
-    input:focus, select:focus, textarea:focus {
-      outline: none;
-      border-color: var(--primary-accent);
-      background-color: var(--white);
-      box-shadow: 0 0 0 3px rgba(253, 138, 80, 0.15);
-    }
-
-    /* Cards Selecionáveis (Modalidade Delivery Leva e Traz) */
-    .delivery-options {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-    }
-
-    .option-card {
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 1.25rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      background-color: var(--white);
-    }
-
-    .option-card:hover {
-      border-color: var(--neutral-support);
-    }
-
-    .option-card.selected {
-      border-color: var(--primary-accent);
-      background-color: rgba(253, 138, 80, 0.03);
-    }
-
-    .option-card input[type="radio"] {
-      display: none;
-    }
-
-    .option-card-title {
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--dark-contrast);
-      margin-bottom: 0.25rem;
-    }
-
-    .option-card-desc {
-      font-size: 0.85rem;
-      color: var(--neutral-support);
-    }
-
-    /* Detalhes do Serviço Selecionado */
-    .service-info-box {
-      margin-top: 0.75rem;
-      padding: 1rem;
-      background-color: var(--light-canvas);
-      border-left: 3px solid var(--electric-accent);
-      font-size: 0.85rem;
-      color: var(--neutral-support);
-      display: none;
-    }
-
-    /* Botões */
-    .submit-btn {
-      width: 100%;
-      background-color: var(--primary-accent);
-      color: var(--white);
-      border: none;
-      padding: 1.1rem;
-      font-family: var(--font-headline);
-      font-size: 1rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.2s ease, transform 0.1s ease;
-      margin-top: 1rem;
-    }
-
-    .submit-btn:hover {
-      background-color: #e5783f;
-    }
-
-    .submit-btn:active {
-      transform: scale(0.99);
-    }
-
-    /* Estilização da Mensagem de Sucesso */
-    .success-message {
-      display: none;
-      text-align: center;
-      padding: 3rem 1rem;
-    }
-
-    .success-message h2 {
-      color: var(--dark-contrast);
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .success-message p {
-      color: var(--neutral-support);
-      margin-bottom: 2rem;
-    }
-
-    .badge-protocol {
-      display: inline-block;
-      background-color: var(--light-canvas);
-      border: 1px dashed var(--neutral-support);
-      padding: 0.5rem 1rem;
-      font-family: monospace;
-      font-size: 1.1rem;
-      color: var(--dark-contrast);
-      margin-bottom: 2rem;
     }
 
     /* ==========================================================================
-       4. RODAPÉ (Footer)
+       CONTAINER PRINCIPAL E HERO SECTION
        ========================================================================== */
-    footer {
-      background-color: var(--dark-contrast);
-      color: var(--light-canvas);
-      padding: 4rem 2rem 2rem 2rem;
-      margin-top: 6rem;
+    .container {
+      width: 100%;
+      max-width: 1160px;
+      padding: 0 24px;
+      margin-top: 40px;
     }
 
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2.5rem;
-      margin-bottom: 3rem;
-    }
-
-    .footer-col h4 {
-      font-size: 0.9rem;
-      margin-bottom: 1.25rem;
-      color: var(--white);
-    }
-
-    .footer-col p, .footer-col ul {
-      font-size: 0.85rem;
-      color: var(--neutral-support);
-      list-style: none;
-    }
-
-    .footer-col ul li {
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-bottom {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      text-align: center;
+    .breadcrumb {
       font-size: 0.8rem;
-      color: var(--neutral-support);
+      color: var(--text-muted);
+      margin-bottom: 8px;
     }
 
-    /* Responsividade */
-    @media (max-width: 768px) {
-      .form-grid, .delivery-options, .footer-container {
+    .category-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .main-title {
+      font-size: 2.75rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+      line-height: 1.15;
+    }
+
+    .hero-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 580px;
+      line-height: 1.5;
+      margin-bottom: 32px;
+    }
+
+    /* ==========================================================================
+       FILTROS / TABS
+       ========================================================================== */
+    .tabs-container {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .tab-btn {
+      padding: 10px 24px;
+      border-radius: var(--radius-sm);
+      border: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      background-color: rgba(255, 255, 255, 0.08);
+      color: var(--text-white);
+    }
+
+    .tab-btn.active {
+      background-color: var(--text-white);
+      color: var(--text-dark);
+    }
+
+    .tab-btn:hover:not(.active) {
+      background-color: rgba(255, 255, 255, 0.16);
+    }
+
+    /* ==========================================================================
+       GRID DE BICICLETAS / MODELOS
+       ========================================================================== */
+    .bikes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 960px) {
+      .bikes-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .bikes-grid {
         grid-template-columns: 1fr;
       }
-      .full-width {
-        grid-column: span 1;
-      }
-      .booking-card {
-        padding: 1.5rem;
-      }
-      .nav-menu {
-        display: none;
-      }
+    }
+
+    .bike-card {
+      background-color: var(--bg-card);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-card);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .bike-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .badge-oferta {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background-color: var(--accent-yellow);
+      color: var(--text-dark);
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      z-index: 2;
+    }
+
+    .bike-image-container {
+      width: 100%;
+      height: 220px;
+      background-color: var(--bg-card-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .bike-image-container img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .bike-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .bike-category {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .bike-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .bike-description {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+      margin-bottom: 16px;
+      min-height: 36px;
+    }
+
+    /* Badges Técnicas */
+    .specs-list {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .spec-pill {
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 4px 8px;
+      font-size: 0.65rem;
+      color: #737373;
+      font-weight: 500;
+    }
+
+    .price-container {
+      margin-top: auto;
+      margin-bottom: 16px;
+    }
+
+    .price-main {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-dark);
+    }
+
+    .price-old {
+      font-size: 0.75rem;
+      color: #999;
+      text-decoration: line-through;
+      margin-left: 6px;
+    }
+
+    .price-installment {
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    /* Botão Principal do Card */
+    .btn-schedule {
+      width: 100%;
+      background-color: var(--btn-black);
+      color: var(--text-white);
+      border: none;
+      padding: 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-schedule:hover {
+      background-color: var(--btn-black-hover);
+    }
+
+    /* ==========================================================================
+       MODAL DE AGENDAMENTO
+       ========================================================================== */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      padding: 20px;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-card {
+      background-color: var(--bg-card);
+      width: 100%;
+      max-width: 500px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      transform: translateY(20px);
+      transition: var(--transition);
+      color: var(--text-dark);
+    }
+
+    .modal-overlay.open .modal-card {
+      transform: translateY(0);
+    }
+
+    .modal-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-header h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .close-modal {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-secondary);
+      line-height: 1;
+    }
+
+    .modal-body {
+      padding: 24px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .selected-bike-summary {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background-color: var(--bg-card-subtle);
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 20px;
+    }
+
+    .selected-bike-summary img {
+      width: 50px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .selected-bike-summary div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .selected-bike-summary strong {
+      font-size: 0.85rem;
+    }
+
+    .selected-bike-summary span {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    /* Formulário */
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-dark);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-family: inherit;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      border-color: var(--btn-black);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .service-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .service-option-btn {
+      padding: 10px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      background: none;
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .service-option-btn.selected {
+      background-color: var(--btn-black);
+      color: var(--text-white);
+      border-color: var(--btn-black);
+    }
+
+    /* Botão de Sucesso */
+    .btn-submit {
+      width: 100%;
+      background-color: var(--btn-black);
+      color: var(--text-white);
+      border: none;
+      padding: 14px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      margin-top: 8px;
+      transition: var(--transition);
+    }
+
+    .btn-submit:hover {
+      background-color: var(--btn-black-hover);
+    }
+
+    /* Mensagem de confirmação */
+    .success-screen {
+      text-align: center;
+      padding: 30px 10px;
+      display: none;
+    }
+
+    .success-icon {
+      width: 50px;
+      height: 50px;
+      background-color: var(--accent-yellow-light);
+      color: var(--btn-black);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px auto;
+    }
+
+    .success-screen h4 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+
+    .success-screen p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
     }
   </style>
 </head>
 <body>
 
-  <!-- CABEÇALHO DA PÁGINA -->
-  <header>
-    <div class="nav-container">
-      <a href="/" class="brand-logo">SOFTBYKE</a>
-      <ul class="nav-menu">
-        <li><a href="/ebikes">E-bikes</a></li>
-        <li><a href="/loja">Acessórios & Peças</a></li>
-        <li><a href="/oficina-servicos">Oficinas</a></li>
-        <li><a href="/oficina-servicos/agendamento" class="active">Agendamento</a></li>
-      </ul>
-    </div>
+  <!-- HEADER FLUTUANTE / PÍLULA -->
+  <header class="header-bar">
+    <button class="header-btn" title="Menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="4" y1="8" x2="20" y2="8"></line>
+        <line x1="4" y1="16" x2="20" y2="16"></line>
+      </svg>
+    </button>
+    
+    <span class="brand-name">Softbyke</span>
+
+    <button class="header-btn cart-badge-wrapper" title="Carrinho">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <path d="M16 10a4 4 0 0 1-8 0"></path>
+      </svg>
+      <span class="cart-badge">3</span>
+    </button>
   </header>
 
-  <!-- ÁREA PRINCIPAL -->
-  <main>
-    <div class="page-header">
-      <h1>Agende Sua Manutenção</h1>
-      <p>Cuidado especializado para a sua e-bike, garantindo alta performance e segurança em cada pedalada.</p>
+  <!-- CONTAINER DE CONTEÚDO -->
+  <main class="container">
+    <div class="breadcrumb">Home / Agendamento</div>
+    <div class="category-tag">Bicicletas Elétricas</div>
+    <h1 class="main-title">Agende seu Test Ride</h1>
+    <p class="hero-subtitle">
+      Modelos urbanos e de montanha, todos com garantia de 2 anos, montagem gratuita e a primeira revisão por nossa conta.
+    </p>
+
+    <!-- ABAS DE NAVEGAÇÃO -->
+    <div class="tabs-container">
+      <button class="tab-btn active" onclick="filterBikes('all', this)">Todas</button>
+      <button class="tab-btn" onclick="filterBikes('urbana', this)">Urbanas</button>
+      <button class="tab-btn" onclick="filterBikes('montanha', this)">Montanha</button>
     </div>
 
-    <div class="booking-card">
-      
-      <!-- Stepper Visual -->
-      <div class="form-steps">
-        <div class="step-item active">
-          <span class="step-number">1</span> Servico
-        </div>
-        <div class="step-item active">
-          <span class="step-number">2</span> Unidade & Data
-        </div>
-        <div class="step-item active">
-          <span class="step-number">3</span> Dados Pessoais
-        </div>
-      </div>
+    <!-- GRID DE E-BIKES -->
+    <div class="bikes-grid" id="bikesGrid">
 
-      <!-- Formulário de Agendamento -->
-      <form id="appointmentForm">
-        
-        <!-- SEÇÃO 1: Escolha do Serviço -->
-        <div class="form-section">
-          <h3 class="form-section-title">1. Selecione o Serviço Desejado</h3>
-          <div class="form-grid">
-            <div class="form-group full-width">
-              <label for="serviceType">Categoria de Serviço</label>
-              <select id="serviceType" name="serviceType" required onchange="updateServiceInfo()">
-                <option value="" disabled selected>Selecione um serviço...</option>
-                <optgroup label="Revisões Periódicas Padronizadas">
-                  <option value="revisao-a">Revisão A (Básica) - Ajustes gerais e lubrificação</option>
-                  <option value="revisao-b">Revisão B (Intermediária) - Troca de cabos, ajuste de rodas e freios</option>
-                  <option value="revisao-c">Revisão C (Completa) - Desmontagem, limpeza química e troca de componentes</option>
-                </optgroup>
-                <optgroup label="Serviços Rápidos (Express)">
-                  <option value="express-pneu">Troca e reparo de câmara de ar / pneu</option>
-                  <option value="express-freio">Ajuste de freios</option>
-                  <option value="express-cambio">Ajuste de câmbio e lubrificação de corrente</option>
-                </optgroup>
-                <optgroup label="Serviços Específicos & Montagem">
-                  <option value="esp-roda">Centralização de rodas</option>
-                  <option value="esp-sangria">Sangria de freio hidráulico</option>
-                  <option value="esp-suspensao">Revisão de suspensão</option>
-                  <option value="esp-montagem">Montagem e regulagem de E-bike zero km</option>
-                </optgroup>
-              </select>
-              <div id="serviceInfoBox" class="service-info-box"></div>
-            </div>
-          </div>
+      <!-- CARD 1 -->
+      <article class="bike-card" data-category="urbana">
+        <span class="badge-oferta">Oferta</span>
+        <div class="bike-image-container">
+          <img src="https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=500&q=80" alt="Softbyke ST3 Open">
         </div>
-
-        <!-- SEÇÃO 2: Modalidade e Filial -->
-        <div class="form-section">
-          <h3 class="form-section-title">2. Escolha o Local e Modalidade</h3>
+        <div class="bike-content">
+          <span class="bike-category">Urbana</span>
+          <h2 class="bike-title">Softbyke ST3 Open</h2>
+          <p class="bike-description">Quadro aberto, motor silencioso e bateria integrada. Feita para o trajeto diário na cidade.</p>
           
-          <div class="form-group full-width" style="margin-bottom: 1.5rem;">
-            <label>Tipo de Atendimento</label>
-            <div class="delivery-options">
-              <label class="option-card selected" id="opt-presencial" onclick="toggleDelivery('presencial')">
-                <input type="radio" name="deliveryType" value="presencial" checked>
-                <div class="option-card-title">Levar até a Filial</div>
-                <div class="option-card-desc">Entregue sua e-bike diretamente em uma de nossas oficinas.</div>
-              </label>
-              <label class="option-card" id="opt-delivery" onclick="toggleDelivery('delivery')">
-                <input type="radio" name="deliveryType" value="delivery">
-                <div class="option-card-title">Delivery Leva e Traz</div>
-                <div class="option-card-desc">Buscamos e entregamos na sua casa ou empresa (verificar região).</div>
-              </label>
-            </div>
+          <div class="specs-list">
+            <span class="spec-pill">Motor 250 W</span>
+            <span class="spec-pill">Bateria 487 Wh</span>
+            <span class="spec-pill">60 km</span>
           </div>
 
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="branch">Unidade / Filial</label>
-              <select id="branch" name="branch" required>
-                <option value="" disabled selected>Selecione a filial...</option>
-                <option value="filial-1">Filial 1 - Jardins / Pinheiros</option>
-                <option value="filial-2">Filial 2 - Moema / Vila Olímpia</option>
-                <option value="filial-3">Filial 3 - Alphaville / Tamboré</option>
-              </select>
+          <div class="price-container">
+            <div>
+              <span class="price-main">R$ 12.900,00</span>
+              <span class="price-old">R$ 14.500,00</span>
             </div>
-
-            <div class="form-group">
-              <label for="appointmentDate">Data Preferencial</label>
-              <input type="date" id="appointmentDate" name="appointmentDate" required>
-            </div>
-
-            <div class="form-group">
-              <label for="appointmentTime">Horário Preferencial</label>
-              <select id="appointmentTime" name="appointmentTime" required>
-                <option value="" disabled selected>Selecione o horário...</option>
-                <option value="09:00">09:00</option>
-                <option value="11:00">11:00</option>
-                <option value="14:00">14:00</option>
-                <option value="16:00">16:00</option>
-              </select>
-            </div>
-
-            <!-- Campo dinâmico para endereço do Leva e Traz -->
-            <div class="form-group full-width" id="addressGroup" style="display: none;">
-              <label for="address">Endereço de Coleta (Delivery Leva e Traz)</label>
-              <input type="text" id="address" name="address" placeholder="Rua, número, complemento e bairro">
-            </div>
+            <div class="price-installment">ou 12x de R$ 1.075,00 sem juros</div>
           </div>
+
+          <button class="btn-schedule" onclick="openScheduleModal('Softbyke ST3 Open', 'https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=500&q=80')">
+            Agendar Test Ride
+          </button>
         </div>
+      </article>
 
-        <!-- SEÇÃO 3: Dados do Cliente e E-bike -->
-        <div class="form-section">
-          <h3 class="form-section-title">3. Seus Dados e da E-bike</h3>
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="fullName">Nome Completo</label>
-              <input type="text" id="fullName" name="fullName" placeholder="Digite seu nome" required>
-            </div>
-
-            <div class="form-group">
-              <label for="phone">Telefone / WhatsApp</label>
-              <input type="tel" id="phone" name="phone" placeholder="(11) 99999-9999" required>
-            </div>
-
-            <div class="form-group full-width">
-              <label for="email">E-mail</label>
-              <input type="email" id="email" name="email" placeholder="seuemail@dominio.com" required>
-            </div>
-
-            <div class="form-group">
-              <label for="bikeModel">Modelo/Marca da E-bike</label>
-              <input type="text" id="bikeModel" name="bikeModel" placeholder="Ex: Softbyke Urban, Specialized, etc." required>
-            </div>
-
-            <div class="form-group full-width">
-              <label for="notes">Observações ou Sintomas (Opcional)</label>
-              <textarea id="notes" name="notes" rows="3" placeholder="Descreva qualquer ruído, falha elétrica ou necessidade específica..."></textarea>
-            </div>
-          </div>
+      <!-- CARD 2 -->
+      <article class="bike-card" data-category="urbana">
+        <div class="bike-image-container">
+          <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=500&q=80" alt="Softbyke ST2 Urbana">
         </div>
+        <div class="bike-content">
+          <span class="bike-category">Urbana</span>
+          <h2 class="bike-title">Softbyke ST2 Urbana</h2>
+          <p class="bike-description">A porta de entrada da linha. Leve, com troca automática de marchas e farol integrado.</p>
+          
+          <div class="specs-list">
+            <span class="spec-pill">Motor 250 W</span>
+            <span class="spec-pill">Bateria 375 Wh</span>
+            <span class="spec-pill">45 km</span>
+          </div>
 
-        <button type="submit" class="submit-btn">Confirmar Agendamento</button>
-      </form>
+          <div class="price-container">
+            <div class="price-main">R$ 9.750,00</div>
+            <div class="price-installment">ou 12x de R$ 812,50 sem juros</div>
+          </div>
 
-      <!-- Mensagem de Confirmação Sucesso -->
-      <div id="successMessage" class="success-message">
-        <h2>Agendamento Solicitado!</h2>
-        <p>Recebemos sua solicitação de manutenção. Nossa equipe entrará em contato via WhatsApp para confirmar a disponibilidade do horário.</p>
-        <div class="badge-protocol" id="protocolNumber">PROTOCOL: #SB-0000</div>
-        <br>
-        <button onclick="window.location.reload()" class="submit-btn" style="max-width: 250px; margin: 0 auto;">Realizar Novo Agendamento</button>
-      </div>
+          <button class="btn-schedule" onclick="openScheduleModal('Softbyke ST2 Urbana', 'https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=500&q=80')">
+            Agendar Test Ride
+          </button>
+        </div>
+      </article>
+
+      <!-- CARD 3 -->
+      <article class="bike-card" data-category="montanha">
+        <div class="bike-image-container">
+          <img src="https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?auto=format&fit=crop&w=500&q=80" alt="Turbo Tero 3.0">
+        </div>
+        <div class="bike-content">
+          <span class="bike-category">Montanha</span>
+          <h2 class="bike-title">Turbo Tero 3.0</h2>
+          <p class="bike-description">Pneus largos e suspensão dianteira. Encara asfalto, paralelepípedo e estrada de terra.</p>
+          
+          <div class="specs-list">
+            <span class="spec-pill">Motor 250 W</span>
+            <span class="spec-pill">Bateria 530 Wh</span>
+            <span class="spec-pill">90 km</span>
+          </div>
+
+          <div class="price-container">
+            <div class="price-main">R$ 18.990,00</div>
+            <div class="price-installment">ou 12x de R$ 1.582,50 sem juros</div>
+          </div>
+
+          <button class="btn-schedule" onclick="openScheduleModal('Turbo Tero 3.0', 'https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?auto=format&fit=crop&w=500&q=80')">
+            Agendar Test Ride
+          </button>
+        </div>
+      </article>
 
     </div>
   </main>
 
-  <!-- RODAPÉ DA PÁGINA -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-col">
-        <h4>SOFTBYKE</h4>
-        <p>Especialistas em vendas e manutenção de bicicletas elétricas. Mais autonomia e sofisticação para o seu dia a dia.</p>
+  <!-- MODAL DE AGENDAMENTO -->
+  <div class="modal-overlay" id="scheduleModal">
+    <div class="modal-card">
+      
+      <!-- CABEÇALHO DO MODAL -->
+      <div class="modal-header">
+        <h3>Agendar Experiência</h3>
+        <button class="close-modal" onclick="closeScheduleModal()">&times;</button>
       </div>
 
-      <div class="footer-col">
-        <h4>Nossas Filiais</h4>
-        <ul>
-          <li>Filial 1 - Jardins</li>
-          <li>Filial 2 - Moema</li>
-          <li>Filial 3 - Alphaville</li>
-        </ul>
-      </div>
+      <!-- CORPO DO MODAL - FORMULÁRIO -->
+      <div class="modal-body">
+        
+        <div id="modalFormContent">
+          <!-- Resumo do Modelo Selecionado -->
+          <div class="selected-bike-summary">
+            <img id="modalBikeImg" src="" alt="Bike Selecionada">
+            <div>
+              <strong id="modalBikeTitle">Softbyke ST3 Open</strong>
+              <span>Escolha a melhor data e horário</span>
+            </div>
+          </div>
 
-      <div class="footer-col">
-        <h4>Serviços de Oficina</h4>
-        <ul>
-          <li>Revisões A, B e C</li>
-          <li>Serviços Express</li>
-          <li>Delivery Leva e Traz</li>
-          <li>Freios Hidráulicos & Suspensão</li>
-        </ul>
-      </div>
+          <form id="bookingForm" onsubmit="handleFormSubmit(event)">
+            <div class="form-group">
+              <label>Tipo de Agendamento</label>
+              <div class="service-options">
+                <button type="button" class="service-option-btn selected" onclick="selectService(this)">Test Ride (Gratuito)</button>
+                <button type="button" class="service-option-btn" onclick="selectService(this)">Revisão / Manutenção</button>
+              </div>
+            </div>
 
-      <div class="footer-col">
-        <h4>Contato</h4>
-        <p>Atendimento: Samuel Fonseca</p>
-        <p>E-mail: samuel.fonseca@sempreceub.com</p>
-        <p>Tel/WhatsApp: (11) 93255-8932</p>
+            <div class="form-group">
+              <label for="fullName">Nome Completo</label>
+              <input type="text" id="fullName" class="form-control" placeholder="Seu nome completo" required>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">WhatsApp / Telefone</label>
+              <input type="tel" id="phone" class="form-control" placeholder="(00) 00000-0000" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="scheduleDate">Data</label>
+                <input type="date" id="scheduleDate" class="form-control" required>
+              </div>
+
+              <div class="form-group">
+                <label for="scheduleTime">Horário</label>
+                <select id="scheduleTime" class="form-control" required>
+                  <option value="">Selecione...</option>
+                  <option value="09:00">09:00</option>
+                  <option value="11:00">11:00</option>
+                  <option value="14:00">14:00</option>
+                  <option value="16:00">16:00</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-submit">Confirmar Agendamento</button>
+          </form>
+        </div>
+
+        <!-- TELA DE SUCESSO -->
+        <div class="success-screen" id="successScreen">
+          <div class="success-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <h4>Agendamento Confirmado!</h4>
+          <p>Enviamos os detalhes da confirmação para o seu WhatsApp. Esperamos por você na loja Softbyke!</p>
+          <button class="btn-submit" style="margin-top: 20px;" onclick="closeScheduleModal()">Fechar</button>
+        </div>
+
       </div>
     </div>
+  </div>
 
-    <div class="footer-bottom">
-      <p>&copy; 2026 Softbyke. Todos os direitos reservados. Projeto Grupo 08.</p>
-    </div>
-  </footer>
-
-  <!-- LÓGICA E JAVASCRIPT -->
+  <!-- LÓGICA JAVASCRIPT -->
   <script>
-    // Configura data mínima para o agendamento (a partir de amanhã)
-    const dateInput = document.getElementById('appointmentDate');
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    dateInput.min = tomorrow.toISOString().split('T')[0];
+    // Filtro por categoria
+    function filterBikes(category, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
 
-    // Detalhes dinâmicos das revisões
-    const serviceDetails = {
-      'revisao-a': '<strong>Revisão A (Básica):</strong> Recomendada para manutenção periódica simples. Inclui ajustes gerais, verificação de parafusos e lubrificação da corrente.',
-      'revisao-b': '<strong>Revisão B (Intermediária):</strong> Inclui troca de cabos/conduítes, regulagem fina de rodas, centralização e ajuste de sistemas de freio.',
-      'revisao-c': '<strong>Revisão C (Completa):</strong> Processo rigoroso com desmontagem integral, limpeza química avançada, lubrificação de rolamentos e substituição de peças de desgaste.'
-    };
-
-    function updateServiceInfo() {
-      const select = document.getElementById('serviceType');
-      const infoBox = document.getElementById('serviceInfoBox');
-      const val = select.value;
-
-      if (serviceDetails[val]) {
-        infoBox.innerHTML = serviceDetails[val];
-        infoBox.style.display = 'block';
-      } else {
-        infoBox.style.display = 'none';
-      }
+      const cards = document.querySelectorAll('.bike-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
     }
 
-    // Toggle da modalidade (Presencial x Leva e Traz)
-    function toggleDelivery(type) {
-      const optPresencial = document.getElementById('opt-presencial');
-      const optDelivery = document.getElementById('opt-delivery');
-      const addressGroup = document.getElementById('addressGroup');
-      const addressInput = document.getElementById('address');
+    // Modal Handlers
+    function openScheduleModal(title, imgSrc) {
+      document.getElementById('modalBikeTitle').innerText = title;
+      document.getElementById('modalBikeImg').src = imgSrc;
+      
+      // Resetar telas
+      document.getElementById('modalFormContent').style.display = 'block';
+      document.getElementById('successScreen').style.display = 'none';
+      
+      // Definir data mínima para hoje
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('scheduleDate').min = today;
 
-      if (type === 'delivery') {
-        optDelivery.classList.add('selected');
-        optPresencial.classList.remove('selected');
-        addressGroup.style.display = 'flex';
-        addressInput.setAttribute('required', 'required');
-      } else {
-        optPresencial.classList.add('selected');
-        optDelivery.classList.remove('selected');
-        addressGroup.style.display = 'none';
-        addressInput.removeAttribute('required');
-      }
+      document.getElementById('scheduleModal').classList.add('open');
     }
 
-    // Processamento do Formulário
-    document.getElementById('appointmentForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Gerar número de protocolo aleatório
-      const randomProtocol = Math.floor(1000 + Math.random() * 9000);
-      document.getElementById('protocolNumber').innerText = `PROTOCOLO: #SB-${randomProtocol}`;
-      
-      // Esconder formulário e exibir confirmação
-      document.getElementById('appointmentForm').style.display = 'none';
-      document.getElementById('successMessage').style.display = 'block';
-    });
+    function closeScheduleModal() {
+      document.getElementById('scheduleModal').classList.remove('open');
+    }
+
+    function selectService(btn) {
+      document.querySelectorAll('.service-option-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+    }
+
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      document.getElementById('modalFormContent').style.display = 'none';
+      document.getElementById('successScreen').style.display = 'block';
+    }
   </script>
 </body>
 </html>
