@@ -1,0 +1,501 @@
+/* ========================================
+   ESTILOS ESPECÍFICOS - PÁGINA AGENDAMENTO
+   ======================================== */
+
+/* --- HERO AGENENDAMENTO --- */
+.secao-agendamento-hero {
+  width: 100%;
+  background-color: #f5f5f3;
+  padding: 100px 24px;
+  box-sizing: border-box;
+}
+
+.secao-agendamento-hero__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.secao-agendamento-hero__tag {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+}
+
+.secao-agendamento-hero__titulo {
+  font-family: var(--fonte-titulo, 'Space Grotesk', system-ui, sans-serif);
+  font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #1a1a1a;
+  margin: 0 0 20px 0;
+  max-width: 800px;
+}
+
+.secao-agendamento-hero__descricao {
+  font-family: var(--fonte-corpo, 'DM Sans', system-ui, sans-serif);
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: #1a1a1a;
+  margin: 0 0 32px 0;
+}
+
+.secao-agendamento-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #1a1a1a;
+  font-family: var(--fonte-corpo, 'DM Sans', system-ui, sans-serif);
+  font-size: 0.95rem;
+  font-weight: 400;
+  transition: opacity 0.2s ease;
+}
+
+.secao-agendamento-hero__cta:hover {
+  opacity: 0.65;
+}
+
+.secao-agendamento-hero__cta-icone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid #1a1a1a;
+  border-radius: 2px;
+  background-color: transparent;
+  flex-shrink: 0;
+}
+
+/* --- COMO FUNCIONA --- */
+.secao-agendamento-como {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 100px 24px;
+  box-sizing: border-box;
+}
+
+.secao-agendamento-como__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.secao-agendamento-como__titulo {
+  font-family: var(--fonte-titulo, 'Space Grotesk', system-ui, sans-serif);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 300;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: #222222;
+  margin: 0 0 80px 0;
+}
+
+.secao-agendamento-como__titulo strong {
+  font-weight: 600;
+}
+
+.secao-agendamento-como__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  gap: 40px 0;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .secao-agendamento-como__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+  }
+}
+
+.secao-agendamento-como__passo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 24px;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  padding-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .secao-agendamento-como__passo {
+    border-bottom: none;
+    padding-bottom: 0;
+    border-right: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  .secao-agendamento-como__passo:last-child {
+    border-right: none;
+  }
+}
+
+.secao-agendamento-como__passo-numero {
+  font-family: var(--fonte-titulo, 'Space Grotesk', system-ui, sans-serif);
+  font-size: 3rem;
+  font-weight: 300;
+  color: #cccccc;
+  line-height: 1;
+  margin-bottom: 24px;
+}
+
+.secao-agendamento-como__passo-titulo {
+  font-family: var(--fonte-titulo, 'Space Grotesk', system-ui, sans-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 16px 0;
+}
+
+.secao-agendamento-como__passo-descricao {
+  font-family: var(--fonte-corpo, 'DM Sans', system-ui, sans-serif);
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #555555;
+  margin: 0;
+  max-width: 280px;
+}
+
+/* --- TIPOS DE SERVIÇO --- */
+.secao-agendamento-servicos {
+  width: 100%;
+  max-width: 100%;
+  background-color: #fafaf9;
+  padding: 100px 24px;
+  color: #1a1a1a;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.secao-agendamento-servicos__container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.secao-agendamento-servicos__titulo {
+  font-family: var(--fonte-titulo, 'Space Grotesk', system-ui, sans-serif);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #1a1a1a;
+  margin: 0 0 12px 0;
+}
+
+.secao-agendamento-servicos__subtitulo {
+  font-family: var(--fonte-titulo, 'Space Grotesk', system-ui, sans-serif);
+  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+  font-weight: 300;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: #222222;
+  margin: 0 0 80px 0;
+  width: 100%;
+}
+
+.secao-agendamento-servicos__subtitulo strong {
+  font-weight: 600;
+}
+
+.secao-agendamento-servicos__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  gap: 40px 0;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .secao-agendamento-servicos__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+  }
+}
+
+.secao-agendamento-servicos__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 24px;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  padding-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .secao-agendamento-servicos__card {
+    border-bottom: none;
+    padding-bottom: 0;
+    border-right: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  .secao-agendamento-servicos__card:last-child {
+    border-right: none;
+  }
+}
+
+.secao-agendamento-servicos__card-titulo {
+  font-family: var(--fonte-titulo, 'Space Grotesk', system-ui, sans-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 24px 0;
+}
+
+.secao-agendamento-servicos__card-subtitulo {
+  font-family: var(--fonte-corpo, 'DM Sans', system-ui, sans-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333333;
+  margin: 0 0 16px 0;
+  line-height: 1.4;
+}
+
+.secao-agendamento-servicos__card-descricao {
+  font-family: var(--fonte-corpo, 'DM Sans', system-ui, sans-serif);
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #555555;
+  margin: 0;
+  max-width: 320px;
+}
+
+/* --- FORMULÁRIO DE AGENDAMENTO --- */
+.secao-agendamento-form {
+  width: 100%;
+  max-width: 100%;
+  background-color: #ffffff;
+  padding: 80px 24px;
+  color: #1a1a1a;
+  box-sizing: border-box;
+}
+
+.secao-agendamento-form__container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.secao-agendamento-form__header {
+  position: relative;
+  text-align: center;
+  margin-bottom: 48px;
+  padding-left: 20px;
+}
+
+.secao-agendamento-form__header::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -20px;
+  bottom: 0;
+  width: 1px;
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.secao-agendamento-form__titulo {
+  font-family: var(--fonte-titulo, 'Space Grotesk', system-ui, sans-serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.secao-agendamento-form__form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+.secao-agendamento-form__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .secao-agendamento-form__row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .secao-agendamento-form__row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .secao-agendamento-form__row--final {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+    gap: 24px;
+    align-items: end;
+  }
+}
+
+.secao-agendamento-form__grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+}
+
+.secao-agendamento-form__label {
+  font-family: var(--fonte-corpo, 'DM Sans', system-ui, sans-serif);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #333333;
+}
+
+.secao-agendamento-form__input-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.secao-agendamento-form__select,
+.secao-agendamento-form__input {
+  width: 100%;
+  height: 48px;
+  padding: 0 40px 0 16px;
+  background-color: #ffffff;
+  border: 1px solid #e2e2e0;
+  border-radius: 8px;
+  font-family: var(--fonte-corpo, 'DM Sans', system-ui, sans-serif);
+  font-size: 0.9rem;
+  color: #666666;
+  appearance: none;
+  outline: none;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.secao-agendamento-form__select:focus,
+.secao-agendamento-form__input:focus {
+  border-color: #1a1a1a;
+}
+
+.secao-agendamento-form__icone {
+  position: absolute;
+  right: 14px;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #777777;
+}
+
+.secao-agendamento-form__botao {
+  height: 48px;
+  padding: 0 32px;
+  background-color: #f3efe9;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--fonte-corpo, 'DM Sans', system-ui, sans-serif);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #222222;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .secao-agendamento-form__botao {
+    width: auto;
+  }
+}
+
+.secao-agendamento-form__botao:hover {
+  background-color: #e8e3dc;
+}
+
+/* --- FAQ --- */
+.secao-agendamento-faq {
+  width: 100%;
+  background-color: #fafaf9;
+  padding: 80px 24px;
+  color: #1a1a1a;
+  box-sizing: border-box;
+}
+
+.secao-agendamento-faq__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.secao-agendamento-faq__titulo {
+  font-family: var(--fonte-titulo, 'Space Grotesk', system-ui, sans-serif);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: #1a1a1a;
+  margin: 0 0 48px 0;
+}
+
+.secao-agendamento-faq__lista {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.secao-agendamento-faq__item {
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.secao-agendamento-faq__item:first-child {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.secao-agendamento-faq__item-titulo {
+  font-family: var(--fonte-titulo, 'Space Grotesk', system-ui, sans-serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0 0 12px 0;
+}
+
+.secao-agendamento-faq__item-descricao {
+  font-family: var(--fonte-corpo, 'DM Sans', system-ui, sans-serif);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #555555;
+  margin: 0;
+  max-width: 720px;
+}

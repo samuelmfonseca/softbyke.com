@@ -1,0 +1,221 @@
+/* ========================================
+   ESTILOS ESPECÍFICOS - PÁGINA CADASTRO
+   ======================================== */
+
+/* --- HERO --- */
+.secao-cadastro-hero {
+  width: 100%;
+  background-color: #f5f5f3;
+  padding: 100px 24px 60px;
+  box-sizing: border-box;
+}
+
+.secao-cadastro-hero__container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.secao-cadastro-hero__tag {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+}
+
+.secao-cadastro-hero__titulo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.15;
+  margin: 0 0 16px;
+}
+
+.secao-cadastro-hero__descricao {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 560px;
+}
+
+/* --- FORMULÁRIO --- */
+.secao-cadastro-form {
+  background-color: #fafaf9;
+  padding: 60px 24px 80px;
+  box-sizing: border-box;
+}
+
+.secao-cadastro-form__container {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.cadastro-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cadastro-form__grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cadastro-form__label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.cadastro-form__input {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  padding: 14px 16px;
+  border: 1px solid #e2e2e0;
+  border-radius: 8px;
+  background: #fff;
+  color: #1a1a1a;
+  outline: none;
+  transition: border-color 0.25s;
+}
+
+.cadastro-form__input::placeholder {
+  color: #aaa;
+}
+
+.cadastro-form__input:focus {
+  border-color: #1a1a1a;
+}
+
+.cadastro-form__checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+
+.cadastro-form__checkbox {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.cadastro-form__checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #1a1a1a;
+  cursor: pointer;
+}
+
+.cadastro-form__botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: #1a1a1a;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.2s;
+  margin-top: 8px;
+}
+
+.cadastro-form__botao:hover {
+  background: #333;
+  transform: translateY(-1px);
+}
+
+.cadastro-form__nota {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: #888;
+  text-align: center;
+  margin: 0;
+}
+
+.cadastro-form__nota a {
+  color: #555;
+  text-decoration: underline;
+}
+
+/* --- SUCESSO --- */
+.secao-cadastro-sucesso {
+  background-color: #fafaf9;
+  padding: 100px 24px 120px;
+  text-align: center;
+}
+
+.secao-cadastro-sucesso__container {
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.cadastro-sucesso__icone {
+  margin-bottom: 24px;
+}
+
+.cadastro-sucesso__titulo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 12px;
+}
+
+.cadastro-sucesso__descricao {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 0 0 32px;
+}
+
+.cadastro-sucesso__botao {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: #1a1a1a;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.25s;
+}
+
+.cadastro-sucesso__botao:hover {
+  background: #333;
+}
+
+/* --- RESPONSIVO --- */
+@media (max-width: 768px) {
+  .secao-cadastro-hero {
+    padding: 80px 16px 40px;
+  }
+
+  .secao-cadastro-form {
+    padding: 40px 16px 60px;
+  }
+
+  .cadastro-form__checkboxes {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
