@@ -179,6 +179,70 @@
   padding: 4px 10px;
 }
 
+/* ── Briefing Card ─────────────────────── */
+.docs-briefing-card {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  background: #161616;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 32px 36px;
+  text-decoration: none;
+  max-width: 600px;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.docs-briefing-card:hover {
+  border-color: #444;
+  transform: translateY(-3px);
+}
+
+.docs-briefing-card__icone {
+  flex-shrink: 0;
+}
+
+.docs-briefing-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.docs-briefing-card__titulo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+
+.docs-briefing-card__desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #888;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.docs-briefing-card__botao {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #fff;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 8px 18px;
+  margin-top: 10px;
+  transition: background 0.25s, border-color 0.25s;
+}
+
+.docs-briefing-card:hover .docs-briefing-card__botao {
+  background: #2a2a2a;
+  border-color: #555;
+}
+
 /* ── Style Guide ───────────────────────── */
 .docs-style-guide {
   display: flex;
@@ -459,6 +523,13 @@
 
   .docs-parceiros-grid {
     grid-template-columns: 1fr;
+  }
+
+  .docs-briefing-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 28px 24px;
+    max-width: 100%;
   }
 }
 
