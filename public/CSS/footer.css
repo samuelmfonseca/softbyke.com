@@ -193,3 +193,27 @@
 .rodape__botao-regiao:hover {
   opacity: 0.7;
 }
+
+/* --- INFORMAÇÕES ACADÊMICAS (Home) --- */
+.rodape__academico {
+  padding-top: 32px;
+  border-top: 1px solid #e2e2e0;
+  text-align: center;
+}
+
+.rodape__academico-linha {
+  font-family: var(--fonte-corpo, system-ui, sans-serif);
+  font-size: 0.8rem;
+  color: #555;
+  margin: 0 0 6px;
+  line-height: 1.6;
+}
+
+.rodape__academico-linha strong {
+  color: #141414;
+}
+
+.rodape__academico-linha--membros {
+  font-size: 0.75rem;
+  color: #888;
+}
