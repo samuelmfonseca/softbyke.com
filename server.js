@@ -40,6 +40,10 @@ app.get('/checkout', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'pages', 'checkout.html'));
 });
 
+app.get('/docs', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'pages', 'docs.html'));
+});
+
 // ── Iniciar servidor ───────────────────────────────────
 
 app.listen(PORT, () => {
