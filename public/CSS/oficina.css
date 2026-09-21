@@ -1,10 +1,8 @@
-/* ========================================
-   ESTILOS ESPECÍFICOS - SEÇÃO OFICINA ESPECIALISTA
-   ======================================== */
+/* Topo da página Oficina */
 
 .secao-oficina-especialista {
   width: 100%;
-  background-color: #f5f5f3; /* Cor de fundo off-white */
+  background-color: #f5f5f3; /* Fundo claro */
   padding: 100px 24px;
   box-sizing: border-box;
 }
@@ -17,7 +15,7 @@
   align-items: flex-start;
 }
 
-/* Tag Superior (Estilo Monospaced) */
+/* Etiqueta */
 .secao-oficina-especialista__tag {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 0.85rem;
@@ -28,7 +26,7 @@
   margin-bottom: 16px;
 }
 
-/* Título Principal */
+/* Título */
 .secao-oficina-especialista__titulo {
   font-family: var(--fonte-titulo, system-ui, sans-serif);
   font-size: clamp(2.8rem, 5.5vw, 4.8rem);
@@ -39,7 +37,7 @@
   margin: 0 0 20px 0;
 }
 
-/* Descrição / Subtítulo */
+/* Descrição */
 .secao-oficina-especialista__descricao {
   font-family: var(--fonte-corpo, system-ui, sans-serif);
   font-size: 1.1rem;
@@ -48,7 +46,7 @@
   margin: 0 0 32px 0;
 }
 
-/* Botão CTA (Caixa com Ícone + Texto) */
+/* Botão */
 .secao-oficina-especialista__cta {
   display: inline-flex;
   align-items: center;
@@ -65,7 +63,7 @@
   opacity: 0.65;
 }
 
-/* Quadrado com a Seta Diagonal */
+/* Quadrado da seta */
 .secao-oficina-especialista__cta-icone {
   display: flex;
   align-items: center;
@@ -77,31 +75,29 @@
   background-color: transparent;
   flex-shrink: 0;
 }
-/* ========================================
-   ESTILOS ESPECÍFICOS - SEÇÃO VÍDEO DESTAQUE
-   ======================================== */
+/* Vídeo */
 
 .secao-video-destaque {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 8px; /* px-1 no mobile */
+  padding: 0 8px;
   box-sizing: border-box;
 }
 
 @media (min-width: 768px) {
   .secao-video-destaque {
-    padding: 0 16px; /* tablet:px-2 */
+    padding: 0 16px;
   }
 }
 
 .secao-video-destaque__midia {
   width: 100%;
-  height: 100%; /* Ajustado: trocado 'auto' por '100%' para o aspect-ratio funcionar */
+  height: 100%; /* Precisa ser 100% para o aspect-ratio funcionar */
   display: block;
-  border-radius: 12px; /* rounded-lg */
+  border-radius: 12px;
   object-fit: cover;
-  background-color: #000000; /* Fundo escuro para evitar flash branco enquanto carrega */
+  background-color: #000000; /* Fundo escuro enquanto o vídeo carrega */
   
   /* Proporção 4:3 para telas menores */
   aspect-ratio: 4 / 3;
@@ -113,18 +109,16 @@
     aspect-ratio: 16 / 9;
   }
 }
-/* ========================================
-   ESTILOS ESPECÍFICOS - PLANOS DE REVISÃO (CORRIGIDO)
-   ======================================== */
+/* Planos de revisão */
 
 .secao-oficina-planos {
   width: 100%;
-  max-width: 100%; /* Impede que passe da largura da viewport */
+  max-width: 100%; /* Não passa da largura da tela */
   background-color: #fafaf9;
   padding: 100px 24px;
   color: #1a1a1a;
   box-sizing: border-box;
-  overflow: hidden; /* Corta qualquer elemento que tente estourar as laterais */
+  overflow: hidden; /* Esconde o que passar das laterais */
 }
 
 .secao-oficina-planos__container {
@@ -137,7 +131,7 @@
   box-sizing: border-box;
 }
 
-/* Título Principal */
+/* Título */
 .secao-oficina-planos__titulo {
   font-family: var(--fonte-titulo, system-ui, -apple-system, sans-serif);
   font-size: clamp(1.8rem, 3.2vw, 2.8rem);
@@ -154,7 +148,7 @@
   font-weight: 600;
 }
 
-/* Grid das 3 Colunas */
+/* Três colunas */
 .secao-oficina-planos__grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -165,13 +159,13 @@
 
 @media (min-width: 768px) {
   .secao-oficina-planos__grid {
-    /* O uso de minmax(0, 1fr) força o navegador a respeitar a largura do container */
+    /* minmax(0, 1fr) evita que a coluna estoure */
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0;
   }
 }
 
-/* Colunas individuais */
+/* Cada coluna */
 .secao-oficina-planos__coluna {
   display: flex;
   flex-direction: column;
@@ -181,7 +175,7 @@
   box-sizing: border-box;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   padding-bottom: 40px;
-  min-width: 0; /* Previne estouro de conteúdo no CSS Grid */
+  min-width: 0; /* Evita estourar o grid */
 }
 
 @media (min-width: 768px) {
@@ -196,7 +190,7 @@
   }
 }
 
-/* Textos internos */
+/* Textos */
 .secao-oficina-planos__card-titulo {
   font-family: var(--fonte-titulo, system-ui, sans-serif);
   font-size: 1.15rem;
@@ -224,9 +218,7 @@
   max-width: 320px;
 }
 
-/* ========================================
-   ESTILOS ESPECÍFICOS - GALERIA DE IMAGENS
-   ======================================== */
+/* Galeria de fotos */
 
 .secao-oficina-galeria {
   width: 100%;
@@ -254,13 +246,13 @@
 
 @media (min-width: 768px) {
   .secao-oficina-galeria__container {
-    /* Duas colunas iguais sem estouro lateral */
+    /* Duas colunas iguais */
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
   }
 }
 
-/* Containers das imagens com proporção fixa e bordas arredondadas */
+/* Fotos do mesmo tamanho e com cantos arredondados */
 .secao-oficina-galeria__item {
   width: 100%;
   min-width: 0;
@@ -277,14 +269,12 @@
   display: block;
 }
 
-/* ========================================
-   ESTILOS ESPECÍFICOS - DELIVERY E SERVIÇOS
-   ======================================== */
+/* Leva e traz e serviços */
 
 .secao-oficina-delivery {
   width: 100%;
   max-width: 100%;
-  background-color: #fafaf9; /* Fundo claro off-white */
+  background-color: #fafaf9; /* Fundo claro */
   padding: 80px 24px;
   color: #1a1a1a;
   box-sizing: border-box;
@@ -301,7 +291,7 @@
   box-sizing: border-box;
 }
 
-/* --- TOPO: Título e Descrição --- */
+/* Título e descrição */
 .secao-oficina-delivery__header {
   max-width: 520px;
 }
@@ -328,7 +318,7 @@
   margin: 0;
 }
 
-/* --- GRADE PRINCIPAL DE SERVIÇOS --- */
+/* Grade dos serviços */
 .secao-oficina-delivery__grid-principal {
   display: grid;
   grid-template-columns: 1fr;
@@ -339,7 +329,7 @@
 
 @media (min-width: 1024px) {
   .secao-oficina-delivery__grid-principal {
-    /* 2/3 para Serviços Rápidos e 1/3 para Kit SOS */
+    /* Serviços rápidos ocupam 2/3 e o Kit SOS 1/3 */
     grid-template-columns: minmax(0, 3fr) minmax(0, 1.2fr);
     gap: 40px;
   }
@@ -353,7 +343,7 @@
   margin: 0 0 36px 0;
 }
 
-/* Sub-grid dos 4 Serviços Rápidos */
+/* Os 4 serviços rápidos */
 .secao-oficina-delivery__itens-rapidos {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -366,7 +356,7 @@
   }
 }
 
-/* Estilo individual de cada item/ícone */
+/* Cada serviço */
 .secao-oficina-delivery__item {
   display: flex;
   flex-direction: column;
@@ -397,9 +387,7 @@
   line-height: 1.3;
   margin: 0;
 }
-/* ========================================
-   ESTILOS ESPECÍFICOS - FILIAIS E MAPA
-   ======================================== */
+/* Filiais e mapa */
 
 .secao-oficina-filiais {
   width: 100%;
@@ -424,19 +412,19 @@
 
 @media (min-width: 900px) {
   .secao-oficina-filiais__container {
-    /* Divide em duas colunas (Mapa e Lista) */
+    /* Mapa e lista lado a lado */
     grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
     gap: 60px;
   }
 }
 
-/* Container do Mapa com cantos arredondados */
+/* Mapa */
 .secao-oficina-filiais__mapa {
   width: 100%;
   aspect-ratio: 16 / 10;
   border-radius: 12px;
   overflow: hidden;
-  background-color: #cbe6ed; /* Cor base estilo mapa */
+  background-color: #cbe6ed; /* Cor de fundo do mapa */
 }
 
 .secao-oficina-filiais__mapa-img {
@@ -446,7 +434,7 @@
   display: block;
 }
 
-/* Coluna de Conteúdo Texto */
+/* Coluna de texto */
 .secao-oficina-filiais__conteudo {
   display: flex;
   flex-direction: column;
@@ -470,7 +458,7 @@
   letter-spacing: -0.02em;
 }
 
-/* Lista de Endereços */
+/* Lista de endereços */
 .secao-oficina-filiais__lista {
   list-style: none;
   padding: 0;
@@ -488,9 +476,7 @@
   line-height: 1.4;
   margin: 0;
 }
-/* ========================================
-   ESTILOS ESPECÍFICOS - AGENDE SUA MANUTENÇÃO
-   ======================================== */
+/* Agende sua manutenção */
 
 .secao-oficina-agendamento {
   width: 100%;
@@ -512,7 +498,7 @@
   box-sizing: border-box;
 }
 
-/* Título Central com Divisória Superior/Esquerda */
+/* Título com linha em cima */
 .secao-oficina-agendamento__header {
   position: relative;
   text-align: center;
@@ -539,7 +525,7 @@
   margin: 0;
 }
 
-/* Formulário e Layout dos Campos */
+/* Formulário */
 .secao-oficina-agendamento__form {
   width: 100%;
   display: grid;
@@ -557,13 +543,13 @@
 
 @media (min-width: 1024px) {
   .secao-oficina-agendamento__form {
-    /* 3 campos de largura igual + botão com largura automática */
+    /* 3 campos iguais e o botão */
     grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
     gap: 24px;
   }
 }
 
-/* Grupos de Input */
+/* Cada campo */
 .secao-oficina-agendamento__grupo {
   display: flex;
   flex-direction: column;
@@ -579,7 +565,7 @@
   color: #333333;
 }
 
-/* Wrapper dos Campos de Entrada com Ícone */
+/* Campo com ícone */
 .secao-oficina-agendamento__input-wrapper {
   position: relative;
   width: 100%;
@@ -619,7 +605,7 @@
   color: #777777;
 }
 
-/* Botão Agendar Agora */
+/* Botão agendar */
 .secao-oficina-agendamento__botao {
   height: 48px;
   padding: 0 32px;

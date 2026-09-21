@@ -1,8 +1,6 @@
-/* ========================================
-   DOCS.PAGE — Estilos da Página de Documentação
-   ======================================== */
+/* Estilos da página de documentação */
 
-/* ── Menu / Hero ────────────────────────── */
+/* Topo com o menu de âncoras */
 .docs-menu {
   background-color: #141414;
   padding: 160px 24px 80px;
@@ -72,7 +70,7 @@
   border-color: #444;
 }
 
-/* ── Seções Gerais ─────────────────────── */
+/* Seções */
 .docs-secao {
   background-color: #0e0e0e;
   padding: 80px 24px;
@@ -116,7 +114,7 @@
   line-height: 1.6;
 }
 
-/* ── Cards Wireframe ───────────────────── */
+/* Cards dos wireframes */
 .docs-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -179,7 +177,7 @@
   padding: 4px 10px;
 }
 
-/* ── Briefing Card ─────────────────────── */
+/* Card do briefing */
 .docs-briefing-card {
   display: flex;
   align-items: center;
@@ -243,7 +241,7 @@
   border-color: #555;
 }
 
-/* ── Style Guide ───────────────────────── */
+/* Guia de estilo */
 .docs-style-guide {
   display: flex;
   flex-direction: column;
@@ -286,7 +284,7 @@
   color: #ccc;
 }
 
-/* ── Títulos Exemplo ──────────────────── */
+/* Exemplos de títulos */
 .docs-titulos-exemplo {
   margin-top: 40px;
   display: flex;
@@ -323,7 +321,7 @@
   color: #555;
 }
 
-/* ── Tipografia ────────────────────────── */
+/* Tipografia */
 .docs-tipo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -360,7 +358,7 @@
   margin-bottom: 0;
 }
 
-/* ── Separador Horizontal ─────────────── */
+/* Linha horizontal */
 .docs-separador {
   border: none;
   height: 1px;
@@ -372,7 +370,7 @@
   background: #e2e2e0;
 }
 
-/* ── Cores ─────────────────────────────── */
+/* Cores */
 .docs-cores-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -419,7 +417,7 @@
   padding: 3px 8px;
 }
 
-/* ── Parceiros ─────────────────────────── */
+/* Parceiros */
 .docs-parceiros-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -468,7 +466,7 @@
   color: #fff;
 }
 
-/* ── Contato ───────────────────────────── */
+/* Contato */
 .docs-contato-bloco {
   background: #fff;
   border: 1px solid #e2e2e0;
@@ -485,7 +483,7 @@
   margin: 0;
 }
 
-/* ── Responsivo ────────────────────────── */
+/* Responsivo */
 @media (max-width: 768px) {
   .docs-menu {
     padding: 140px 16px 60px;

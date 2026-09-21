@@ -1,8 +1,6 @@
-/* ========================================
-   ESTILOS ESPECÍFICOS - PÁGINA SOBRE
-   ======================================== */
+/* Estilos da página Sobre */
 
-/* --- HERO SOBRE --- */
+/* Topo */
 .secao-sobre-hero {
   width: 100%;
   background-color: #f5f5f3;
@@ -75,7 +73,7 @@
   flex-shrink: 0;
 }
 
-/* --- NOSSA HISTÓRIA --- */
+/* Nossa história */
 .secao-sobre-historia {
   width: 100%;
   background-color: #ffffff;
@@ -109,7 +107,7 @@
   max-width: 720px;
 }
 
-/* --- NOSSOS VALORES --- */
+/* Nossos valores */
 .secao-sobre-valores {
   width: 100%;
   max-width: 100%;
@@ -217,7 +215,7 @@
   max-width: 280px;
 }
 
-/* --- CONTATO --- */
+/* Contato */
 .secao-sobre-contato {
   width: 100%;
   max-width: 100%;

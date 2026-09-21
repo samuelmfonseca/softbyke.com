@@ -1,7 +1,7 @@
 /* Estilos das telas de venda (e-bikes e acessorios).
    Depende de loja.css, que traz as cores, fontes, botoes e campos. */
 
-/* ---------- Topo da pagina ---------- */
+/* Topo da pagina */
 
 .vitrine-topo {
   display: flex;
@@ -17,7 +17,7 @@
   color: var(--cor-texto-suave);
 }
 
-/* ---------- Filtros de categoria ---------- */
+/* Filtros de categoria */
 
 .filtros {
   list-style: none;
@@ -50,7 +50,7 @@
   color: var(--cor-escura);
 }
 
-/* ---------- Grade de produtos ---------- */
+/* Grade de produtos */
 
 .grade-produtos {
   display: grid;
@@ -186,7 +186,7 @@
   color: var(--cor-texto-suave);
 }
 
-/* ---------- Aviso de item adicionado ---------- */
+/* Aviso de item adicionado */
 
 .barra-adicionado {
   position: fixed;
@@ -226,7 +226,7 @@
   color: var(--cor-branca);
 }
 
-/* ---------- Numero de itens no icone do menu ---------- */
+/* Numero de itens no icone do menu */
 
 .navbar__carrinho {
   position: relative;
@@ -249,7 +249,7 @@
   text-align: center;
 }
 
-/* ---------- Tabela comparativa das e-bikes ---------- */
+/* Tabela comparativa das e-bikes */
 
 .bloco-secao {
   margin-top: 72px;
@@ -298,7 +298,7 @@
 .celula-destaque { background-color: #fff8e3; font-family: var(--fonte-titulo); }
 .celula-nota     { background-color: #fafaf8; color: var(--cor-texto-suave); font-size: 0.76rem; }
 
-/* ---------- Galeria de fotos ---------- */
+/* Galeria de fotos */
 
 .galeria {
   display: grid;
@@ -316,7 +316,7 @@
   display: block;
 }
 
-/* ---------- Marcas parceiras (links externos) ---------- */
+/* Marcas parceiras (links externos) */
 
 .marcas {
   list-style: none;
@@ -350,7 +350,7 @@
   color: var(--cor-texto);
 }
 
-/* ---------- Guia de compra em duas colunas ---------- */
+/* Guia de compra em duas colunas */
 
 .guia {
   display: grid;

@@ -5,7 +5,7 @@
    tipo: 'ebike' ou 'acessorio'. A categoria e usada nos filtros das telas. */
 var PRODUTOS = [
 
-  /* ---------- E-bikes ---------- */
+  /* E-bikes */
   {
     id: 'st3-open',
     nome: 'Softbyke ST3 Open',
@@ -119,7 +119,7 @@ var PRODUTOS = [
     peso: '21 kg'
   },
 
-  /* ---------- Acessorios: seguranca ---------- */
+  /* Acessorios: seguranca */
   {
     id: 'capacete-chamonix',
     nome: 'Capacete Chamonix 3',
@@ -161,7 +161,7 @@ var PRODUTOS = [
     precoAntigo: 0
   },
 
-  /* ---------- Acessorios: conforto e utilitarios ---------- */
+  /* Acessorios: conforto e utilitarios */
   {
     id: 'selim-cup-gel',
     nome: 'Selim Cup Gel',
@@ -203,7 +203,7 @@ var PRODUTOS = [
     precoAntigo: 0
   },
 
-  /* ---------- Acessorios: manutencao e reparos ---------- */
+  /* Acessorios: manutencao e reparos */
   {
     id: 'kit-sos',
     nome: 'Kit SOS Pedal',
@@ -235,7 +235,7 @@ var PRODUTOS = [
     precoAntigo: 1290.00
   },
 
-  /* ---------- Acessorios: componentes ---------- */
+  /* Acessorios: componentes */
   {
     id: 'display',
     nome: 'Display Softbyke Matrix',
@@ -278,7 +278,7 @@ var FRETE = 49.90;
 var FRETE_GRATIS_ACIMA_DE = 5000.00;
 
 
-/* ---------- Dados guardados no navegador ---------- */
+/* Dados guardados no navegador */
 
 /* Le o carrinho. Na primeira visita monta um carrinho de exemplo. */
 function lerCarrinho() {
@@ -319,7 +319,7 @@ function salvarEntrega(cep, prazo) {
 }
 
 
-/* ---------- Produtos e calculos ---------- */
+/* Produtos e calculos */
 
 /* Procura um produto do catalogo pelo id. */
 function buscarProduto(id) {
@@ -406,7 +406,7 @@ function adicionarAoCarrinho(id, quantidade) {
 }
 
 
-/* ---------- Textos ---------- */
+/* Textos */
 
 /* Numero para texto no formato R$ 1.234,56 */
 function formatarPreco(valor) {
@@ -431,7 +431,7 @@ function somenteNumeros(texto) {
 }
 
 
-/* ---------- Atalhos de tela ---------- */
+/* Atalhos de tela */
 
 /* Escreve um texto dentro de um elemento */
 function escrever(id, texto) {

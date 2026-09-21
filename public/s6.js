@@ -1,6 +1,4 @@
-/* ========================================
-   VANMOOF S6 — Hero Card Section Scripts
-   ======================================== */
+/* Efeitos do card principal */
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -9,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!card || !title) return;
 
-  // -------- PARALLAX ON TITLE (desktop only) --------
+  // Título se move com a rolagem, só no desktop
   if (window.matchMedia('(min-width: 768px)').matches) {
     let ticking = false;
 
@@ -18,11 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const cardHeight = card.offsetHeight;
       const viewportCenter = window.innerHeight / 2;
 
-      // Calculate how far the card center is from viewport center
+      // Distância entre o centro do card e o centro da tela
       const cardCenter = rect.top + cardHeight / 2;
       const offset = (cardCenter - viewportCenter) / cardHeight;
 
-      // Subtle vertical shift on the S6 text
+      // Move o título um pouco na vertical
       const translateY = offset * 30;
       title.style.transform = `translateY(${translateY}px)`;
 
@@ -36,11 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, { passive: true });
 
-    // Initial call
+    // Roda uma vez ao carregar
     handleParallax();
   }
 
-  // -------- SUBTLE MOUSE FOLLOW GLOW (desktop) --------
+  // Brilho que segue o mouse, só no desktop
   if (window.matchMedia('(min-width: 1024px)').matches) {
     const bg = card.querySelector('.hero-card__bg');
 
@@ -58,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
       bg.style.removeProperty('--mouse-y');
     });
 
-    // Add interactive glow via CSS
+    // Estilo do brilho
     const style = document.createElement('style');
     style.textContent = `
       .hero-card__bg::before {
@@ -82,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.head.appendChild(style);
   }
 
-  // -------- ENTRANCE ANIMATION --------
+  // Animação de entrada
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -92,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.2 });
 
-  // Add entrance styles
+  // Estilos da animação de entrada
   const entranceStyle = document.createElement('style');
   entranceStyle.textContent = `
     .hero-card {
