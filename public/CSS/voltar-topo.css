@@ -1,0 +1,45 @@
+/* ========================================
+   BOTÃO FLUTUANTE — VOLTAR AO TOPO
+   ======================================== */
+
+.voltar-topo {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #1a1a1a;
+  color: #fff;
+  border: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s, background 0.25s;
+  z-index: 999;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.voltar-topo.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.voltar-topo:hover {
+  background: #333;
+  border-color: #555;
+}
+
+@media (max-width: 768px) {
+  .voltar-topo {
+    bottom: 20px;
+    right: 20px;
+    width: 42px;
+    height: 42px;
+  }
+}

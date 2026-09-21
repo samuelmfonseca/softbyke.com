@@ -152,6 +152,26 @@
   line-height: 1.5;
 }
 
+.docs-card__img-wrapper {
+  width: 100%;
+  height: 220px;
+  border-bottom: 1px solid #2a2a2a;
+  overflow: hidden;
+}
+
+.docs-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.4s;
+}
+
+.docs-card:hover .docs-card__img {
+  transform: scale(1.05);
+}
+
 .docs-card__info {
   padding: 16px 20px;
   display: flex;
@@ -177,6 +197,161 @@
   padding: 4px 10px;
 }
 
+/* Grid de briefing cards */
+.docs-briefing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+/* ── Listas ─────────────────────────────── */
+.docs-listas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+.docs-lista-bloco {
+  background: #fff;
+  border: 1px solid #e2e2e0;
+  border-radius: 12px;
+  padding: 28px 24px;
+}
+
+.docs-secao:not(.docs-secao--claro) .docs-lista-bloco {
+  background: #161616;
+  border-color: #2a2a2a;
+}
+
+.docs-lista-bloco__titulo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #e2e2e0;
+}
+
+.docs-secao:not(.docs-secao--claro) .docs-lista-bloco__titulo {
+  color: #fff;
+  border-bottom-color: #2a2a2a;
+}
+
+.docs-lista-bloco__titulo code {
+  font-size: 0.85rem;
+  background: #f0f0ee;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.docs-secao:not(.docs-secao--claro) .docs-lista-bloco__titulo code {
+  background: #222;
+  color: #ccc;
+}
+
+.docs-lista-exemplo {
+  margin-bottom: 20px;
+}
+
+.docs-lista-exemplo:last-child {
+  margin-bottom: 0;
+}
+
+.docs-lista-tag {
+  display: inline-block;
+  font-family: ui-monospace, monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #555;
+  background: #f5f5f3;
+  border: 1px solid #e2e2e0;
+  border-radius: 6px;
+  padding: 3px 10px;
+  margin-bottom: 10px;
+}
+
+.docs-secao:not(.docs-secao--claro) .docs-lista-tag {
+  background: #1a1a1a;
+  border-color: #333;
+  color: #999;
+}
+
+.docs-lista-tag em {
+  font-style: italic;
+  color: #888;
+}
+
+.docs-lista-exemplo ul,
+.docs-lista-exemplo ol {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #333;
+  margin: 0;
+  padding-left: 24px;
+  line-height: 1.7;
+}
+
+.docs-secao:not(.docs-secao--claro) .docs-lista-exemplo ul,
+.docs-secao:not(.docs-secao--claro) .docs-lista-exemplo ol {
+  color: #ccc;
+}
+
+.docs-lista-exemplo li {
+  padding: 2px 0;
+}
+
+.docs-lista-exemplo dl {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #333;
+  margin: 0;
+}
+
+.docs-secao:not(.docs-secao--claro) .docs-lista-exemplo dl {
+  color: #ccc;
+}
+
+.docs-lista-exemplo dt {
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-top: 10px;
+}
+
+.docs-secao:not(.docs-secao--claro) .docs-lista-exemplo dt {
+  color: #fff;
+}
+
+.docs-lista-exemplo dd {
+  margin: 2px 0 0 20px;
+  color: #555;
+}
+
+.docs-secao:not(.docs-secao--claro) .docs-lista-exemplo dd {
+  color: #999;
+}
+
+.docs-lista-inline {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  padding-left: 0 !important;
+}
+
+.docs-lista-inline li {
+  background: #f5f5f3;
+  border: 1px solid #e2e2e0;
+  border-radius: 6px;
+  padding: 4px 14px;
+  font-size: 0.85rem;
+}
+
+.docs-secao:not(.docs-secao--claro) .docs-lista-inline li {
+  background: #1a1a1a;
+  border-color: #333;
+  color: #ccc;
+}
+
 /* Card do briefing */
 .docs-briefing-card {
   display: flex;
@@ -187,7 +362,6 @@
   border-radius: 12px;
   padding: 32px 36px;
   text-decoration: none;
-  max-width: 600px;
   transition: border-color 0.3s, transform 0.3s;
 }
 
@@ -523,11 +697,18 @@
     grid-template-columns: 1fr;
   }
 
+  .docs-briefing-grid {
+    grid-template-columns: 1fr;
+  }
+
   .docs-briefing-card {
     flex-direction: column;
     text-align: center;
     padding: 28px 24px;
-    max-width: 100%;
+  }
+
+  .docs-listas-grid {
+    grid-template-columns: 1fr;
   }
 }
 
