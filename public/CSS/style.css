@@ -1,6 +1,4 @@
-/* ========================================
-   ESTILOS GERAIS & VARIÁVEIS
-   ======================================== */
+/* Estilos gerais e variáveis */
 
 *, *::before, *::after {
   margin: 0;
@@ -20,7 +18,7 @@
   --cor-branca-translucida: rgba(255, 255, 255, 0.85);
   --cor-etiqueta-translucida: rgba(255, 255, 255, 0.5);
 
-  /* Design Tokens */
+  /* Borda e transição */
   --raio-borda-lg: 8px;
   --transicao-padrao: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -45,9 +43,7 @@ body {
   width: 100%;
 }
 
-/* ========================================
-   ESTRUTURA DE ESTRUTURA E GRADE
-   ======================================== */
+/* Estrutura e grade */
 
 .secao-heroi {
   width: 100%;
@@ -72,9 +68,7 @@ body {
   height: 96svh;
 }
 
-/* ========================================
-   COMPONENTE: CARTÃO DESTAQUE
-   ======================================== */
+/* Card de destaque */
 
 .cartao-destaque {
   position: relative;
@@ -103,13 +97,12 @@ body {
   outline-offset: 4px;
 }
 
-/* --- Imagem de Fundo --- */
+/* Imagem de fundo */
 .cartao-destaque__imagem-fundo {
   position: absolute;
   inset: 0;
   z-index: 0;
-  /* ALTERE O CAMINHO DA SUA IMAGEM AQUI */
-  background-image: url('./images/inicial.jpg');
+  background-image: url('./Images/inicial.jpg');
   background-size: cover;
   background-position: bottom 80%;
   background-repeat: no-repeat;
@@ -126,7 +119,7 @@ body {
     radial-gradient(ellipse at 50% 60%, rgba(20, 18, 14, 0.3) 0%, transparent 80%);
 }
 
-/* --- Degradês --- */
+/* Degradês */
 .cartao-destaque__degrade {
   position: absolute;
   inset: 0;
@@ -151,7 +144,7 @@ body {
   );
 }
 
-/* --- Título Principal --- */
+/* Título */
 .cartao-destaque__titulo {
   position: relative;
   z-index: 2;
@@ -170,7 +163,7 @@ body {
   transition: transform 0.1s ease;
 }
 
-/* --- Conteúdo e Textos --- */
+/* Textos */
 .cartao-destaque__conteudo {
   position: relative;
   z-index: 2;
@@ -202,7 +195,7 @@ body {
   gap: 16px;
 }
 
-/* --- Botão Explorar --- */
+/* Botão explorar */
 .botao-explorar {
   display: inline-flex;
   align-items: center;
@@ -254,7 +247,7 @@ body {
   letter-spacing: 0.02em;
 }
 
-/* --- Elemento de Canto --- */
+/* Texto do canto */
 .cartao-destaque__canto {
   position: absolute;
   bottom: 0;
@@ -287,9 +280,7 @@ body {
   transform: translate(3px, -3px);
 }
 
-/* ========================================
-   SESSÃO SECUNDÁRIA (EXEMPLO)
-   ======================================== */
+/* Seção secundária */
 
 .secao {
   width: 100%;
@@ -356,11 +347,9 @@ body {
   color: var(--cor-preta);
 }
 
-/* ========================================
-   RESPONSIVIDADE (MEDIA QUERIES)
-   ======================================== */
+/* Responsivo */
 
-/* Tablet (≥ 768px) */
+/* Tablet, a partir de 768px */
 @media (min-width: 768px) {
   .espacamento-tablet-x-2 {
     padding-left: 8px;
@@ -412,14 +401,14 @@ body {
   }
 }
 
-/* Desktop (≥ 1280px) */
+/* Desktop, a partir de 1280px */
 @media (min-width: 1280px) {
   .cartao-destaque__titulo {
     font-size: 280px;
   }
 }
 
-/* Acessibilidade (Redução de Movimento) */
+/* Para quem prefere menos animação */
 @media (prefers-reduced-motion: reduce) {
   .cartao-destaque,
   .botao-explorar,
@@ -430,36 +419,34 @@ body {
 }
 
 
-/* ========================================
-   PADRÃO DE GRADE, PADDING E BORDAS
-   ======================================== */
+/* Grade das seções */
 
 .secao-grade {
   width: 100%;
   background-color:lab(3.32% 0 0);
-  scroll-margin-top: 64px; /* scroll-mt-16 */
+  scroll-margin-top: 64px;
 }
 
-/* Container Principal (Grid Responsivo) */
+/* Grade principal */
 .grade-conteudo {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   width: 100%;
-  max-width: 1440px; /* max-w-8xl */
+  max-width: 1440px;
   margin: 0 auto;
   align-items: center;
   
-  /* Paddings e Espaçamentos (Mobile) */
-  padding-left: 24px;  /* px-6 */
-  padding-right: 24px; /* px-6 */
-  row-gap: 32px;       /* gap-y-8 */
+  /* Espaçamentos no celular */
+  padding-left: 24px;
+  padding-right: 24px;
+  row-gap: 32px;
 }
 
-/* --- Bloco de Mídia --- */
+/* Imagem */
 .grade-conteudo__midia {
-  grid-column: 1 / -1; /* Ocupa largura total no mobile */
-  aspect-ratio: 1.34;   /* Proporção da imagem (aspect-[1.34]) */
-  border-radius: var(--raio-borda-lg, 8px); /* rounded-lg */
+  grid-column: 1 / -1; /* Largura toda no celular */
+  aspect-ratio: 1.34;   /* Proporção da imagem */
+  border-radius: var(--raio-borda-lg, 8px);
   overflow: hidden;
 }
 
@@ -469,74 +456,68 @@ body {
   object-fit: cover;
 }
 
-/* --- Bloco de Texto --- */
+/* Texto */
 .grade-conteudo__texto {
-  grid-column: 1 / -1; /* Ocupa largura total no mobile */
+  grid-column: 1 / -1; /* Largura toda no celular */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 8px; /* gap-2 */
+  gap: 8px;
   color: #141414;
 }
 
-/* ========================================
-   RESPONSIVIDADE: TABLET (≥ 768px)
-   ======================================== */
+/* Tablet, a partir de 768px */
 @media (min-width: 768px) {
   .secao-grade {
-    scroll-margin-top: 80px; /* tablet:scroll-mt-20 */
+    scroll-margin-top: 80px;
   }
 
   .grade-conteudo {
-    padding-left: 0;   /* tablet:px-0 */
-    padding-right: 0;  /* tablet:px-0 */
-    row-gap: 64px;     /* tablet:gap-y-16 */
+    padding-left: 0;
+    padding-right: 0;
+    row-gap: 64px;
   }
 
-  /* Centralização das colunas no Tablet */
+  /* Centraliza as colunas no tablet */
   .grade-conteudo__midia {
-    grid-column: 2 / span 10; /* tablet:col-start-2 tablet:col-span-10 */
+    grid-column: 2 / span 10;
   }
 
   .grade-conteudo__texto {
-    grid-column: 2 / span 7;  /* tablet:col-start-2 tablet:col-span-7 */
+    grid-column: 2 / span 7;
   }
 }
 
-/* ========================================
-   RESPONSIVIDADE: DESKTOP (≥ 1280px)
-   ======================================== */
+/* Desktop, a partir de 1280px */
 @media (min-width: 1280px) {
-  /* Inversão Visual: Texto à Esquerda, Mídia à Direita */
+  /* Texto na esquerda e imagem na direita */
   .grade-conteudo__midia {
-    grid-column: 6 / span 6;  /* desktop:col-start-6 desktop:col-span-6 */
+    grid-column: 6 / span 6;
   }
 
   .grade-conteudo__texto {
-    grid-column: 2 / span 4;  /* desktop:col-start-2 desktop:col-span-3/4 */
-    grid-row: 1;              /* desktop:row-start-1 (puxa para a 1ª linha) */
+    grid-column: 2 / span 4;
+    grid-row: 1;              /* Fica na primeira linha */
   }
 }
-/* Posicionamento do conteúdo no grid à esquerda */
+/* Conteúdo alinhado na esquerda */
 .conteudo-grid-esquerda {
-  grid-column: 1 / -1; /* Ocupa tudo no Mobile */
+  grid-column: 1 / -1; /* Largura toda no celular */
 }
 
 @media (min-width: 768px) {
   .conteudo-grid-esquerda {
-    grid-column: 2 / span 5 !important; /* Ocupa as colunas 2 a 6 no Tablet/Desktop */
+    grid-column: 2 / span 5 !important; /* Colunas 2 a 6 no tablet e desktop */
     align-self: center;
     padding-left: 0;
   }
 }
 
-/* ========================================
-   COMPONENTE: VANMOOF APP SHOWCASE
-   ======================================== */
+/* Card do app */
 
 .cartao-app {
   grid-column: 1 / -1;
-  background-color: #f2f2f2; /* bg-grey04 */
+  background-color: #f2f2f2;
   border-radius: var(--raio-borda-lg, 8px);
   padding: 48px 24px;
   color: #141414;
@@ -546,7 +527,7 @@ body {
   gap: 48px;
 }
 
-/* Cabeçalho do App */
+/* Topo do card */
 .cartao-app__cabecalho {
   max-width: 580px;
   margin: 0 auto;
@@ -560,7 +541,7 @@ body {
   color: #555555;
 }
 
-/* Botão Versão Escura */
+/* Botão escuro */
 .botao-acao--escuro {
   border: 1px solid #141414;
   color: #141414;
@@ -572,7 +553,7 @@ body {
   color: var(--cor-branca);
 }
 
-/* Grade Interna de Recursos */
+/* Grade de recursos */
 .cartao-app__recursos {
   display: grid;
   grid-template-columns: 1fr;
@@ -600,10 +581,10 @@ body {
   color: #666666;
 }
 
-/* Responsividade Tablet/Desktop */
+/* Tablet e desktop */
 @media (min-width: 768px) {
   .cartao-app {
-    grid-column: 2 / span 10; /* Ocupa colunas centrais */
+    grid-column: 2 / span 10; /* Fica nas colunas do meio */
     padding: 80px 48px 64px;
   }
 
@@ -614,7 +595,7 @@ body {
   }
 }
 
-/* Suporte para Vídeo em segundo plano */
+/* Vídeo de fundo */
 .cartao-destaque__midia-video {
   position: absolute;
   inset: 0;
@@ -630,15 +611,13 @@ body {
   object-fit: cover;
 }
 
-/* ========================================
-   ESTILOS ESPECÍFICOS - SEÇÃO S6 (FUNDO CLARO)
-   ======================================== */
+/* Seção das 6 camadas de proteção */
 
 .secao-grade--s6 {
-  background-color: #f6f6f6; /* Cor exata de fundo da foto */
+  background-color: #f6f6f6; /* Fundo claro */
 }
 
-/* Linha de Ícones no Topo */
+/* Ícones de cima */
 .grade-conteudo__icones {
   display: flex;
   align-items: center;
@@ -653,7 +632,7 @@ body {
   stroke-width: 1.5px;
 }
 
-/* Textos e Ajustes de Cor */
+/* Textos */
 .titulo-s6 {
   color: #0f0f0f !important;
   font-size: clamp(2rem, 3.8vw, 3.2rem);
@@ -671,7 +650,7 @@ body {
   margin-bottom: 24px;
 }
 
-/* Botão com Caixa de Ícone Quadrada */
+/* Botão com ícone */
 .botao-s6 {
   display: inline-flex;
   align-items: center;
@@ -715,7 +694,7 @@ body {
   letter-spacing: 0.01em;
 }
 
-/* Mídia e Ajuste da Imagem da Bike */
+/* Imagem da bike */
 .midia-s6 {
   aspect-ratio: auto !important;
   background: transparent !important;
@@ -729,17 +708,15 @@ body {
   width: 100%;
   max-width: 750px;
 }
-/* ========================================
-   ESTILOS ESPECÍFICOS - SEÇÃO VANMOOF APP
-   ======================================== */
+/* Seção leva e traz */
 
 .secao-grade--app {
-  background-color: #f2f2f2; /* Fundo cinza claro exato da foto */
+  background-color: #f2f2f2; /* Fundo cinza claro */
   padding-top: 60px;
   padding-bottom: 60px;
 }
 
-/* Ajustes de Grid para Desktop (Mídia à Esquerda, Conteúdo à Direita) */
+/* Desktop: imagem na esquerda e texto na direita */
 @media (min-width: 1024px) {
   .midia-app-vanmoof {
     grid-column: 1 / span 5 !important;
@@ -761,7 +738,7 @@ body {
   }
 }
 
-/* Título e Subtítulo */
+/* Título e subtítulo */
 .titulo-app {
   color: #141414 !important;
   font-size: clamp(2.2rem, 3.8vw, 3.6rem);
@@ -776,16 +753,16 @@ body {
   margin-bottom: 40px;
 }
 
-/* Grade com as 4 colunas de recursos */
+/* As 4 etapas do serviço */
 .app-recursos-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 colunas no mobile/tablet */
+  grid-template-columns: repeat(2, 1fr); /* 2 colunas no celular e tablet */
   gap: 28px 20px;
 }
 
 @media (min-width: 768px) {
   .app-recursos-grid {
-    grid-template-columns: repeat(4, 1fr); /* 4 colunas em linha no desktop */
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas no desktop */
     gap: 16px;
   }
 }
@@ -825,9 +802,7 @@ body {
   object-fit: contain !important;
 }
 
-/* ========================================
-   ESTILOS ESPECÍFICOS - SEÇÃO CARDS (STUFF / NETWORK / SUPPORT)
-   ======================================== */
+/* Cards do final da home */
 
 .secao-grade--cards {
   background-color: #f6f6f6;
@@ -854,7 +829,7 @@ body {
   }
 }
 
-/* Estilo Base dos Cartões */
+/* Card base */
 .card-item {
   position: relative;
   border-radius: 16px;
@@ -864,10 +839,10 @@ body {
   justify-content: space-between;
   min-height: 280px;
   overflow: hidden;
-  background-color: #eaeaea; /* Fundo cinza suave do cartão */
+  background-color: #eaeaea; /* Fundo cinza */
 }
 
-/* Cartão 1: Press / Citação (Sem fundo cinza escuro) */
+/* Card 1: frase de destaque */
 .card-item--press {
   background-color: transparent;
   padding-left: 12px;
@@ -892,7 +867,7 @@ body {
   margin-bottom: 24px;
 }
 
-/* Cartão 2: Test Rides com Galeria Mini */
+/* Card 2: test ride com fotos pequenas */
 .card-item__titulo {
   font-family: var(--fonte-titulo);
   font-size: 1.4rem;
@@ -938,7 +913,7 @@ body {
   z-index: 2;
 }
 
-/* Cartões 3 e 4: Partner Network & Support Center */
+/* Cards 3 e 4: filiais e oficina */
 .card-item__conteudo-inferior {
   display: flex;
   align-items: flex-end;
@@ -968,7 +943,7 @@ body {
   max-width: 200px;
 }
 
-/* Botão Quadrado com Ícone "+" */
+/* Botão com + */
 .card-item__botao-mais {
   display: flex;
   align-items: center;
@@ -989,7 +964,7 @@ body {
   color: #ffffff;
 }
 
-/* Fundo Ilustração / Imagem dos Cartões */
+/* Imagem de fundo dos cards */
 .card-item__bg-ilustracao {
   position: absolute;
   right: -10px;
@@ -1010,16 +985,14 @@ body {
   pointer-events: none;
   z-index: 1;
 }
-/* ========================================
-   ESTILOS ESPECÍFICOS - SEÇÃO TRIO DE CARDS
-   ======================================== */
+/* Seção com 3 cards */
 
 .secao-grade--trio {
   background-color: #f6f6f6;
   padding: 60px 24px;
 }
 
-/* Grade de 3 Colunas no Desktop */
+/* 3 colunas no desktop */
 .grid-trio-cards {
   display: grid;
   grid-template-columns: 1fr;
@@ -1034,7 +1007,7 @@ body {
   }
 }
 
-/* Cartão Base */
+/* Card base */
 .card-trio {
   position: relative;
   border-radius: 16px;
@@ -1047,7 +1020,7 @@ body {
   background-color: #eaeaea;
 }
 
-/* Título de cada Cartão */
+/* Título do card */
 .card-trio__titulo {
   font-family: var(--fonte-titulo);
   font-size: 1.6rem;
@@ -1058,7 +1031,7 @@ body {
   margin: 0;
 }
 
-/* Imagens / Ilustrações de Fundo */
+/* Imagem de fundo */
 .card-trio__bg-imagem {
   position: absolute;
   inset: 0;
@@ -1068,12 +1041,12 @@ body {
   z-index: 1;
 }
 
-/* Overlay suave para o texto sob a foto no Card 1 */
+/* Escurece a foto do card 1 para o texto aparecer */
 .card-trio--foto .card-trio__bg-imagem {
   opacity: 0.88;
 }
 
-/* Ilustração de bike no Card 2 e Card 3 */
+/* Imagem da bike nos cards 2 e 3 */
 .card-trio__bg-ilustracao {
   position: absolute;
   right: -20px;
@@ -1085,7 +1058,7 @@ body {
   z-index: 1;
 }
 
-/* Rodapé dos Cartões (Texto + Botão) */
+/* Parte de baixo do card */
 .card-trio__rodape {
   display: flex;
   align-items: flex-end;
@@ -1116,7 +1089,7 @@ body {
   margin: 0;
 }
 
-/* Botão Quadrado com Ícone (Seta ou Mais) */
+/* Botão com ícone */
 .card-trio__botao {
   display: flex;
   align-items: center;
@@ -1137,13 +1110,11 @@ body {
   color: #ffffff;
 }
 
-/* ========================================
-   ESTILOS ESPECÍFICOS - RODAPÉ (FOOTER)
-   ======================================== */
+/* Rodapé */
 
 .rodape {
   width: 100%;
-  background-color: #f7f7f5; /* Fundo creme/off-white exato da foto */
+  background-color: #f7f7f5; /* Fundo claro */
   color: #141414;
   padding: 80px 24px 40px 24px;
   font-family: var(--fonte-corpo, system-ui, sans-serif);
@@ -1157,7 +1128,7 @@ body {
   gap: 80px;
 }
 
-/* --- PARTE SUPERIOR (Grid Principal) --- */
+/* Parte de cima */
 .rodape__conteudo-superior {
   display: grid;
   grid-template-columns: 1fr;
@@ -1166,12 +1137,12 @@ body {
 
 @media (min-width: 992px) {
   .rodape__conteudo-superior {
-    grid-template-columns: 1fr 1.3fr; /* Esquerda (Newsletter) / Direita (Links) */
+    grid-template-columns: 1fr 1.3fr; /* Newsletter na esquerda e links na direita */
     gap: 80px;
   }
 }
 
-/* Lado Esquerdo: Newsletter */
+/* Newsletter */
 .rodape__newsletter {
   display: flex;
   flex-direction: column;
@@ -1220,7 +1191,7 @@ body {
   color: #ffffff;
 }
 
-/* Lado Direito: 3 Colunas de Links */
+/* Colunas de links */
 .rodape__grid-links {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1268,7 +1239,7 @@ body {
   opacity: 0.6;
 }
 
-/* --- PARTE INFERIOR (Redes, Legais e Seletor) --- */
+/* Parte de baixo */
 .rodape__conteudo-inferior {
   display: flex;
   flex-direction: column;
@@ -1304,7 +1275,7 @@ body {
   opacity: 0.6;
 }
 
-/* Seletor de Idioma / Região ("My Site") */
+/* Seletor de região */
 .rodape__seletor-regiao {
   margin-top: 8px;
 }
@@ -1332,11 +1303,9 @@ body {
 .rodape__botao-regiao:hover {
   opacity: 0.7;
 }
-/* ========================================
-   ESTILOS DO NAVBAR FLUTUANTE (VANMOOF)
-   ======================================== */
+/* Menu do topo */
 
-/* Wrapper Fixo no topo da tela */
+/* Menu fixo no topo */
 .navbar-wrapper {
   position: fixed;
   top: 16px;
@@ -1344,11 +1313,11 @@ body {
   transform: translateX(-50%);
   z-index: 1000;
   width: calc(100% - 24px);
-  max-width: 600px; /* tablet:w-150 */
+  max-width: 600px;
   box-sizing: border-box;
 }
 
-/* Container do Nav com Efeito Glassmorphism & Gradiente */
+/* Caixa do menu com fundo desfocado */
 .navbar-container {
   width: 100%;
   background: linear-gradient(
@@ -1366,7 +1335,7 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* --- HEADER FIXO (Cabeçalho do Menu) --- */
+/* Barra do topo */
 .navbar__header {
   display: flex;
   align-items: center;
@@ -1376,7 +1345,7 @@ body {
   position: relative;
 }
 
-/* Botão Hambúrguer / Fechar */
+/* Botão de abrir e fechar */
 .navbar__toggle {
   background: transparent;
   border: none;
@@ -1402,7 +1371,7 @@ body {
   transform-origin: center;
 }
 
-/* Animação do Hambúrguer transformando em 'X' */
+/* Vira um X quando o menu abre */
 .navbar-container.is-open .navbar__toggle-linha:nth-child(1) {
   transform: translateY(3.5px) rotate(45deg);
 }
@@ -1411,7 +1380,7 @@ body {
   transform: translateY(-3.5px) rotate(-45deg);
 }
 
-/* Logo Centralizado */
+/* Logo no centro */
 .navbar__logo {
   position: absolute;
   left: 50%;
@@ -1427,7 +1396,7 @@ body {
   width: auto;
 }
 
-/* Ícone da Sacola de Compras */
+/* Ícone do carrinho */
 .navbar__carrinho {
   color: #ffffff;
   display: flex;
@@ -1442,7 +1411,7 @@ body {
   opacity: 1;
 }
 
-/* --- CORPO DO MENU (Exibido quando aberto) --- */
+/* Menu aberto */
 .navbar__body {
   max-height: 0;
   opacity: 0;
@@ -1462,7 +1431,7 @@ body {
   padding-bottom: 24px;
 }
 
-/* --- CARDS DE PRODUTOS (Bikes S6 e S6 open) --- */
+/* Cards das bikes ST2 e ST3 open */
 .navbar__grid-bikes {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1504,7 +1473,7 @@ body {
   margin-top: 4px;
 }
 
-/* --- LISTA DE LINKS PRINCIPAIS --- */
+/* Links */
 .navbar__links {
   list-style: none;
   padding: 0;
@@ -1528,7 +1497,7 @@ body {
   opacity: 0.7;
 }
 
-/* --- RODAPÉ DO MENU (Idioma e Conta) --- */
+/* Idioma e conta */
 .navbar__rodape {
   display: flex;
   align-items: center;

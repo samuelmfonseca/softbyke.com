@@ -58,6 +58,7 @@ softbyke.com/
     │   ├── oficina.html         # Oficinas e filiais
     │   ├── agendamento.html     # Agendamento de manutenção
     │   ├── sobre.html           # Sobre a Softbyke
+    │   ├── empresa.html         # Briefing do projeto (menu Empresa)
     │   ├── carrinho.html        # Carrinho de compras
     │   ├── checkout.html        # Finalização de compra
     │   ├── cadastro.html        # Cadastro newsletter
@@ -71,6 +72,7 @@ softbyke.com/
     │   ├── oficina.css          # Estilos da página Oficina
     │   ├── agendamento.css      # Estilos da página Agendamento
     │   ├── sobre.css            # Estilos da página Sobre
+    │   ├── empresa.css          # Estilos da página Empresa
     │   ├── cadastro.css         # Estilos da página Cadastro
     │   ├── carrinho.css         # Estilos do Carrinho
     │   ├── checkout.css         # Estilos do Checkout
@@ -106,6 +108,7 @@ softbyke.com/
 | `/oficinas` | `oficina.html` | Oficinas, filiais e serviço leva e traz |
 | `/agendamento` | `agendamento.html` | Formulário de agendamento de manutenção |
 | `/sobre` | `sobre.html` | História, valores e contato |
+| `/empresa` | `empresa.html` | Briefing do projeto com as 17 perguntas e respostas |
 | `/carrinho` | `carrinho.html` | Carrinho de compras |
 | `/checkout` | `checkout.html` | Finalização de compra |
 | `/cadastro` | `cadastro.html` | Cadastro na newsletter |
@@ -148,6 +151,10 @@ softbyke.com/
 - História da Softbyke
 - Valores e missão
 - Informações de contato
+
+### 🏢 Empresa (`/empresa`)
+- Briefing do projeto com as 17 perguntas e respostas
+- Link para a versão em PDF
 
 ### 🛍️ Carrinho & Checkout (`/carrinho`, `/checkout`)
 - Adicionar/remover itens

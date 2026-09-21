@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-// ── Rotas ──────────────────────────────────────────────
+// Rotas
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
@@ -32,6 +32,10 @@ app.get('/sobre', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'pages', 'sobre.html'));
 });
 
+app.get('/empresa', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'pages', 'empresa.html'));
+});
+
 app.get('/carrinho', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'pages', 'carrinho.html'));
 });
@@ -48,7 +52,7 @@ app.get('/cadastro', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'pages', 'cadastro.html'));
 });
 
-// ── Iniciar servidor ───────────────────────────────────
+// Iniciar servidor
 
 app.listen(PORT, () => {
   console.log(`Server rodando em http://localhost:${PORT}`);

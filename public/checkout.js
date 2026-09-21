@@ -89,7 +89,7 @@ function pagamentoEscolhido() {
 }
 
 
-/* ---------- Conferencia dos campos ---------- */
+/* Conferencia dos campos */
 
 /* Deixa o campo vermelho e escreve a mensagem embaixo dele */
 function erroNoCampo(id, mensagem) {
@@ -169,7 +169,7 @@ function formularioValido() {
 }
 
 
-/* ---------- Envio do pedido ---------- */
+/* Envio do pedido */
 
 /* Troca o formulario pela tela de pedido confirmado */
 function mostrarConfirmacao() {

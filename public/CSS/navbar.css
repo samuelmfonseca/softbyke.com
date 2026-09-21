@@ -1,8 +1,6 @@
-/* ========================================
-   ESTILOS DO NAVBAR FLUTUANTE (VANMOOF)
-   ======================================== */
+/* Menu do topo */
 
-/* Wrapper Fixo no topo da tela */
+/* Menu fixo no topo */
 .navbar-wrapper {
   position: fixed;
   top: 16px;
@@ -10,11 +8,11 @@
   transform: translateX(-50%);
   z-index: 1000;
   width: calc(100% - 24px);
-  max-width: 600px; /* tablet:w-150 */
+  max-width: 600px;
   box-sizing: border-box;
 }
 
-/* Container do Nav com Efeito Glassmorphism & Gradiente */
+/* Caixa do menu com fundo desfocado */
 .navbar-container {
   width: 100%;
   background: linear-gradient(
@@ -32,7 +30,7 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* --- HEADER FIXO (Cabeçalho do Menu) --- */
+/* Barra do topo */
 .navbar__header {
   display: flex;
   align-items: center;
@@ -42,7 +40,7 @@
   position: relative;
 }
 
-/* Botão Hambúrguer / Fechar */
+/* Botão de abrir e fechar */
 .navbar__toggle {
   background: transparent;
   border: none;
@@ -68,7 +66,7 @@
   transform-origin: center;
 }
 
-/* Animação do Hambúrguer transformando em 'X' */
+/* Vira um X quando o menu abre */
 .navbar-container.is-open .navbar__toggle-linha:nth-child(1) {
   transform: translateY(3.5px) rotate(45deg);
 }
@@ -77,7 +75,7 @@
   transform: translateY(-3.5px) rotate(-45deg);
 }
 
-/* Logo Centralizado */
+/* Logo no centro */
 .navbar__logo {
   position: absolute;
   left: 50%;
@@ -93,7 +91,7 @@
   width: auto;
 }
 
-/* Ícone da Sacola de Compras */
+/* Ícone do carrinho */
 .navbar__carrinho {
   color: #ffffff;
   display: flex;
@@ -108,7 +106,7 @@
   opacity: 1;
 }
 
-/* --- CORPO DO MENU (Exibido quando aberto) --- */
+/* Menu aberto */
 .navbar__body {
   max-height: 0;
   opacity: 0;
@@ -128,7 +126,7 @@
   padding-bottom: 24px;
 }
 
-/* --- CARDS DE PRODUTOS (Bikes S6 e S6 open) --- */
+/* Cards das bikes ST2 e ST3 open */
 .navbar__grid-bikes {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -170,7 +168,7 @@
   margin-top: 4px;
 }
 
-/* --- LISTA DE LINKS PRINCIPAIS --- */
+/* Links */
 .navbar__links {
   list-style: none;
   padding: 0;
@@ -194,7 +192,7 @@
   opacity: 0.7;
 }
 
-/* --- RODAPÉ DO MENU (Idioma e Conta) --- */
+/* Idioma e conta */
 .navbar__rodape {
   display: flex;
   align-items: center;

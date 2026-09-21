@@ -1,10 +1,8 @@
-/* ========================================
-   ESTILOS ESPECÍFICOS - RODAPÉ (FOOTER)
-   ======================================== */
+/* Rodapé */
 
 .rodape {
   width: 100%;
-  background-color: #f7f7f5; /* Fundo creme/off-white exato da foto */
+  background-color: #f7f7f5; /* Fundo claro */
   color: #141414;
   padding: 80px 24px 40px 24px;
   font-family: var(--fonte-corpo, system-ui, sans-serif);
@@ -18,7 +16,7 @@
   gap: 80px;
 }
 
-/* --- PARTE SUPERIOR (Grid Principal) --- */
+/* Parte de cima */
 .rodape__conteudo-superior {
   display: grid;
   grid-template-columns: 1fr;
@@ -27,12 +25,12 @@
 
 @media (min-width: 992px) {
   .rodape__conteudo-superior {
-    grid-template-columns: 1fr 1.3fr; /* Esquerda (Newsletter) / Direita (Links) */
+    grid-template-columns: 1fr 1.3fr; /* Newsletter na esquerda e links na direita */
     gap: 80px;
   }
 }
 
-/* Lado Esquerdo: Newsletter */
+/* Newsletter */
 .rodape__newsletter {
   display: flex;
   flex-direction: column;
@@ -81,7 +79,7 @@
   color: #ffffff;
 }
 
-/* Lado Direito: 3 Colunas de Links */
+/* Colunas de links */
 .rodape__grid-links {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -129,7 +127,7 @@
   opacity: 0.6;
 }
 
-/* --- PARTE INFERIOR (Redes, Legais e Seletor) --- */
+/* Parte de baixo */
 .rodape__conteudo-inferior {
   display: flex;
   flex-direction: column;
@@ -165,7 +163,7 @@
   opacity: 0.6;
 }
 
-/* Seletor de Idioma / Região ("My Site") */
+/* Seletor de região */
 .rodape__seletor-regiao {
   margin-top: 8px;
 }
@@ -194,7 +192,7 @@
   opacity: 0.7;
 }
 
-/* --- INFORMAÇÕES ACADÊMICAS (Home) --- */
+/* Dados da turma, só aparece na home */
 .rodape__academico {
   padding-top: 32px;
   border-top: 1px solid #e2e2e0;
