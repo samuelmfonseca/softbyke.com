@@ -1,4 +1,4 @@
-/* Botão Flutuante — Voltar ao Topo */
+/* Botao flutuante de voltar ao topo */
 (function () {
   document.addEventListener('DOMContentLoaded', function () {
     var btn = document.getElementById('voltarTopo');

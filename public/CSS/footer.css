@@ -1,4 +1,4 @@
-/* Rodapé */
+/* Rodape */
 
 .rodape {
   width: 100%;
@@ -6,6 +6,7 @@
   color: #141414;
   padding: 80px 24px 40px 24px;
   font-family: var(--fonte-corpo, system-ui, sans-serif);
+  box-sizing: border-box; /* O padding fica dentro da largura e o rodape nao passa da tela */
 }
 
 .rodape__container {
@@ -163,7 +164,7 @@
   opacity: 0.6;
 }
 
-/* Seletor de região */
+/* Seletor de regiao */
 .rodape__seletor-regiao {
   margin-top: 8px;
 }
@@ -192,7 +193,7 @@
   opacity: 0.7;
 }
 
-/* Dados da turma, só aparece na home */
+/* Dados da turma, aparece na home e na pagina Empresa */
 .rodape__academico {
   padding-top: 32px;
   border-top: 1px solid #e2e2e0;

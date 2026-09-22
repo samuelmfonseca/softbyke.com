@@ -40,7 +40,7 @@
   position: relative;
 }
 
-/* Botão de abrir e fechar */
+/* Botao de abrir e fechar */
 .navbar__toggle {
   background: transparent;
   border: none;
@@ -91,7 +91,7 @@
   width: auto;
 }
 
-/* Ícone do carrinho */
+/* Icone do carrinho */
 .navbar__carrinho {
   color: #ffffff;
   display: flex;
