@@ -1,6 +1,6 @@
-/* Estilos da página de documentação */
+/* Estilos da pagina de documentacao */
 
-/* Topo com o menu de âncoras */
+/* Topo com o menu de ancoras */
 .docs-menu {
   background-color: #141414;
   padding: 160px 24px 80px;
@@ -70,7 +70,7 @@
   border-color: #444;
 }
 
-/* Seções */
+/* Secoes */
 .docs-secao {
   background-color: #0e0e0e;
   padding: 80px 24px;
@@ -204,7 +204,7 @@
   gap: 20px;
 }
 
-/* ── Listas ─────────────────────────────── */
+/* Listas */
 .docs-listas-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -458,7 +458,7 @@
   color: #ccc;
 }
 
-/* Exemplos de títulos */
+/* Exemplos de titulos */
 .docs-titulos-exemplo {
   margin-top: 40px;
   display: flex;

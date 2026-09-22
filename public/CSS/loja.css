@@ -28,7 +28,7 @@
   --cor-erro: #c62828;
   --cor-sucesso: #2e7d32;
 
-  /* Borda e transição */
+  /* Borda e transicao */
   --raio-borda-lg: 8px;
   --transicao-padrao: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }

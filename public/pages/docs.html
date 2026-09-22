@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Softbyke - Documentação</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/CSS/docs.css">
   <link rel="stylesheet" href="/CSS/navbar.css">
   <link rel="stylesheet" href="/CSS/footer.css">
@@ -88,7 +89,7 @@
   </div>
 </nav>
 
-<!-- Menu com as âncoras -->
+<!-- Menu com as ancoras -->
 <section class="docs-menu">
   <div class="docs-menu__container">
 
@@ -149,7 +150,7 @@
         </div>
       </article>
 
-      <!-- Card Acessórios -->
+      <!-- Card Acessorios -->
       <article class="docs-card" id="acessorios">
         <div class="docs-card__img-wrapper">
           <img src="/CSS/Docs/wireframes/acessorios.jpg" alt="Wireframe Acessórios" class="docs-card__img" loading="lazy">
@@ -280,7 +281,7 @@
         <span class="docs-style-guide__exemple">Texto com mais destaque (<strong>exemplo</strong>).</span>
       </div>
 
-      <!-- Itálico -->
+      <!-- Italico -->
       <div class="docs-style-guide__item">
         <span class="docs-style-guide__label">Itálico:</span>
         <span class="docs-style-guide__exemple">Texto inclinado (<em>exemplo</em>).</span>
@@ -304,13 +305,13 @@
         <span class="docs-style-guide__exemple">Texto pequeno e abaixo da linha (exemplo<sub>b</sub>).</span>
       </div>
 
-      <!-- Taxado -->
+      <!-- Tachado -->
       <div class="docs-style-guide__item">
-        <span class="docs-style-guide__label">Taxado:</span>
+        <span class="docs-style-guide__label">Tachado:</span>
         <span class="docs-style-guide__exemple">Texto com uma linha cruzando-o (<del>exemplo</del>).</span>
       </div>
 
-      <!-- Título -->
+      <!-- Titulo -->
       <div class="docs-style-guide__item">
         <span class="docs-style-guide__label">Título:</span>
         <span class="docs-style-guide__exemple">Texto maior para destacar cabeçalhos.</span>
@@ -318,7 +319,7 @@
 
     </div>
 
-    <!-- Exemplos de títulos -->
+    <!-- Exemplos de titulos -->
     <div class="docs-titulos-exemplo">
       <h1 class="docs-titulos-exemplo__item">Título H1 — clamp(2.8rem, 5.5vw, 4.8rem)</h1>
       <h2 class="docs-titulos-exemplo__item">Título H2 — clamp(2rem, 3.5vw, 2.8rem)</h2>
@@ -329,9 +330,7 @@
   </div>
 </section>
 
-<!-- ========================================
-     SEÇÃO LISTAS
-     ======================================== -->
+<!-- Listas -->
 <section class="docs-secao docs-secao--claro" id="listas">
   <div class="docs-secao__container">
 
@@ -340,7 +339,7 @@
 
     <div class="docs-listas-grid">
 
-      <!-- ── Listas Não Ordenadas (UL) ── -->
+      <!-- Listas nao ordenadas -->
       <div class="docs-lista-bloco">
         <h3 class="docs-lista-bloco__titulo">Não Ordenadas — <code>&lt;ul&gt;</code></h3>
 
@@ -381,7 +380,7 @@
         </div>
       </div>
 
-      <!-- ── Listas Ordenadas (OL) ── -->
+      <!-- Listas ordenadas -->
       <div class="docs-lista-bloco">
         <h3 class="docs-lista-bloco__titulo">Ordenadas — <code>&lt;ol&gt;</code></h3>
 
@@ -449,7 +448,7 @@
         </div>
       </div>
 
-      <!-- ── Lista de Definição (DL) ── -->
+      <!-- Lista de definicao -->
       <div class="docs-lista-bloco">
         <h3 class="docs-lista-bloco__titulo">Definição — <code>&lt;dl&gt;</code></h3>
 
@@ -471,7 +470,7 @@
         </div>
       </div>
 
-      <!-- ── Listas Aninhadas ── -->
+      <!-- Listas aninhadas -->
       <div class="docs-lista-bloco">
         <h3 class="docs-lista-bloco__titulo">Aninhadas — Misto</h3>
 
@@ -519,7 +518,7 @@
 
     <div class="docs-tipo-grid">
 
-      <!-- Famílias de fonte -->
+      <!-- Familias de fonte -->
       <div class="docs-tipo-bloco">
         <h3 class="docs-tipo-bloco__titulo">Famílias de Fontes</h3>
         <p class="docs-tipo-amostra" style="font-family: 'Space Grotesk', sans-serif;">
@@ -806,7 +805,19 @@
   </div>
 </footer>
 
-<!-- Botão Flutuante Voltar ao Topo -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const navContainer = document.getElementById('navbar');
+    const navToggle = document.getElementById('navToggle');
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = navContainer.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+  });
+</script>
+
+<!-- Botao flutuante de voltar ao topo -->
 <button class="voltar-topo" id="voltarTopo" aria-label="Voltar ao topo">
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <polyline points="18 15 12 9 6 15"></polyline>

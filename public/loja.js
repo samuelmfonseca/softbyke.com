@@ -283,7 +283,15 @@ var FRETE_GRATIS_ACIMA_DE = 5000.00;
 /* Le o carrinho. Na primeira visita monta um carrinho de exemplo. */
 function lerCarrinho() {
   var texto = localStorage.getItem('softbyke_carrinho');
-  if (texto) return JSON.parse(texto);
+
+  // Se o texto salvo estiver estragado, segue para o carrinho de exemplo
+  if (texto) {
+    try {
+      return JSON.parse(texto);
+    } catch (erro) {
+      console.log('Carrinho salvo com erro, usando o carrinho de exemplo.');
+    }
+  }
 
   var exemplo = [
     { id: 'st3-open', quantidade: 1 },

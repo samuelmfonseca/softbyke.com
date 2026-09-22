@@ -1,4 +1,4 @@
-/* Estilos da página Agendamento */
+/* Estilos da pagina Agendamento */
 
 /* Topo */
 .secao-agendamento-hero {
@@ -169,7 +169,7 @@
   max-width: 280px;
 }
 
-/* Tipos de serviço */
+/* Tipos de servico */
 .secao-agendamento-servicos {
   width: 100%;
   max-width: 100%;
@@ -281,7 +281,7 @@
   max-width: 320px;
 }
 
-/* Formulário */
+/* Formulario */
 .secao-agendamento-form {
   width: 100%;
   max-width: 100%;
@@ -437,6 +437,21 @@
 
 .secao-agendamento-form__botao:hover {
   background-color: #e8e3dc;
+}
+
+/* Mensagem de sucesso depois de agendar */
+.secao-agendamento-form__sucesso {
+  width: 100%;
+  margin: 0;
+  padding: 24px;
+  background-color: #f3efe9;
+  border-radius: 8px;
+  font-family: var(--fonte-corpo, 'DM Sans', system-ui, sans-serif);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #1a1a1a;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 /* Perguntas frequentes */

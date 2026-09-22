@@ -127,13 +127,34 @@ function conferirNumeros(id, quantidade, mensagem) {
   return false;
 }
 
-/* Confere se o e-mail tem @ e um ponto depois do @ */
+/* Confere se o e-mail tem um unico @, um ponto depois do @ e nenhum espaco */
 function conferirEmail(id, mensagem) {
   var texto = valorDoCampo(id);
   var arroba = texto.indexOf('@');
   var ponto = texto.lastIndexOf('.');
+  var umArroba = arroba === texto.lastIndexOf('@');
+  var semEspaco = texto.indexOf(' ') === -1;
 
-  if (arroba > 0 && ponto > arroba + 1 && ponto < texto.length - 1) return true;
+  if (umArroba && semEspaco && arroba > 0 && ponto > arroba + 1 && ponto < texto.length - 1) return true;
+
+  erroNoCampo(id, mensagem);
+  return false;
+}
+
+/* Confere se a validade do cartao tem mes de 01 a 12 e ainda nao passou */
+function conferirValidade(id, mensagem) {
+  var numeros = somenteNumeros(valorDoCampo(id));
+  var mes = Number(numeros.substring(0, 2));
+  var ano = 2000 + Number(numeros.substring(2, 4));
+
+  var hoje = new Date();
+  var anoAtual = hoje.getFullYear();
+  var mesAtual = hoje.getMonth() + 1;
+
+  var formatoCerto = numeros.length === 4 && mes >= 1 && mes <= 12;
+  var noPrazo = ano > anoAtual || (ano === anoAtual && mes >= mesAtual);
+
+  if (formatoCerto && noPrazo) return true;
 
   erroNoCampo(id, mensagem);
   return false;
@@ -161,7 +182,7 @@ function formularioValido() {
   if (pagamentoEscolhido() === 'Cartão de crédito') {
     if (!conferirNumeros('cartaoNumero', 16, 'O cartão precisa ter 16 números.')) ok = false;
     if (!conferirTexto('cartaoNome', 3, 'Informe o nome do cartão.')) ok = false;
-    if (!conferirNumeros('cartaoValidade', 4, 'Use o formato MM/AA.')) ok = false;
+    if (!conferirValidade('cartaoValidade', 'Use o formato MM/AA com um cartão dentro da validade.')) ok = false;
     if (!conferirNumeros('cartaoCvv', 3, 'Informe o código de segurança.')) ok = false;
   }
 
